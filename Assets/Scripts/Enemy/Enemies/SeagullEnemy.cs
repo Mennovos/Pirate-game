@@ -155,4 +155,11 @@ public class SeagullEnemy : MonoBehaviour, IEnemy
     {
         return false;
     }
+
+    public void attack(Vector2 impulse)
+    {
+        state = SeagullState.KNOCKBACK;
+        
+        rb.linearVelocity = impulse / rb.mass;
+    }
 }
