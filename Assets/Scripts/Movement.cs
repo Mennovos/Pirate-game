@@ -16,8 +16,8 @@ public class Movement : MonoBehaviour
 
     private Rigidbody Rb;
     private Animator Anim;
-    public bool Grappling;
-    private bool Restraint;
+
+    private bool Grappling;
     private bool Grounded;
 
     private void Awake()
@@ -48,6 +48,11 @@ public class Movement : MonoBehaviour
         if(Grounded)
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        //here you can make the attack animation and logic
+
+    }
 
     private void Update()
     {
@@ -60,9 +65,12 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
         Grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, GroundLayer);
     }
+
+
+
+    // future grapple code neglect for now 
 
     //IEnumerator GrappleCooldown()
     //{
@@ -72,13 +80,7 @@ public class Movement : MonoBehaviour
     //    yield return new WaitForSeconds(0.01f);
     //    Grappling = false;
     //}
-    //IEnumerator AttackCooldown(string Attackname, float Cooldowntime)
-    //{
-    //    Anim.SetTrigger(Attackname);
-    //    Restraint = true;
-    //    yield return new WaitForSeconds(Cooldowntime);
-    //    Restraint = false;
-    //}
+
     //public void Grapple(InputAction.CallbackContext context)
     //{
     //    if (context.performed)
