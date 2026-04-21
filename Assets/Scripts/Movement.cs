@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
         Controls.Player.Enable();
         Controls.Player.Move.performed += OnMove;
         Controls.Player.Move.canceled += OnMove;
+        Controls.Player.Jump.performed += OnJump;
         // Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
@@ -35,6 +36,11 @@ public class Movement : MonoBehaviour
         movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
        // Anim.SetBool("Walking", Walking);
+    }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+      Rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+      Anim.SetTrigger("Jump");
     }
 
     void Update()
