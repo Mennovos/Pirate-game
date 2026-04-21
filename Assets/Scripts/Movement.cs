@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float Speed;
     private Vector3 movement;
 
-   // private Controls Controls;
+   private Controls Controls;
 
     private Rigidbody Rb;
     private Animator Anim;
@@ -24,8 +24,8 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         Anim = GetComponent<Animator>();
-        //Controls = new Controls();
-        //Controls.Player.Enable();
+        Controls = new Controls();
+        Controls.Player.Enable();
 
         //Controls.Player.Move.performed += OnMove;
         //Controls.Player.Move.canceled += OnMove;
@@ -41,13 +41,13 @@ public class Movement : MonoBehaviour
         bool Walking = input.sqrMagnitude > 0.01f;
         Anim.SetBool("Walking", Walking);
     }
-    public void Grapple(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            StartCoroutine(GrappleCooldown());
-        }
-    }
+    //public void Grapple(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        StartCoroutine(GrappleCooldown());
+    //    }
+    //}
 
     void Update()
     {
@@ -60,19 +60,19 @@ public class Movement : MonoBehaviour
         }
     }
 
-    IEnumerator GrappleCooldown()
-    {
-        Anim.SetTrigger("Grapple");
-        yield return new WaitForSeconds(1f);
-        Grappling = true;
-        yield return new WaitForSeconds(0.01f);
-        Grappling = false;
-    }
-    IEnumerator AttackCooldown(string Attackname, float Cooldowntime)
-    {
-        Anim.SetTrigger(Attackname);
-        Restraint = true;
-        yield return new WaitForSeconds(Cooldowntime);
-        Restraint = false;
-    }
+    //IEnumerator GrappleCooldown()
+    //{
+    //    Anim.SetTrigger("Grapple");
+    //    yield return new WaitForSeconds(1f);
+    //    Grappling = true;
+    //    yield return new WaitForSeconds(0.01f);
+    //    Grappling = false;
+    //}
+    //IEnumerator AttackCooldown(string Attackname, float Cooldowntime)
+    //{
+    //    Anim.SetTrigger(Attackname);
+    //    Restraint = true;
+    //    yield return new WaitForSeconds(Cooldowntime);
+    //    Restraint = false;
+    //}
 }
