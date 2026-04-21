@@ -2,26 +2,31 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTransform;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
 
     private Vector2 moveInput;
     private Vector3 movement;
 
-   private Controls Controls;
+    private Controls Controls;
+    private LayerMask GroundLayer;
 
     private Rigidbody Rb;
     private Animator Anim;
     public bool Grappling;
     private bool Restraint;
+    private bool Grounded;
 
     private void Awake()
-    {
+    {  
+        GroundLayer = LayerMask.GetMask("Ground");
         Anim = GetComponent<Animator>();
+
         Controls = new Controls();
+
         Controls.Player.Enable();
         Controls.Player.Move.performed += OnMove;
         Controls.Player.Move.canceled += OnMove;
@@ -39,24 +44,24 @@ public class Movement : MonoBehaviour
        // Anim.SetBool("Walking", Walking);
     }
     public void OnJump(InputAction.CallbackContext context)
-    {
-      Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-      Anim.SetTrigger("Jump");
+    { 
+        if(Grounded)
+            Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
-    void Update()
+    private void Update()
     {
-        Rb.AddForce(movement * speed * Time.deltaTime);
-        if (cameraTransform != null)
-        {
-            Vector3 PlayerRotation = transform.eulerAngles;
-            PlayerRotation.y = cameraTransform.eulerAngles.y;
-            transform.eulerAngles = PlayerRotation;
-        }
+        transform.Translate(movement * speed * Time.deltaTime);
+
         if (Restraint)
         {
             Controls.Player.Disable();
         }
+    }
+    private void FixedUpdate()
+    {
+
+        Grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, GroundLayer);
     }
 
     //IEnumerator GrappleCooldown()

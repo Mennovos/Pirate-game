@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 1623832890}
   - component: {fileID: 1623832889}
   - component: {fileID: 1623832888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.55, z: 0.67}
-  m_LocalScale: {x: 28.124804, y: 1, z: 16.369}
+  m_LocalScale: {x: 28.124804, y: 1.9142, z: 16.369}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -484,8 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef35d37159140145b3e51d677237f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  cameraTransform: {fileID: 1980555029}
   speed: 10
+  jumpForce: 8
   Grappling: 0
 --- !u!95 &1817252082
 Animator:
