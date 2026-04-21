@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 1817252076}
   - component: {fileID: 1817252080}
   - component: {fileID: 1817252081}
+  - component: {fileID: 1817252082}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -469,7 +470,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1817252081
 MonoBehaviour:
@@ -483,11 +484,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef35d37159140145b3e51d677237f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  cameraTransform: {fileID: 0}
-  speed: 5
-  Map: {fileID: 0}
-  Speed: 0
+  cameraTransform: {fileID: 1980555029}
+  speed: 10
   Grappling: 0
+--- !u!95 &1817252082
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817252075}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1980555026
 GameObject:
   m_ObjectHideFlags: 0

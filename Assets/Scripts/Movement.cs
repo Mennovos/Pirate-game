@@ -6,12 +6,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private GameObject Map;
 
     private Vector2 moveInput;
-
-
-    [SerializeField] private float Speed;
     private Vector3 movement;
 
    private Controls Controls;
@@ -26,9 +22,8 @@ public class Movement : MonoBehaviour
         Anim = GetComponent<Animator>();
         Controls = new Controls();
         Controls.Player.Enable();
-
-        //Controls.Player.Move.performed += OnMove;
-        //Controls.Player.Move.canceled += OnMove;
+        Controls.Player.Move.performed += OnMove;
+        Controls.Player.Move.canceled += OnMove;
         // Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
@@ -39,19 +34,12 @@ public class Movement : MonoBehaviour
         movement.x = context.ReadValue<Vector2>().x;
         movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
-        Anim.SetBool("Walking", Walking);
+       // Anim.SetBool("Walking", Walking);
     }
-    //public void Grapple(InputAction.CallbackContext context)
-    //{
-    //    if (context.performed)
-    //    {
-    //        StartCoroutine(GrappleCooldown());
-    //    }
-    //}
 
     void Update()
     {
-        transform.Translate(movement * Speed * Time.deltaTime);
+        transform.Translate(movement * speed * Time.deltaTime);
         if (cameraTransform != null)
         {
             Vector3 PlayerRotation = transform.eulerAngles;
@@ -74,5 +62,12 @@ public class Movement : MonoBehaviour
     //    Restraint = true;
     //    yield return new WaitForSeconds(Cooldowntime);
     //    Restraint = false;
+    //}
+    //public void Grapple(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        StartCoroutine(GrappleCooldown());
+    //    }
     //}
 }
