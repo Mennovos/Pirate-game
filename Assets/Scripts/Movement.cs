@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpForce = 5f;
 
     private Vector2 moveInput;
     private Vector3 movement;
@@ -39,7 +40,7 @@ public class Movement : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-      Rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+      Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
       Anim.SetTrigger("Jump");
     }
 
