@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
         movement.x = context.ReadValue<Vector2>().x;
-        movement.z = context.ReadValue<Vector2>().y;
+       // movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
        // Anim.SetBool("Walking", Walking);
     }
@@ -46,12 +46,16 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(movement * speed * Time.deltaTime);
+        Rb.AddForce(movement * speed * Time.deltaTime);
         if (cameraTransform != null)
         {
             Vector3 PlayerRotation = transform.eulerAngles;
             PlayerRotation.y = cameraTransform.eulerAngles.y;
             transform.eulerAngles = PlayerRotation;
+        }
+        if (Restraint)
+        {
+            Controls.Player.Disable();
         }
     }
 
