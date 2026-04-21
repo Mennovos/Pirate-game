@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     protected void Awake()
     {
-        target ??= GameObject.FindGameObjectWithTag("Player").transform;
+        if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         
         rb = GetComponent<Rigidbody>();
     }
