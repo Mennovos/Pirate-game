@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
-public class SeagullEnemy : MonoBehaviour, IEnemy
+public class SeagullEnemy : Enemy
 {
     private enum SeagullState
     {
@@ -13,8 +11,6 @@ public class SeagullEnemy : MonoBehaviour, IEnemy
         DIVE,
         KNOCKBACK
     }
-    
-    [SerializeField] private Transform target;
 
     [Space]
     [SerializeField, Min(0)] private float horizontalIdleVelocity;
@@ -40,7 +36,6 @@ public class SeagullEnemy : MonoBehaviour, IEnemy
     [SerializeField, Min(0)] private float maxAttackCheckInterval;
     [SerializeField, Range(0, 1)] private float attackChance;
     
-    private Rigidbody rb;
     private SeagullState state;
     
     private bool goingRight;
@@ -48,9 +43,7 @@ public class SeagullEnemy : MonoBehaviour, IEnemy
 
     private void Awake()
     {
-        target ??= GameObject.FindGameObjectWithTag("Player").transform;
-        
-        rb = GetComponent<Rigidbody>();
+        base.Awake();
         
         state = SeagullState.IDLE;
         goingRight = Random.value < 0.5f;
@@ -153,12 +146,7 @@ public class SeagullEnemy : MonoBehaviour, IEnemy
     }
 
 
-    public bool isDead()
-    {
-        return false;
-    }
-
-    public void attack(Vector2 impulse)
+    public override void attack(Vector2 impulse)
     {
         state = SeagullState.KNOCKBACK;
         
