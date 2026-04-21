@@ -103,6 +103,8 @@ public class SeagullEnemy : Enemy
                 break;
             }
         }
+        
+        transform.rotation = Quaternion.LookRotation(rb.linearVelocity, Vector3.up);
     }
 
 
