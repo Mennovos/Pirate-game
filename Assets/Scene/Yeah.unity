@@ -340,8 +340,8 @@ GameObject:
   - component: {fileID: 1817252078}
   - component: {fileID: 1817252077}
   - component: {fileID: 1817252076}
-  - component: {fileID: 1817252081}
   - component: {fileID: 1817252080}
+  - component: {fileID: 1817252081}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -483,6 +483,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef35d37159140145b3e51d677237f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  cameraTransform: {fileID: 0}
+  speed: 5
+  Map: {fileID: 0}
+  Speed: 0
+  Grappling: 0
 --- !u!1 &1980555026
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal.Internal;
 
 public class Movement : MonoBehaviour
 {
@@ -14,9 +12,9 @@ public class Movement : MonoBehaviour
 
 
     [SerializeField] private float Speed;
-    private Vector3 Movement;
+    private Vector3 movement;
 
-    private Controls Controls;
+   // private Controls Controls;
 
     private Rigidbody Rb;
     private Animator Anim;
@@ -26,20 +24,20 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         Anim = GetComponent<Animator>();
-        Controls = new Controls();
-        Controls.Player.Enable();
+        //Controls = new Controls();
+        //Controls.Player.Enable();
 
-        Controls.Player.Move.performed += OnMove;
-        Controls.Player.Move.canceled += OnMove;
-        Controls.Player.Grapple.performed += Grapple;
+        //Controls.Player.Move.performed += OnMove;
+        //Controls.Player.Move.canceled += OnMove;
+        // Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
-        Movement.x = context.ReadValue<Vector2>().x;
-        Movement.z = context.ReadValue<Vector2>().y;
+        movement.x = context.ReadValue<Vector2>().x;
+        movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
         Anim.SetBool("Walking", Walking);
     }
@@ -53,7 +51,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Movement * Speed * Time.deltaTime);
+        transform.Translate(movement * Speed * Time.deltaTime);
         if (cameraTransform != null)
         {
             Vector3 PlayerRotation = transform.eulerAngles;

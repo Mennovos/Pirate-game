@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "9960d48b-3c2a-4b96-a0cc-59051ce96d63",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Value",
+                    "id": "cf2a848a-d38b-4189-953b-b86ad13fb67e",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "86e7f06f-ad0a-4533-aa2e-46d15dc4834c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
