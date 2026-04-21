@@ -56,11 +56,6 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         transform.Translate(movement * speed * Time.deltaTime);
-
-        if (Restraint)
-        {
-            Controls.Player.Disable();
-        }
     }
     private void FixedUpdate()
     {
