@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] protected Transform target;
+    [SerializeField] private float attackDamage;
     
     protected Rigidbody rb;
 
@@ -24,5 +25,10 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     public virtual void attack(Vector2 impulse)
     {
         rb.linearVelocity = impulse / rb.mass;
+    }
+
+    public virtual float getAttackDamage()
+    {
+        return attackDamage;
     }
 }
