@@ -48,6 +48,8 @@ public class SeagullEnemy : MonoBehaviour, IEnemy
 
     private void Awake()
     {
+        target ??= GameObject.FindGameObjectWithTag("Player").transform;
+        
         rb = GetComponent<Rigidbody>();
         
         state = SeagullState.IDLE;
