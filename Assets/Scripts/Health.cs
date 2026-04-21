@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private Image healthBar;
 
+    [Header("Deathscreen")]
+    [SerializeField] private GameObject deathScreen;
+
     void Update()
     {
         healthBar.fillAmount = currentHealth / maxHealth;
@@ -29,6 +32,7 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
+        deathScreen.SetActive(true);
         Destroy(gameObject);
         Debug.Log("Entity has died.");
     }
