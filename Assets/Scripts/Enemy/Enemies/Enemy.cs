@@ -7,6 +7,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private float attackDamage;
     
     protected Rigidbody rb;
+    
+    protected bool isAlive = true;
 
 
     protected void Awake()
@@ -19,7 +21,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual bool isDead()
     {
-        return false;
+        return !isAlive;
     }
 
     public virtual void attack(Vector2 impulse)
@@ -34,6 +36,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void kill()
     {
+        isAlive = false;
         Destroy(gameObject);
     }
 }

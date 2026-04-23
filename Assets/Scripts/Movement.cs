@@ -55,11 +55,17 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(movement * speed * Time.deltaTime);
+        transform.position += movement * (speed * Time.deltaTime);
+
+        if (movement.magnitude > 0.1f)
+        {
+            transform.rotation = Quaternion.LookRotation(
+                Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
+        }
     }
     private void FixedUpdate()
     {
-        Grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f, GroundLayer);
+        Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
     }
 
 
