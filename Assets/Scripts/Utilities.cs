@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Utilities : MonoBehaviour
 {
-    [SerializeField] private GameObject Pressanykey;
+    [SerializeField] private AnyKeyPressedEvent pressAnyKey;
     public void Home()
     {
         SceneManager.LoadScene(0);
@@ -23,7 +26,9 @@ public class Utilities : MonoBehaviour
     {
         if(Keyboard.current.anyKey.wasPressedThisFrame)
         {
-           Pressanykey.SetActive(false);
+            pressAnyKey.Invoke();
         }
     }
+
+    [Serializable] private class AnyKeyPressedEvent : UnityEvent {}
 }

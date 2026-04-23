@@ -4,9 +4,15 @@ public class Deathwater : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.TryGetComponent(out Health health))
         {
-            other.GetComponent<Health>().TakeDamage(9999); // Inflict massive damage to ensure death
+            health.TakeDamage(9999); // Inflict massive damage to ensure death
+        }
+
+        if (other.TryGetComponent(out IEnemy enemy))
+        {
+            Debug.Log("killed");
+            enemy.kill();
         }
     }
 }
