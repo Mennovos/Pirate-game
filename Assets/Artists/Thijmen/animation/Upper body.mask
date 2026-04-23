@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Upper body
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Character final
+    m_Weight: 0
+  - m_Path: Pirate Arma
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Pole.L
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Pole.L/Pole.L_end
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Pole.R
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Pole.R/Pole.R_end
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Spine
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Head
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Head/Head_end
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.L
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.L/Arm.L
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.L/Arm.L/Hand.L
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.L/Arm.L/Hand.L/Hook
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.L/Arm.L/Hand.L/Hook/Hook_end
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.R
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.R/Arm.R
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.R/Arm.R/Hand.R
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Spine/Torso/Shoulder.R/Arm.R/Hand.R/Hand.R_end
+    m_Weight: 1
+  - m_Path: Pirate Arma/Root/Hips/Thigh.L
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Thigh.L/Shin.L
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Thigh.L/Shin.L/Shin.L_end
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Thigh.R
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Thigh.R/Shin.R
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/Hips/Thigh.R/Shin.R/Shin.R_end
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/IK.L
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/IK.L/IK.L_end
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/IK.R
+    m_Weight: 0
+  - m_Path: Pirate Arma/Root/IK.R/IK.R_end
+    m_Weight: 0
