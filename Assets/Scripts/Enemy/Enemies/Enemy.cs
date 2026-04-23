@@ -31,4 +31,9 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     {
         return attackDamage;
     }
+
+    public virtual void kill()
+    {
+        Destroy(gameObject);
+    }
 }
