@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeagullEnemy
   target: {fileID: 0}
+  attackDamage: 1
   horizontalIdleVelocity: 5
   verticalIdleVelocity: 3
   verticalIdleVelocityPassive: -0.5

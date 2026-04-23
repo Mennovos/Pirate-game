@@ -114,15 +114,18 @@ public class SeagullEnemy : Enemy
         {
             if (state == SeagullState.IDLE)
             {
-                if (target.position.y < transform.position.y
-                    && !Physics.Linecast(transform.position, target.position, whatIsTerrain,
-                        QueryTriggerInteraction.Collide))
+                if (target)
                 {
-                    if (attackChance > Random.value)
+                    if (target.position.y < transform.position.y
+                        && !Physics.Linecast(transform.position, target.position, whatIsTerrain,
+                            QueryTriggerInteraction.Collide))
                     {
-                        state = SeagullState.DIVE;
+                        if (attackChance > Random.value)
+                        {
+                            state = SeagullState.DIVE;
                         
-                        diveTargetPos = target.position;
+                            diveTargetPos = target.position;
+                        }
                     }
                 }
             }
