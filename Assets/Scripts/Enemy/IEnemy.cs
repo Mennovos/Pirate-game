@@ -7,4 +7,6 @@ public interface IEnemy
     public void attack(Vector2 impulse);
 
     public float getAttackDamage();
+
+    public void kill();
 }

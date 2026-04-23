@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+
 public class Utilities : MonoBehaviour
 {
+    [SerializeField] private GameObject Pressanykey;
     public void Home()
     {
         SceneManager.LoadScene(0);
@@ -14,5 +17,13 @@ public class Utilities : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    void Update()
+    {
+        if(Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+           Pressanykey.SetActive(false);
+        }
     }
 }
