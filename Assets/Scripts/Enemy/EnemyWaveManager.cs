@@ -33,10 +33,11 @@ public class EnemyWaveManager : MonoBehaviour
     
     public void StartWaves(int startWave)
     {
-        waveNumber = startWave;
-        
-        // if coroutine is null, start new
-        coroutine ??= StartCoroutine(waveCoroutine());
+        if (coroutine == null)
+        {
+            waveNumber = startWave;
+            coroutine = StartCoroutine(waveCoroutine());
+        }
     }
     
     public void StopWaves()
@@ -50,6 +51,8 @@ public class EnemyWaveManager : MonoBehaviour
     {
         for (;; waveNumber++)
         {
+            Debug.Log($"Wave #{waveNumber}");
+            
             // clear old wave
             waveEnemies.Clear();
 
