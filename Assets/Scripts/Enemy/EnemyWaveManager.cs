@@ -15,6 +15,8 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField, Min(0f)] private float maxWaveDuration = 30f;
     [Space]
     [SerializeField] private bool startOnAwake = true;
+
+    [Space] [SerializeField, Min(-1)] private int finalWaveNumber;
     
     private int waveNumber;
     private List<IEnemy> waveEnemies;
@@ -52,6 +54,12 @@ public class EnemyWaveManager : MonoBehaviour
     {
         for (;; waveNumber++)
         {
+            if (waveNumber > finalWaveNumber && finalWaveNumber != -1)
+            {
+                StopWaves();
+                yield break;
+            }
+            
             Debug.Log($"Wave #{waveNumber}");
             
             // clear old wave

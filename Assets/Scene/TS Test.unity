@@ -873,6 +873,7 @@ MonoBehaviour:
   lastWaveDefeatedThreshold: 0.5
   maxWaveDuration: 60
   startOnAwake: 1
+  finalWaveNumber: -1
 --- !u!4 &1243441242
 Transform:
   m_ObjectHideFlags: 0
