@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 387912517}
   - component: {fileID: 387912516}
   - component: {fileID: 387912515}
-  - component: {fileID: 387912514}
+  - component: {fileID: 387912519}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -398,18 +398,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &387912514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387912513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b7e67c28f41c9409bf1605f503ce95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestPickup
 --- !u!135 &387912515
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -497,12 +485,25 @@ Transform:
   m_GameObject: {fileID: 387912513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -2.5, z: 0}
+  m_LocalPosition: {x: -301.58, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387912519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387912513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6bff5bc91925204882f2cd6fdc29815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootFruit
+  healAmount: 15
 --- !u!1 &666863676
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,8 +732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e79455c2cd77ec4aa45935ec8b83454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 1
-  currentHealth: 1
+  maxHealth: 10
+  currentHealth: 10
   healthBar: {fileID: 33813795}
   deathScreen: {fileID: 0}
 --- !u!114 &684053921
@@ -783,7 +784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904324348}
-  - component: {fileID: 904324347}
+  - component: {fileID: 904324349}
   m_Layer: 0
   m_Name: Enemy Spawner (3)
   m_TagString: Untagged
@@ -791,20 +792,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &904324347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904324346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd9db8ee8d22cb041b324a5bcfd1f62e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyPrefab: {fileID: 2698299147417529763, guid: 3521d8a4d0f59a249b942f4d7b827bde, type: 3}
-  maxOffset: {x: 1, y: 1}
 --- !u!4 &904324348
 Transform:
   m_ObjectHideFlags: 0
@@ -820,6 +807,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904324349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904324346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ad20ef442400499a72f1b2de75f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootSpawner
+  lootPrefab: {fileID: 387912513}
+  maxOffset: {x: 1, y: 1}
 --- !u!1 &1243441240
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,18 +850,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f8418c2e04d1d4bac01e31e82c800a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveManager
-  spawnGroups:
+  enemySpawnGroups:
   - spawners:
     - {fileID: 1349699068}
     - {fileID: 1390849972}
     - {fileID: 2075878579}
-    - {fileID: 904324347}
     startWave: 0
     endWave: 2147483647
     waveInterval: 1
     baseCount: 1
-    countPerSpawn: 0.5
-    maxCount: 2147483647
+    countPerSpawn: 0
+    maxCount: 2
+  lootSpawnGroups:
+  - spawners:
+    - {fileID: 904324349}
+    startWave: 1
+    endWave: 2147483647
+    waveInterval: 2
+    baseCount: 1
+    countPerSpawn: 0
+    maxCount: 2
   lastWaveDefeatedThreshold: 0.5
   maxWaveDuration: 60
   startOnAwake: 1
@@ -989,6 +998,72 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1365204552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365204555}
+  - component: {fileID: 1365204554}
+  - component: {fileID: 1365204553}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1365204553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365204552}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 99, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1365204554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365204552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+--- !u!4 &1365204555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365204552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1296,3 +1371,4 @@ SceneRoots:
   - {fileID: 684053919}
   - {fileID: 1399320763}
   - {fileID: 387912518}
+  - {fileID: 1365204555}

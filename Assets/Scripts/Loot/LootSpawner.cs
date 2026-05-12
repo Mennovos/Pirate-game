@@ -3,7 +3,7 @@ using Random = UnityEngine.Random;
 
 public class LootSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject loopPrefab;
+    [SerializeField] private GameObject lootPrefab;
     [SerializeField] private Vector2 maxOffset;
     
     public void summon()
@@ -11,7 +11,7 @@ public class LootSpawner : MonoBehaviour
         Vector2 pos = (Vector2)transform.position 
                       + new Vector2(Random.Range(-maxOffset.x, maxOffset.x), Random.Range(-maxOffset.y, maxOffset.y));
         
-        Instantiate(loopPrefab, pos, Quaternion.Euler(Vector3.zero));
+        Instantiate(lootPrefab, pos, Quaternion.Euler(Vector3.zero));
     }
 
     private void OnDrawGizmosSelected()
