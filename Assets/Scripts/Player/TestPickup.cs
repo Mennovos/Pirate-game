@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TestPickup : MonoBehaviour, IPickup
 {
-    public void onGrab()
+    public void onGrab(GameObject grabber)
     {
-        Debug.Log("Pickup grabbed");
+        Debug.Log("Pickup grabbed by: " + grabber.name);
     }
 }

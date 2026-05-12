@@ -6,7 +6,7 @@ public class PlayerPickup : MonoBehaviour
     {
         if (other.TryGetComponent(out IPickup pickup))
         {
-            pickup.onGrab();
+            pickup.onGrab(gameObject);
         }
     }
 }

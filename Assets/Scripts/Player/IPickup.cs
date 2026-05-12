@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IPickup
 {
-    public void onGrab();
+    public void onGrab(GameObject grabber);
 }
