@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class EnemyWaveManager : MonoBehaviour
 {
-    [SerializeField] private List<SpawnGroup> spawnGroups;
+    [SerializeField] private List<SpawnGroup<EnemySpawner>> enemySpawnGroups;
+    [SerializeField] private List<SpawnGroup<LootSpawner>> lootSpawnGroups;
 
     [Space]
     [SerializeField, Range(0f, 1f)] private float lastWaveDefeatedThreshold = 0.5f;
@@ -56,7 +57,7 @@ public class EnemyWaveManager : MonoBehaviour
             // clear old wave
             waveEnemies.Clear();
 
-            foreach (SpawnGroup spawnGroup in spawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber < g.EndWave))
+            foreach (SpawnGroup<EnemySpawner> spawnGroup in enemySpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber < g.EndWave))
             {
                 // only spawn if it should spawn
                 if ((waveNumber - spawnGroup.StartWave) % spawnGroup.WaveInterval == 0)
@@ -73,6 +74,27 @@ public class EnemyWaveManager : MonoBehaviour
                         
                         // spawn an enemy and add it to the wave enemies
                         waveEnemies.Add(spawnGroup.Spawners[index].summon());
+                    }
+                }
+            }
+            
+            foreach (SpawnGroup<LootSpawner> spawnGroup in lootSpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber < g.EndWave))
+            {
+                // only spawn if it should spawn
+                if ((waveNumber - spawnGroup.StartWave) % spawnGroup.WaveInterval == 0)
+                {
+                    // get how much loot to spawn
+                    int count = spawnGroup.BaseCount +
+                                (int)(spawnGroup.CountPerSpawn * ((waveNumber - spawnGroup.StartWave) / spawnGroup.WaveInterval));
+
+                    // spawn the number of loot drops at random spawners in the group
+                    for (int i = 0; i < Mathf.Min(count, spawnGroup.MaxCount); i++)
+                    {
+                        // get which spawner to spawn the loot from
+                        int index = Random.Range(0, spawnGroup.Spawners.Count);
+                        
+                        // spawn the loot
+                        spawnGroup.Spawners[index].summon();
                     }
                 }
             }
@@ -97,9 +119,9 @@ public class EnemyWaveManager : MonoBehaviour
     
     
     [Serializable]
-    private struct SpawnGroup
+    private struct SpawnGroup<T>
     {
-        [SerializeField] private List<EnemySpawner> spawners;
+        [SerializeField] private List<T> spawners;
         [Space]
         [SerializeField, Min(0)] private int startWave;
         [SerializeField, Min(0)] private int endWave;
@@ -109,7 +131,7 @@ public class EnemyWaveManager : MonoBehaviour
         [SerializeField, Min(0)] private float countPerSpawn;
         [SerializeField, Min(0)] private int maxCount;
         
-        public List<EnemySpawner> Spawners => spawners;
+        public List<T> Spawners => spawners;
         
         public int StartWave => startWave;
         public int EndWave => endWave;
