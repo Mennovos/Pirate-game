@@ -10,13 +10,11 @@ public class CrabEnemy : Enemy
     [SerializeField] private float moveSpeed;
     [SerializeField] private float waitTime;
     private bool PlayerInRange;
+    public bool chargingAttack;
     void Start()
     {
         transform.position = startPos;
-        if (PlayerInRange)
-        {
-            StartCoroutine(MoveBetweenPoints());
-        }
+        StartCoroutine(MoveBetweenPoints());
     }
 
     private IEnumerator MoveBetweenPoints()
@@ -42,15 +40,19 @@ public class CrabEnemy : Enemy
     {
         if (other.CompareTag("Player"))
         {
-            PlayerInRange = true;
+            moveSpeed = 0; // Stop moving when player is in range
             StartCoroutine(ChargeAttack());
         }
 
     }
     private IEnumerator ChargeAttack()
     {
+        chargingAttack = true;
+        Debug.Log("Player in range, charging attack!");
         //charge atttack animation here
-        yield return new WaitForSeconds(1f);
-      
+        yield return new WaitForSeconds(1.5f);
+        chargingAttack = false;
+        moveSpeed = 4; // Resume moving after attack
+
     }
 }
