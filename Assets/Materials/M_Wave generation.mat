@@ -105,9 +105,9 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Crest_Falloff: 0.99
-    - _Crest_Size: 0.17
-    - _Crest_offset: -0.74
+    - _Crest_Falloff: 0.24
+    - _Crest_Size: -0.66
+    - _Crest_offset: 4.8
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -117,10 +117,10 @@ Material:
     - _Edge_hardness: 110.46
     - _EnvironmentReflections: 1
     - _Extra_expersion: 0.1
-    - _Foam_bands: 0.92
-    - _Foam_falloff: 0.77
-    - _Foam_removal: 1
-    - _Foam_width: 1.37
+    - _Foam_bands: 0.5
+    - _Foam_falloff: 5.55
+    - _Foam_removal: 0.89
+    - _Foam_width: 0.13
     - _Frequency: 1.18
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -132,9 +132,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Ripple_speed: 1
+    - _Ripple_speed: 0.1
     - _Ripple_strength: 0.3
-    - _Ripple_tiling: 0.27
+    - _Ripple_tiling: 0.2
     - _Secondary_Amplitude: 0.18
     - _Secondary_Frequency: 4.22
     - _Secondary_Speed: 0.5
@@ -144,7 +144,7 @@ Material:
     - _Speed: 1.11
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Steepness: 1.86
+    - _Steepness: 2
     - _Surface: 0
     - _Transparency: 1
     - _UVSec: 0
@@ -157,7 +157,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0.44, g: -0.34, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Foam_color: {r: 0.83962256, g: 1, b: 1, a: 1}
+    - _Foam_color: {r: 1, g: 1, b: 1, a: 1}
     - _Secondary_Direction: {r: 0.5, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Wave_color: {r: 0.2547367, g: 0.4256974, b: 0.5031446, a: 1}
