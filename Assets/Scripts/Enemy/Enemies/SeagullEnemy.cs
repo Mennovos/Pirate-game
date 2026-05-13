@@ -36,7 +36,7 @@ public class SeagullEnemy : Enemy
     [SerializeField, Min(0)] private float maxAttackCheckInterval;
     [SerializeField, Range(0, 1)] private float attackChance;
     
-    private SeagullState state;
+    private SeagullState state = SeagullState.IDLE;
     
     private bool goingRight;
     private Vector2 diveTargetPos;
@@ -44,8 +44,6 @@ public class SeagullEnemy : Enemy
     private void Awake()
     {
         base.Awake();
-        
-        state = SeagullState.IDLE;
         goingRight = Random.value < 0.5f;
 
         StartCoroutine(attackSwitchCoroutine());
