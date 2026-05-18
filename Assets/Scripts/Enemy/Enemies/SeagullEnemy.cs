@@ -36,12 +36,16 @@ public class SeagullEnemy : Enemy
     [SerializeField, Min(0)] private float maxAttackCheckInterval;
     [SerializeField, Range(0, 1)] private float attackChance;
     
+    [Space]
+    [SerializeField] private float diveSpinSpeed = 720f;
+    [SerializeField] private float knockbackSpinSpeed = 360f;
+    
     private SeagullState state = SeagullState.IDLE;
     
     private bool goingRight;
     private Vector2 diveTargetPos;
 
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         goingRight = Random.value < 0.5f;
@@ -50,8 +54,10 @@ public class SeagullEnemy : Enemy
         StartCoroutine(knockbackSwitchCoroutine());
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
+        base.FixedUpdate();
+        
         switch (state)
         {
             case SeagullState.IDLE:
@@ -101,8 +107,25 @@ public class SeagullEnemy : Enemy
                 break;
             }
         }
-        
-        transform.rotation = Quaternion.LookRotation(rb.linearVelocity, Vector3.up);
+
+        if (state == SeagullState.DIVE)
+        {
+            float zRot = transform.eulerAngles.z;
+            transform.rotation = Quaternion.LookRotation(rb.linearVelocity, Vector3.up);
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 
+                zRot + diveSpinSpeed * Time.fixedDeltaTime);
+        }
+        else if (state == SeagullState.KNOCKBACK)
+        {
+            float zRot = transform.eulerAngles.z;
+            transform.rotation = Quaternion.LookRotation(-rb.linearVelocity, Vector3.up);
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 
+                zRot + knockbackSpinSpeed * Time.fixedDeltaTime);
+        } 
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(rb.linearVelocity, Vector3.up);
+        }
     }
 
 

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BulletEnemy : Enemy
@@ -11,6 +10,9 @@ public class BulletEnemy : Enemy
     [SerializeField] private bool homing;
     [SerializeField] private float homingStrength;
 
+    public float Speed => speed;
+    public bool UsesGravity => rb.useGravity;
+    
     private void Start()
     {
         rb.linearVelocity = transform.forward * speed;
