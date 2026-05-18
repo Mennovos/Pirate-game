@@ -320,15 +320,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765c321db0b6eea49b1bfe6286f9744e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
+  animator: {fileID: 0}
   target: {fileID: 684053919}
   attackDamage: 1.5
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 65
   speed: 5
-  parryable: 0
+  parryable: 1
   homing: 0
   homingStrength: 0
+  homingVelocityCorrection: 1
 --- !u!54 &74382599
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1046,6 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683ae6512c5fe22429e00131a366be1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClamEnemy
+  animator: {fileID: 0}
   target: {fileID: 0}
   attackDamage: 0
   shellCloseChance: 0.5
@@ -1274,6 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765c321db0b6eea49b1bfe6286f9744e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
+  animator: {fileID: 0}
   target: {fileID: 684053919}
   attackDamage: 1.5
   groundLayerMask:
@@ -1283,6 +1287,7 @@ MonoBehaviour:
   parryable: 0
   homing: 0
   homingStrength: 0
+  homingVelocityCorrection: 1
 --- !u!54 &1258132894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1920,6 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25c5ae4c3606484aacec6f1e9f78831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelicanEnemy
+  animator: {fileID: 0}
   target: {fileID: 684053919}
   attackDamage: 1
   maxHealth: 120

@@ -4,11 +4,13 @@ public class BulletEnemy : Enemy
 {
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField, Min(0f)] private float speed;
+    [SerializeField] private bool destroyAfterTime;
 
     [Space] 
     [SerializeField] private bool parryable;
     [SerializeField] private bool homing;
     [SerializeField] private float homingStrength;
+    [SerializeField] private float homingVelocityCorrection = 1f;
 
     public float Speed => speed;
     public bool UsesGravity => rb.useGravity;
@@ -16,15 +18,26 @@ public class BulletEnemy : Enemy
     private void Start()
     {
         rb.linearVelocity = transform.forward * speed;
+        
+        // destroy self after 30 seconds as failsafe when nothing else destroys it
+        if (destroyAfterTime) Destroy(gameObject, 30f);
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
+        base.FixedUpdate();
+        
         if (homing)
         {
+            float distToTarget = Vector2.Distance(transform.position, target.position);
+            float timeToTarget = distToTarget / speed;
+
+            Vector3 targetPos = target.position
+                                + targetVelocity * (timeToTarget * homingVelocityCorrection);
+            
             rb.linearVelocity = Vector3.LerpUnclamped(
                 rb.linearVelocity.normalized,
-                (target.position - transform.position).normalized,
+                (targetPos - transform.position).normalized,
                 Time.fixedDeltaTime * homingStrength
             ).normalized * speed;
         }
