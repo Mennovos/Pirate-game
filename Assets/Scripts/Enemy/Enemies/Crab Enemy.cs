@@ -12,9 +12,11 @@ public class CrabEnemy : Enemy
     [SerializeField] private float moveSpeed;
     [SerializeField] private float waitTime;
     [SerializeField] private GameObject Damage;
+
     private bool chargingAttack;
-    void Start()
+    private void Awake()
     {
+        base.Awake();
         transform.position = startPos;
         StartCoroutine(MoveBetweenPoints());
     }
