@@ -5,7 +5,7 @@ public class Billboard : MonoBehaviour
 {
     [SerializeField] Camera cam;
 
-    private void Update()
+    private void LateUpdate()
     {
         transform.rotation = Quaternion.LookRotation(cam.transform.forward, cam.transform.up);
     }

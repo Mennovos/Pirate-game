@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour, IEnemy
 {
+    [SerializeField] protected Animator animator;
+    
+    [Space]
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
     

@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PelicanEnemy : Enemy
 {
+    private static readonly int animator_State = Animator.StringToHash("State");
+    
     private enum PelicanState
     {
         IDLE,
@@ -74,6 +75,11 @@ public class PelicanEnemy : Enemy
         if (state != PelicanState.SWOOP_ATTACK)
         {
             //TODO: point head to target
+        }
+        
+        if (animator)
+        {
+            animator.SetInteger(animator_State, (int)state);
         }
     }
 
