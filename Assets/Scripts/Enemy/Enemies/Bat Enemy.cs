@@ -13,7 +13,7 @@ public class BatEnemy : Enemy
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float playerInRange;
-    [SerializeField] private float radius;
+    [SerializeField] private Vector3 BasePos;
 
     private Transform player;
 
@@ -28,8 +28,8 @@ public class BatEnemy : Enemy
             switch(currentState)
             {
                 case BatState.IDLE:
-                 
-                    break;
+                   transform.position = Vector3.Lerp(transform.position, BasePos, moveSpeed * Time.fixedDeltaTime);
+                break;
                 case BatState.Chase:
                     if (Vector3.Distance(transform.position, player.position) <= playerInRange)
                     {
@@ -37,11 +37,12 @@ public class BatEnemy : Enemy
                         transform.position += direction * moveSpeed * Time.fixedDeltaTime;
                     }
                     break;
-                case BatState.KNOCKBACK:
-                   
-                    break;
             }
     }
+    public override void attack(Vector2 impulse)
+    {
+        currentState = BatState.KNOCKBACK;
 
-
+        rb.linearVelocity = impulse / rb.mass;
+    }
 }
