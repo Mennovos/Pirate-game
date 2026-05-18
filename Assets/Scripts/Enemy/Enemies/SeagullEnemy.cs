@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -5,6 +6,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody))]
 public class SeagullEnemy : Enemy
 {
+    private static readonly int animator_State = Animator.StringToHash("State");
+
     private enum SeagullState
     {
         IDLE,
@@ -52,6 +55,14 @@ public class SeagullEnemy : Enemy
 
         StartCoroutine(attackSwitchCoroutine());
         StartCoroutine(knockbackSwitchCoroutine());
+    }
+
+    private void Update()
+    {
+        if (animator)
+        {
+            animator.SetInteger(animator_State, (int)state);
+        }
     }
 
     private new void FixedUpdate()
