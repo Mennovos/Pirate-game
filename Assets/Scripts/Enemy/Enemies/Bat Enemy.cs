@@ -20,7 +20,11 @@ public class BatEnemy : Enemy
     private void Awake()
     {
        base.Awake();
-       player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    private void Update()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void FixedUpdate()
@@ -29,13 +33,14 @@ public class BatEnemy : Enemy
             {
                 case BatState.IDLE:
                    transform.position = Vector3.Lerp(transform.position, BasePos, moveSpeed * Time.fixedDeltaTime);
+                if (Vector3.Distance(transform.position, player.position) <= playerInRange)
+                {
+                    currentState = BatState.Chase;
+                }
                 break;
                 case BatState.Chase:
-                    if (Vector3.Distance(transform.position, player.position) <= playerInRange)
-                    {
                         Vector3 direction = (player.position - transform.position).normalized;
                         transform.position += direction * moveSpeed * Time.fixedDeltaTime;
-                    }
                     break;
             }
     }
