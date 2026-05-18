@@ -38,6 +38,14 @@ public class CrabEnemy : Enemy
             endPos = temp;
         }
     }
+    public override void attack(Vector2 impulse)
+    {
+        enemyHealth -= 10; // Example damage value
+        if (enemyHealth <= 0)
+        {
+            kill();
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
