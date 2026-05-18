@@ -135,7 +135,7 @@ Material:
     - _Ripple_speed: 0.1
     - _Ripple_strength: 0.3
     - _Ripple_tiling: 0.2
-    - _Secondary_Amplitude: 0.18
+    - _Secondary_Amplitude: 0.1
     - _Secondary_Frequency: 4.22
     - _Secondary_Speed: 0.5
     - _Smoothness: 0.5
@@ -157,7 +157,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0.44, g: -0.34, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Foam_color: {r: 1, g: 1, b: 1, a: 1}
+    - _Foam_color: {r: 0.75054383, g: 0.82175153, b: 0.8616352, a: 1}
     - _Secondary_Direction: {r: 0.5, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Wave_color: {r: 0.2547367, g: 0.4256974, b: 0.5031446, a: 1}
