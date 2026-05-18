@@ -41,6 +41,7 @@ public class CrabEnemy : Enemy
     public override void attack(Vector2 impulse)
     {
         enemyHealth -= 1; // Example damage value
+        
         if (enemyHealth <= 0)
         {
             kill();
