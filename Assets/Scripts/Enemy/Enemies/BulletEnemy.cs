@@ -16,6 +16,9 @@ public class BulletEnemy : Enemy
     private void Start()
     {
         rb.linearVelocity = transform.forward * speed;
+        
+        // destroy self after 30 seconds as failsafe when nothing else destroys it
+        Destroy(gameObject, 30f);
     }
 
     private void FixedUpdate()
