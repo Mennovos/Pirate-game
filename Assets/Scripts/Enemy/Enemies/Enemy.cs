@@ -6,6 +6,9 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
     
+    private Vector3 oldTargetPos;
+    protected Vector3 targetVelocity;
+    
     protected Rigidbody rb;
     
     protected bool isAlive = true;
@@ -16,6 +19,13 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         
         rb = GetComponent<Rigidbody>();
+    }
+
+    protected void FixedUpdate()
+    {
+        targetVelocity = (target.position - oldTargetPos) / Time.fixedDeltaTime;
+        
+        oldTargetPos = target.position;
     }
 
 

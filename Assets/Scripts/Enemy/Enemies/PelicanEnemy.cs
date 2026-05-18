@@ -20,6 +20,7 @@ public class PelicanEnemy : Enemy
     
     private PelicanState state = PelicanState.IDLE;
     
+    [Space]
     [SerializeField] private float maxHealth;
     private float health;
     
@@ -57,7 +58,7 @@ public class PelicanEnemy : Enemy
     [SerializeField] private bool isRight;
     [SerializeField, Min(0f)] private float swoopDuration;
     
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         
@@ -66,6 +67,14 @@ public class PelicanEnemy : Enemy
         transform.rotation = Quaternion.LookRotation(isRight ? Vector3.left : Vector3.right, Vector3.up);
 
         StartCoroutine(AttackCoroutine());
+    }
+
+    private void Update()
+    {
+        if (state != PelicanState.SWOOP_ATTACK)
+        {
+            //TODO: point head to target
+        }
     }
 
     public override void attack(Vector2 impulse)
