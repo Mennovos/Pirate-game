@@ -12,7 +12,7 @@ public class CrabEnemy : Enemy
     [SerializeField] private float moveSpeed;
     [SerializeField] private float waitTime;
     [SerializeField] private GameObject Damage;
-    public bool chargingAttack;
+    private bool chargingAttack;
     void Start()
     {
         transform.position = startPos;
@@ -40,7 +40,7 @@ public class CrabEnemy : Enemy
     }
     public override void attack(Vector2 impulse)
     {
-        enemyHealth -= 10; // Example damage value
+        enemyHealth -= 1; // Example damage value
         if (enemyHealth <= 0)
         {
             kill();
