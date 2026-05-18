@@ -54,5 +54,6 @@ public class CrabEnemy : Enemy
         chargingAttack = false;
         moveSpeed = 4; // Resume moving after attack
 
+
     }
 }
