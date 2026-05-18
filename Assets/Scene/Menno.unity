@@ -340,7 +340,6 @@ GameObject:
   - component: {fileID: 382640335}
   - component: {fileID: 382640334}
   - component: {fileID: 382640333}
-  - component: {fileID: 382640336}
   m_Layer: 0
   m_Name: Crabclaw
   m_TagString: Untagged
@@ -382,8 +381,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8162241, y: 1.8603561, z: 3.9275002}
-  m_Center: {x: 0.91536963, y: 0.43017843, z: 1.4637501}
+  m_Size: {x: 5.318963, y: 2.4032648, z: 3.795992}
+  m_Center: {x: 2.6667387, y: 0.70163274, z: 0.84915465}
 --- !u!23 &382640334
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -440,19 +439,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382640331}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &382640336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382640331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270f98bb2ea64124199b3b87c33fcef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CrabClaw
+  m_Mesh: {fileID: 0}
 --- !u!1 &516189596
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,8 +965,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 6.3804836}
+  m_Center: {x: 0, y: 0, z: -0.28521478}
 --- !u!23 &1477424231
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1067,11 +1054,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CrabEnemy
   target: {fileID: 0}
   attackDamage: 2
-  enemyHealth: 0
+  enemyHealth: 3
+  chargeAttackSpeed: 0.5
+  chargeAttackAnimDuration: 1.5
   startPos: {x: 0, y: 0, z: 0}
   endPos: {x: 6, y: 0, z: 0}
   moveSpeed: 4
   waitTime: 10
+  Damage: {fileID: 382640331}
   chargingAttack: 0
 --- !u!54 &1477424235
 Rigidbody:

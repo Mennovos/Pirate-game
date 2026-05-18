@@ -4,12 +4,14 @@ using System.Collections;
 public class CrabEnemy : Enemy
 {
     [SerializeField] private float enemyHealth;
+    [SerializeField] private float chargeAttackSpeed;
+    [SerializeField] private float chargeAttackAnimDuration;
     [SerializeField] private Vector3 startPos;
     [SerializeField] private Vector3 endPos;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float waitTime;
-    private bool PlayerInRange;
+    [SerializeField] private GameObject Damage;
     public bool chargingAttack;
     void Start()
     {
@@ -36,24 +38,33 @@ public class CrabEnemy : Enemy
             endPos = temp;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             moveSpeed = 0; // Stop moving when player is in range
             StartCoroutine(ChargeAttack());
         }
-
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+         other.GetComponent<Health>().TakeDamage(10); // Example damage value
+        }
     }
     private IEnumerator ChargeAttack()
     {
         chargingAttack = true;
-        Debug.Log("Player in range, charging attack!");
         //charge atttack animation here
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(chargeAttackAnimDuration);
+        // Activate damage hitbox
+        Damage.SetActive(true);
+        yield return new WaitForSeconds(chargeAttackSpeed);
+        Damage.SetActive(false);
+        // Resume moving after attack
+        moveSpeed = 4;
         chargingAttack = false;
-        moveSpeed = 4; // Resume moving after attack
-
 
     }
 }
