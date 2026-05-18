@@ -4,6 +4,7 @@ public class BulletEnemy : Enemy
 {
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField, Min(0f)] private float speed;
+    [SerializeField] private bool destroyAfterTime;
 
     [Space] 
     [SerializeField] private bool parryable;
@@ -19,7 +20,7 @@ public class BulletEnemy : Enemy
         rb.linearVelocity = transform.forward * speed;
         
         // destroy self after 30 seconds as failsafe when nothing else destroys it
-        Destroy(gameObject, 30f);
+        if (destroyAfterTime) Destroy(gameObject, 30f);
     }
 
     private new void FixedUpdate()
