@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float mashAmount = 0f;
     [SerializeField] private float mashCooldown = 3f;
 
+
     private Vector2 moveInput;
     private Vector3 movement;
 
@@ -20,6 +21,8 @@ public class Movement : MonoBehaviour
 
     private bool Grappling;
     private bool Grounded;
+
+    [SerializeField] private bool batHit;
 
 
     private void Awake()
@@ -44,13 +47,16 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
-        if (mashCooldown < -1)
+        if (batHit)
         {
-            mashCooldown = -1;
-        }
-        else
-        {
-            mashCooldown -= Time.deltaTime;
+            if (mashCooldown < -1)
+            {
+                mashCooldown = -1;
+            }
+            else
+            {
+                mashCooldown -= Time.deltaTime;
+            }
         }
 
 
@@ -61,6 +67,7 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(
                 Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
+
 
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -78,15 +85,15 @@ public class Movement : MonoBehaviour
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
-        if (mashAmount >= 3)
+            if (mashCooldown < 0)
+            {
+                mashAmount++;
+                mashCooldown = 3f;
+            }
+        if (mashAmount == 4)
         {
             mashAmount = 0;
-            //set state of bat to idle again
-        }
-        if (mashCooldown < 0)
-        {
-            mashAmount++;
-            mashCooldown = 3f;
+            batHit = false;
         }
     }
 
@@ -95,6 +102,13 @@ public class Movement : MonoBehaviour
         return (float)mashAmount;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBat"))
+        {
+            batHit = true;
+        }
+    }
 
     // future grapple code neglect for now 
 

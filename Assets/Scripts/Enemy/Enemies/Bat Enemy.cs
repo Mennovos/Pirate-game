@@ -13,7 +13,7 @@ public class BatEnemy : Enemy
         SuckingBlood
     }
 
-    private BatState currentState = BatState.IDLE;
+    [SerializeField] private BatState currentState = BatState.IDLE;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveBackSpeed;
@@ -21,9 +21,11 @@ public class BatEnemy : Enemy
     [SerializeField] private Vector3 BasePos;
 
     [SerializeField] private GameObject Visualclutter;
+    public bool visualClutterActive = false;
     private Transform player;
     private Movement movement;
 
+    [System.Obsolete]
     private void Awake()
     {
         movement = FindFirstObjectByType<Movement>();
@@ -72,12 +74,13 @@ public class BatEnemy : Enemy
                
                 if (currentState == BatState.SuckingBlood)
                 {
-                    if (movement.mashClicks() <= 3)
+                    if (movement.mashClicks() < 3)
                     {
                         Visualclutter.SetActive(true);
                     }
                     else
                     {
+                        Debug.Log("Player has mashed enough, exiting sucking blood state.");    
                         Visualclutter.SetActive(false);
                         currentState = BatState.IDLE;
                     }
@@ -95,7 +98,6 @@ public class BatEnemy : Enemy
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided with player");
             currentState = BatState.SuckingBlood;
         }
     }

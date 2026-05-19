@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Space!!!!
+  m_text: Press E !!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -964,6 +964,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: Visualclutter
+      value: 
+      objectReference: {fileID: 206792143}
     - target: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1413,11 +1417,12 @@ MonoBehaviour:
   animator: {fileID: 0}
   target: {fileID: 2021702643}
   attackDamage: 4.42
+  currentState: 0
   moveSpeed: 4.13
   moveBackSpeed: 0.5
   playerInRange: 5.36
-  BasePos: {x: 0, y: 0, z: 0}
   Visualclutter: {fileID: 206792143}
+  BasePos: {x: 0, y: 0, z: 0}
 --- !u!54 &1504103177
 Rigidbody:
   m_ObjectHideFlags: 0
