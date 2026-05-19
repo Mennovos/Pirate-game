@@ -281,10 +281,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""54a1d782-40ef-4e52-92a2-5acdc784d1d9"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Mashing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

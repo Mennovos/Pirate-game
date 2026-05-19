@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WingMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: pelican
+    m_Weight: 0
+  - m_Path: Pelican
+    m_Weight: 0
+  - m_Path: Pelican/root
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/Breast
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/Breast/Breast_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3/neck4
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3/neck4/neck5
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3/neck4/neck5/neck6
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3/neck4/neck5/neck6/Head
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3/neck4/neck5/neck6/Head/Jaw
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/neck1/neck2/neck3/neck4/neck5/neck6/Head/Jaw/Jaw_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/Shoulder.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/Feather1.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/Feather1.L/Feather1.L_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Feather2.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Feather2.L/Feather2.L_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Wing3.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Wing3.L/Feather3.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Wing3.L/Feather3.L/Feather3.L_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Wing3.L/Feather4.L
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.L/wing1.L/wing2.L/Wing3.L/Feather4.L/Feather4.L_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/Feather1.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/Feather1.R/Feather1.R_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Feather2.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Feather2.R/Feather2.R_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Wing3.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Wing3.R/Feather3.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Wing3.R/Feather3.R/Feather3.R_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Wing3.R/Feather4.R
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/Shoulder.R/wing1.R/wing2.R/Wing3.R/Feather4.R/Feather4.R_end
+    m_Weight: 1
+  - m_Path: Pelican/root/Torso/spine
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/spine/tail
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/spine/tail/tail_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L/Toe1.L
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L/Toe1.L/Toe1.L_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L/toe2.L
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L/toe2.L/toe2.L_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L/Toe3.L
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.L/Shin.L/Ankle.L/Toe3.L/Toe3.L_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R/Toe1.R
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R/Toe1.R/Toe1.R_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R/toe2.R
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R/toe2.R/toe2.R_end
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R/Toe3.R
+    m_Weight: 0
+  - m_Path: Pelican/root/Torso/thigh.R/Shin.R/Ankle.R/Toe3.R/Toe3.R_end
+    m_Weight: 0
