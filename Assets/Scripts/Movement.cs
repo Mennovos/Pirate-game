@@ -26,7 +26,8 @@ public class Movement : MonoBehaviour
 
 
     private void Awake()
-    {  
+    {
+        mashAmount = 1;
         GroundLayer = LayerMask.GetMask("Ground");
         Anim = GetComponent<Animator>();
 
@@ -85,15 +86,15 @@ public class Movement : MonoBehaviour
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
-            if (mashCooldown < 0)
-            {
-                mashAmount++;
-                mashCooldown = 3f;
-            }
+         if (mashCooldown < 0)
+         {
+           mashAmount++;
+           mashCooldown = 3f;
+         }
         if (mashAmount == 4)
         {
-            mashAmount = 0;
             batHit = false;
+            mashAmount = 0;
         }
     }
 

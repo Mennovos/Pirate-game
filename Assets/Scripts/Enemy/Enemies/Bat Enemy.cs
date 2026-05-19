@@ -74,12 +74,12 @@ public class BatEnemy : Enemy
                
                 if (currentState == BatState.SuckingBlood)
                 {
-                    if (movement.mashClicks() < 3)
+                    if (movement.mashClicks() < 4)
                     {
                         Visualclutter.SetActive(true);
                     }
-                    else
-                    {
+                    if (movement.mashClicks() == 0) 
+                    { 
                         Debug.Log("Player has mashed enough, exiting sucking blood state.");    
                         Visualclutter.SetActive(false);
                         currentState = BatState.IDLE;
