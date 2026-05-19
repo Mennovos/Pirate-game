@@ -56,6 +56,7 @@ public class EnemyWaveManager : MonoBehaviour
         {
             if (waveNumber > finalWaveNumber && finalWaveNumber != -1)
             {
+                Debug.Log("Waves ended");
                 StopWaves();
                 yield break;
             }
@@ -65,7 +66,7 @@ public class EnemyWaveManager : MonoBehaviour
             // clear old wave
             waveEnemies.Clear();
 
-            foreach (SpawnGroup<EnemySpawner> spawnGroup in enemySpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber < g.EndWave))
+            foreach (SpawnGroup<EnemySpawner> spawnGroup in enemySpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber <= g.EndWave))
             {
                 // only spawn if it should spawn
                 if ((waveNumber - spawnGroup.StartWave) % spawnGroup.WaveInterval == 0)
@@ -86,7 +87,7 @@ public class EnemyWaveManager : MonoBehaviour
                 }
             }
             
-            foreach (SpawnGroup<LootSpawner> spawnGroup in lootSpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber < g.EndWave))
+            foreach (SpawnGroup<LootSpawner> spawnGroup in lootSpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber <= g.EndWave))
             {
                 // only spawn if it should spawn
                 if ((waveNumber - spawnGroup.StartWave) % spawnGroup.WaveInterval == 0)

@@ -8,6 +8,14 @@ using UnityEngine.UI;
 public class Utilities : MonoBehaviour
 {
     [SerializeField] private AnyKeyPressedEvent pressAnyKey;
+
+    private bool wavesStarted;
+
+    private void Start()
+    {
+        wavesStarted = false;
+    }
+
     public void Home()
     {
         SceneManager.LoadScene(0);
@@ -24,9 +32,11 @@ public class Utilities : MonoBehaviour
 
     void Update()
     {
-        if(Keyboard.current.anyKey.wasPressedThisFrame)
+        if(Keyboard.current.anyKey.wasPressedThisFrame && !wavesStarted)
         {
             pressAnyKey.Invoke();
+            
+            wavesStarted = true;
         }
     }
 
