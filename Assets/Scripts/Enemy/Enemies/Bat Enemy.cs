@@ -1,5 +1,6 @@
 using UnityEditorInternal;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Rendering;
 
 public class BatEnemy : Enemy
@@ -25,6 +26,7 @@ public class BatEnemy : Enemy
 
     private void Awake()
     {
+        movement = FindFirstObjectByType<Movement>();
         BasePos = transform.position;
         base.Awake();
     }
@@ -67,13 +69,18 @@ public class BatEnemy : Enemy
                 }
                     break;
             case BatState.SuckingBlood:
+               
                 if (currentState == BatState.SuckingBlood)
                 {
-                    if (movement.mashClicks() >= 3)
+                    if (movement.mashClicks() <= 3)
                     {
                         Visualclutter.SetActive(true);
                     }
-
+                    else
+                    {
+                        Visualclutter.SetActive(false);
+                        currentState = BatState.IDLE;
+                    }
                 }
                 break;
         }
@@ -83,5 +90,13 @@ public class BatEnemy : Enemy
         currentState = BatState.KNOCKBACK;
 
         rb.linearVelocity = impulse / rb.mass;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collided with player");
+            currentState = BatState.SuckingBlood;
+        }
     }
 }
