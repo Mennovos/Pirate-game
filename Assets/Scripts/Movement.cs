@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float mashAmount = 0f;
+    [SerializeField] private float mashCooldown = 3f;
 
     private Vector2 moveInput;
     private Vector3 movement;
@@ -19,6 +21,7 @@ public class Movement : MonoBehaviour
     private bool Grappling;
     private bool Grounded;
 
+
     private void Awake()
     {  
         GroundLayer = LayerMask.GetMask("Ground");
@@ -30,9 +33,35 @@ public class Movement : MonoBehaviour
         Controls.Player.Move.performed += OnMove;
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Jump.performed += OnJump;
+        Controls.Player.Mashing.performed += OnMashing;    
         // Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
+    }
+    private void FixedUpdate()
+    {
+        Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
+    }
+    private void Update()
+    {
+        if (mashCooldown < -1)
+        {
+            mashCooldown = -1;
+        }
+        else
+        {
+            mashCooldown -= Time.deltaTime;
+        }
+
+
+        transform.position += movement * (speed * Time.deltaTime);
+
+        if (movement.magnitude > 0.1f)
+        {
+            transform.rotation = Quaternion.LookRotation(
+                Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
+        }
+
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -47,27 +76,24 @@ public class Movement : MonoBehaviour
         if(Grounded)
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnMashing(InputAction.CallbackContext context)
     {
-        //here you can make the attack animation and logic
-
-    }
-
-    private void Update()
-    {
-        transform.position += movement * (speed * Time.deltaTime);
-
-        if (movement.magnitude > 0.1f)
+        if (mashAmount >= 3)
         {
-            transform.rotation = Quaternion.LookRotation(
-                Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
+            mashAmount = 0;
+            //set state of bat to idle again
+        }
+        if (mashCooldown < 0)
+        {
+            mashAmount++;
+            mashCooldown = 3f;
         }
     }
-    private void FixedUpdate()
-    {
-        Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
-    }
 
+    public float mashClicks()
+    {
+        return (float)mashAmount;
+    }
 
 
     // future grapple code neglect for now 
