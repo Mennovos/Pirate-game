@@ -53,7 +53,8 @@ public class ClamEnemy : Enemy
         }
         else
         {
-            // attacked while shell open
+            //TODO: check with team if this behaviour is correct
+            base.attack(impulse);
         }
         
         if (Random.value < shellCloseChance) state = ClamState.SHELL_CLOSED;
