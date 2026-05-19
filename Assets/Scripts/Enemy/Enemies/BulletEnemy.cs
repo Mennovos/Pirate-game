@@ -44,7 +44,7 @@ public class BulletEnemy : Enemy
         
         rb.linearVelocity = rb.linearVelocity.normalized * speed;
         
-        transform.forward = rb.linearVelocity.normalized;
+        transform.rotation = Quaternion.LookRotation(rb.linearVelocity, Vector3.up);
     }
 
     public override void attack(Vector2 impulse)
