@@ -102,7 +102,7 @@ public class PelicanEnemy : Enemy
 
     private IEnumerator AttackCoroutine()
     {
-        while (true)
+        while (isAlive)
         {
             int num = Random.Range(0, seagullAttackWeight + bulletAttackWeight + swoopAttackWeight + idleWeight);
 
