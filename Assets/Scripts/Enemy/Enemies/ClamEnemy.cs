@@ -37,11 +37,20 @@ public class ClamEnemy : Enemy
     [SerializeField] private float spitGravityCorrection = 1f;
     [SerializeField, Min(1)] private Vector2Int spitBurstSizeRange;
     [SerializeField, Min(0f)] private float spitBurstInterval;
+    [SerializeField, Range(0f, 1f)] private float spitAttackChance = 0.5f;
+    
+    [Header("Spawn Jump")]
+    [SerializeField] private float spawnJumpStartZ;
+    [SerializeField] private float spawnJumpStartHeight;
+    [SerializeField] private float spawnJumpPeakHeight;
+    [SerializeField] private Transform spawnJumpAnimatedTransform; // NOT SELF
 
     private new void Awake()
     {
         base.Awake();
 
+        spawnJumpAnimatedTransform.position = transform.position + new Vector3(0, spawnJumpStartHeight, spawnJumpStartZ);
+        
         StartCoroutine(AttackCoroutine());
     }
 
@@ -70,6 +79,8 @@ public class ClamEnemy : Enemy
         
         state = ClamState.IDLE;
 
+        yield return new WaitForSeconds(attackInterval);
+        
         while (isAlive)
         {
             if (state == ClamState.SHELL_CLOSED)
@@ -90,7 +101,7 @@ public class ClamEnemy : Enemy
             if (!Physics.Linecast(transform.position, target.position, whatIsTerrain,
                     QueryTriggerInteraction.Collide))
             {
-                if (Random.value < 1)
+                if (Random.value < spitAttackChance)
                 {
                     state = ClamState.SPITTING;
 
@@ -115,8 +126,29 @@ public class ClamEnemy : Enemy
 
     private IEnumerator SpawnAnim()
     {
-        //TODO
-        yield return null;
+        float jumpDuration = Mathf.Sqrt(2 * (spawnJumpPeakHeight - spawnJumpStartHeight) / Physics.gravity.magnitude) 
+                             + Mathf.Sqrt(2 * spawnJumpPeakHeight / Physics.gravity.magnitude);
+        
+        float startTime = Time.time;
+        float endTime = Time.time + jumpDuration;
+        
+        float h = 1 - spawnJumpPeakHeight/spawnJumpStartHeight + Mathf.Sqrt(
+                    (spawnJumpPeakHeight - spawnJumpStartHeight) * spawnJumpPeakHeight
+            ) / spawnJumpStartHeight;
+
+        while (Time.time < endTime)
+        {
+            float progress = (Time.time - startTime) / jumpDuration;
+            
+            float y = spawnJumpPeakHeight * (1 - (progress - h)*(progress - h)/((1 - h)*(1 - h)));
+            float z = Mathf.Lerp(spawnJumpStartZ, 0f, progress);
+            
+            spawnJumpAnimatedTransform.position = transform.position + new Vector3(0f, y, z);
+            
+            yield return null;
+        }
+
+        spawnJumpAnimatedTransform.position = transform.position;
     }
     
 
@@ -129,9 +161,41 @@ public class ClamEnemy : Enemy
         float timeToTarget = distToTarget / bullet.Speed;
         
         Vector3 targetPos = target.position
-                + targetVelocity * timeToTarget * spitVelocityCorrection
-                - (bullet.UsesGravity ? Physics.gravity * timeToTarget * timeToTarget * spitGravityCorrection / 2f : Vector3.zero);
+                + targetVelocity * (timeToTarget * spitVelocityCorrection)
+                - (bullet.UsesGravity ? Physics.gravity * (timeToTarget * timeToTarget * spitGravityCorrection) / 2f : Vector3.zero);
         
         projectile.transform.forward = targetPos - spitOrigin.position;
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.maroon;
+        try
+        {
+            Gizmos.DrawLineStrip(GetSpawnJumpLine(64), false);
+        }
+        catch (Exception) {}
+    }
+    
+    private ReadOnlySpan<Vector3> GetSpawnJumpLine(int steps)
+    {
+        Span<Vector3> points = new Vector3[steps];
+
+        float h = 1 - spawnJumpPeakHeight/spawnJumpStartHeight + Mathf.Sqrt(
+                    (spawnJumpPeakHeight - spawnJumpStartHeight) * spawnJumpPeakHeight
+            ) / spawnJumpStartHeight;
+        
+        for (int i = 0; i < steps; i++)
+        {
+            float progress = i / (steps - 1f);
+
+            float y = spawnJumpPeakHeight * (1 - (progress - h)*(progress - h)/((1 - h)*(1 - h)));
+            float z = Mathf.Lerp(spawnJumpStartZ, 0f, progress);
+            
+            points[i] = transform.position + new Vector3(0f, y, z);
+        }
+
+        return points;
     }
 }
