@@ -49,6 +49,8 @@ public class ClamEnemy : Enemy
 
         spawnJumpAnimatedTransform.position = transform.position + new Vector3(0, spawnJumpStartHeight, spawnJumpStartZ);
         
+        transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+        
         StartCoroutine(AttackCoroutine());
     }
 
@@ -163,6 +165,8 @@ public class ClamEnemy : Enemy
                 - (bullet.UsesGravity ? Physics.gravity * (timeToTarget * timeToTarget * spitGravityCorrection) / 2f : Vector3.zero);
         
         projectile.transform.forward = targetPos - spitOrigin.position;
+        
+        transform.rotation = Quaternion.LookRotation(projectile.transform.forward, Vector3.up);
     }
 
 
