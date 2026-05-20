@@ -25,10 +25,8 @@ public class BatEnemy : Enemy
     private Transform player;
     private Movement movement;
 
-    [System.Obsolete]
     private void Awake()
     {
-        movement = FindFirstObjectByType<Movement>();
         BasePos = transform.position;
         base.Awake();
     }
@@ -74,6 +72,8 @@ public class BatEnemy : Enemy
                
                 if (currentState == BatState.SuckingBlood)
                 {
+                    movement = FindFirstObjectByType<Movement>();
+
                     if (movement.mashClicks() < 4)
                     {
                         Visualclutter.SetActive(true);

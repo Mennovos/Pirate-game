@@ -11,9 +11,13 @@ public class CrabEnemy : Enemy
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float waitTime;
+    [SerializeField] private float impulseReduction;
     [SerializeField] private GameObject Damage;
 
+    private bool Attacking;
     private bool chargingAttack;
+    private bool hit;
+  
     private void Awake()
     {
         base.Awake();
@@ -23,30 +27,46 @@ public class CrabEnemy : Enemy
 
     private IEnumerator MoveBetweenPoints()
     {
+   
         while (true)
-        {
-            // Move from startPos to endPos
-            float elapsedTime = 0;
-            while (elapsedTime < waitTime)
             {
-                transform.position = Vector3.Lerp(startPos, endPos, elapsedTime / waitTime);
-                elapsedTime += Time.deltaTime * moveSpeed;
-                yield return null;
-            }
+           
+                // Move from startPos to endPos
+                float elapsedTime = 0;
+                while (elapsedTime < waitTime)
+                {
 
-            // Swap start and end positions
-            Vector3 temp = startPos;
-            startPos = endPos;
-            endPos = temp;
-        }
+                if (hit) 
+                {
+                    yield return null;
+                    transform.position = Vector3.Lerp(transform.position, transform.position, 0);
+                    continue;
+                }
+                
+                transform.position = Vector3.Lerp(startPos, endPos, elapsedTime / waitTime);
+                    elapsedTime += Time.deltaTime * moveSpeed;
+                    yield return null;
+                }
+
+                // Swap start and end positions
+                Vector3 temp = startPos;
+                startPos = endPos;
+                endPos = temp;
+            }
     }
     public override void attack(Vector2 impulse)
     {
-        enemyHealth -= 1; // Example damage value
-        
-        if (enemyHealth <= 0)
+        StartCoroutine(TimeHit());
+        base.attack(impulse / impulseReduction);
+
+        if (!chargingAttack)
         {
-            kill();
+            enemyHealth -= 1; // Example damage value
+
+            if (enemyHealth <= 0)
+            {
+                kill();
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -78,4 +98,11 @@ public class CrabEnemy : Enemy
         chargingAttack = false;
 
     }
+    private IEnumerator TimeHit()
+    {
+        hit = true;
+        yield return new WaitForSeconds(0.5f);
+        hit = false;
+    }
+
 }
