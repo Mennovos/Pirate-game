@@ -6,9 +6,6 @@
 using UnityEngine.InputSystem;
 #endif
 
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace UnityEngine.Rendering
 {
     /// <summary>

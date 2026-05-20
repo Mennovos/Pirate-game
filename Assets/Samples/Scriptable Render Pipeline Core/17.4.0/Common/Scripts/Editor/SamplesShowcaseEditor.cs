@@ -5,10 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 using System.Text.RegularExpressions;
-using System.Text;
 using System;
-using System.Collections;
-using System.Reflection;
 using UnityEngine.Rendering;
 using UnityEditor.Inspector.GraphicsSettingsInspectors;
 

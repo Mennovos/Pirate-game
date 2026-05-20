@@ -1,7 +1,4 @@
-using UnityEditorInternal;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Rendering;
 
 public class BatEnemy : Enemy
 {

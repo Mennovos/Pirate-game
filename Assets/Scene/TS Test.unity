@@ -2084,6 +2084,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5312976146879663885, guid: 98a546a2c82ccb24da4c02edf17f274f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7199978612871752584, guid: 98a546a2c82ccb24da4c02edf17f274f, type: 3}
       propertyPath: m_Name
       value: P.Ocean

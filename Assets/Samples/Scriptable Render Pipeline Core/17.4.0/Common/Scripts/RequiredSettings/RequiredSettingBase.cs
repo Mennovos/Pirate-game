@@ -1,11 +1,6 @@
 #if UNITY_EDITOR
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEditor;
-using UnityEngine;
-using UnityEngine.Rendering;
 using System.Reflection;
 
 namespace UnityEngine.Rendering

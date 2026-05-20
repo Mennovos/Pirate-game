@@ -1,11 +1,6 @@
-using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEditor.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
-using System.Reflection;
 
 
 public class SamplesWindow : EditorWindow
