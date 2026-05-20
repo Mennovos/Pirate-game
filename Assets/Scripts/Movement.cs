@@ -14,8 +14,9 @@ public class Movement : MonoBehaviour
     private Vector3 movement;
 
     private Controls Controls;
-    private LayerMask GroundLayer;
+    private Health health;
 
+    private LayerMask GroundLayer;
     private Rigidbody Rb;
     private Animator Anim;
 
@@ -29,6 +30,7 @@ public class Movement : MonoBehaviour
     {
         GroundLayer = LayerMask.GetMask("Ground");
         Anim = GetComponent<Animator>();
+        health = FindFirstObjectByType<Health>();
 
         Controls = new Controls();
 
@@ -85,7 +87,8 @@ public class Movement : MonoBehaviour
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
-         if (mashCooldown < 0)
+        DealDamageIfNotCooldown();
+        if (mashCooldown < 0)
          {
            mashAmount++;
            mashCooldown = 3f;
@@ -95,6 +98,8 @@ public class Movement : MonoBehaviour
             batHit = false;
             mashAmount = 0;
         }
+
+       
     }
 
     public float mashClicks()
@@ -109,7 +114,16 @@ public class Movement : MonoBehaviour
             batHit = true;
         }
     }
-
+    private void DealDamageIfNotCooldown() {       
+        if (mashCooldown < -1)
+        {
+         health.TakeDamage(10);
+        }
+        else if (mashCooldown > 1)
+        {
+         health.TakeDamage(10);
+        }
+    }
     // future grapple code neglect for now 
 
     //IEnumerator GrappleCooldown()
