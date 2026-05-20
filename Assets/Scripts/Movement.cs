@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float mashAmount = 0f;
+    [SerializeField] public float mashAmount = 0f;
     [SerializeField] private float mashCooldown = 3f;
 
 
@@ -27,7 +27,6 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
-        mashAmount = 1;
         GroundLayer = LayerMask.GetMask("Ground");
         Anim = GetComponent<Animator>();
 

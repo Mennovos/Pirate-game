@@ -15,19 +15,21 @@ public class BatEnemy : Enemy
     [SerializeField] private float moveSpeed;
     [SerializeField] private float moveBackSpeed;
     [SerializeField] private float playerInRange;
+    [SerializeField] private float coolDownTimerChase;
+
     [SerializeField] private Vector3 BasePos;
 
     [SerializeField] private GameObject Visualclutter;
     public bool visualClutterActive = false;
     private Transform player;
     private Movement movement;
+   
 
     private void Awake()
     {
         BasePos = transform.position;
         base.Awake();
     }
-
 
     private void FixedUpdate()
     {
@@ -44,9 +46,16 @@ public class BatEnemy : Enemy
                     transform.position = Vector3.Lerp(transform.position, BasePos, moveBackSpeed * Time.fixedDeltaTime);
 
                     // Check if the player is within range to start chasing
-                    if (Vector3.Distance(transform.position, player.position) <= playerInRange)
+                    if (coolDownTimerChase < 0)
                     {
-                        currentState = BatState.Chase;
+                        if (Vector3.Distance(transform.position, player.position) <= playerInRange)
+                        {
+                            currentState = BatState.Chase;
+                        }
+                    }
+                    else
+                    {
+                        coolDownTimerChase -= Time.fixedDeltaTime;
                     }
                 }
                 break;
@@ -66,7 +75,6 @@ public class BatEnemy : Enemy
                 }
                     break;
             case BatState.SuckingBlood:
-               
                 if (currentState == BatState.SuckingBlood)
                 {
                     movement = FindFirstObjectByType<Movement>();
@@ -93,9 +101,12 @@ public class BatEnemy : Enemy
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        movement = collision.gameObject.GetComponent<Movement>();
+        if (collision.gameObject.CompareTag("Player"))
         {
             currentState = BatState.SuckingBlood;
+            movement.mashAmount = 1;
+            coolDownTimerChase = 5f; // Reset the chase cooldown timer
         }
     }
 }

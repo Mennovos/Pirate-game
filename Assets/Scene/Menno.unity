@@ -914,7 +914,7 @@ PrefabInstance:
       objectReference: {fileID: 969999965}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: maxHealth
-      value: 100.25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: deathScreen
@@ -922,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 1337043987}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: currentHealth
-      value: 159.1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1240,7 +1240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1477424230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   endPos: {x: 6, y: 0, z: 0}
   moveSpeed: 4
   waitTime: 10
-  impulseReduction: 0.31
+  impulseReduction: 0.01
   Damage: {fileID: 382640331}
 --- !u!54 &1477424235
 Rigidbody:
@@ -1406,7 +1406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1504103176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,6 +1426,7 @@ MonoBehaviour:
   moveSpeed: 4.13
   moveBackSpeed: 0.5
   playerInRange: 5.36
+  coolDownTimerChase: 5.24
   BasePos: {x: 0, y: 0, z: 0}
   Visualclutter: {fileID: 206792143}
   visualClutterActive: 0
