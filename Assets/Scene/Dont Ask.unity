@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 135659640}
   - component: {fileID: 135659639}
   - component: {fileID: 135659641}
-  - component: {fileID: 135659642}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -247,19 +246,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!114 &135659642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135659638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbad60e696adfcf498ee1f819c8d6c2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spin
-  spinSpeed: -45
 --- !u!1 &191053064
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,61 +383,13 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1 &267778920
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 267778922}
-  - component: {fileID: 267778921}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &267778921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267778920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1991b6443ab955847a015c2646e61c53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MakeTile
-  size: 50
-  rightOffset: {x: 3, y: 0, z: 0}
-  forwardOffset: {x: 0, y: 0, z: 3}
---- !u!4 &267778922
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267778920}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1365797564}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1365797559
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 267778922}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fecab1821aa655b40b02b733c259cad6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -526,16 +464,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbad60e696adfcf498ee1f819c8d6c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spin
-  spinSpeed: 135
---- !u!4 &1365797564 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fecab1821aa655b40b02b733c259cad6, type: 3}
-  m_PrefabInstance: {fileID: 1365797559}
-  m_PrefabAsset: {fileID: 0}
+  spinSpeed: {x: 155, y: 359, z: 209}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 191053067}
   - {fileID: 135659640}
-  - {fileID: 267778922}
+  - {fileID: 1365797559}
