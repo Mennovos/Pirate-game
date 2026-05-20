@@ -39,7 +39,7 @@ public class CrabEnemy : Enemy
                 if (hit) 
                 {
                     yield return null;
-                    transform.position = Vector3.Lerp(transform.position, transform.position, 0);
+                    transform.position = Vector3.Lerp(transform.position, startPos, 1);
                     continue;
                 }
                 
