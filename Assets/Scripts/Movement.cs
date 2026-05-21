@@ -25,7 +25,8 @@ public class Movement : MonoBehaviour
     private bool Grounded;
 
     [SerializeField] private bool batHit;
-    [SerializeField] private TextMeshProUGUI E;
+    //for mashing text
+    // [SerializeField] private TextMeshProUGUI E;
 
 
     private void Awake()
@@ -64,15 +65,17 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(
                 Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
-        //make text work
-        if (mashCooldown < 1 && mashCooldown > -1)
-        {
-            E.text = "Mash the button to escape!";
-        }
-        else
-        {
-            E.text = "                     E";
-        }
+        //make text work for  mashing thingie
+
+
+        //if (mashCooldown < 1 && mashCooldown > -1)
+        //{
+        //    E.text = "Mash the button to escape!";
+        //}
+        //else
+        //{
+        //    E.text = "                     E";
+        //}
 
 
     }
