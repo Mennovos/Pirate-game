@@ -21,21 +21,18 @@ public class BatEnemy : Enemy
 
     [SerializeField] private GameObject Visualclutter;
     public bool visualClutterActive = false;
-    private Transform player;
     private Movement movement;
    
 
-    private void Awake()
+    private new void Awake()
     {
         BasePos = transform.position;
         base.Awake();
     }
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
-        // keep track of the player
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        base.FixedUpdate();
         switch (currentState)
             {
                 case BatState.IDLE:
@@ -48,7 +45,7 @@ public class BatEnemy : Enemy
                     // Check if the player is within range to start chasing
                     if (coolDownTimerChase < 0)
                     {
-                        if (Vector3.Distance(transform.position, player.position) <= playerInRange)
+                        if (Vector3.Distance(transform.position, target.position) <= playerInRange)
                         {
                             currentState = BatState.Chase;
                         }
@@ -64,11 +61,11 @@ public class BatEnemy : Enemy
                 if (currentState == BatState.Chase)
                 {
                     //chase the player
-                    Vector3 direction = (player.position - transform.position).normalized;
+                    Vector3 direction = (target.position - transform.position).normalized;
                     transform.position += direction * moveSpeed * Time.fixedDeltaTime;
 
                     // Check if the player is out of range to return to idle
-                    if (Vector3.Distance(transform.position, player.position) > playerInRange)
+                    if (Vector3.Distance(transform.position, target.position) > playerInRange)
                     {
                         currentState = BatState.IDLE;
                     }

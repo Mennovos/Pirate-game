@@ -18,7 +18,7 @@ public class CrabEnemy : Enemy
     private bool chargingAttack;
     private bool hit;
   
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         transform.position = startPos;

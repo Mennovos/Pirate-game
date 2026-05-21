@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     private bool Grounded;
 
     [SerializeField] private bool batHit;
+    [SerializeField] private GameObject E;
 
 
     private void Awake()
@@ -118,10 +119,16 @@ public class Movement : MonoBehaviour
         if (mashCooldown < -1)
         {
          health.TakeDamage(10);
+          E.SetActive(false);
         }
         else if (mashCooldown > 1)
         {
          health.TakeDamage(10);
+        E.SetActive(false);
+        }
+        if (mashCooldown < 1 && mashCooldown > -1)
+        {
+          E.SetActive(true);
         }
     }
     // future grapple code neglect for now 
