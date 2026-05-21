@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Spin : MonoBehaviour
 {
-    [SerializeField] private float spinSpeed;
+    [SerializeField] private Vector3 spinSpeed;
 
     private void Update()
     {
-        transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
+        transform.Rotate(spinSpeed * Time.deltaTime);
     }
 }
