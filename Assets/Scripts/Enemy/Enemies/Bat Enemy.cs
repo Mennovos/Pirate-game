@@ -74,7 +74,7 @@ public class BatEnemy : Enemy
             case BatState.SuckingBlood:
                 if (currentState == BatState.SuckingBlood)
                 {
-                    movement = FindFirstObjectByType<Movement>();
+                    movement = FindAnyObjectByType<Movement>();
 
                     if (movement.mashClicks() < 4)
                     {

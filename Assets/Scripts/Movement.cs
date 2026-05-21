@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
     {
         GroundLayer = LayerMask.GetMask("Ground");
         Anim = GetComponent<Animator>();
-        health = FindFirstObjectByType<Health>();
+        health = FindAnyObjectByType<Health>();
 
         Controls = new Controls();
 
