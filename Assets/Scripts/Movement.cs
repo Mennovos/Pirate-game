@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +25,7 @@ public class Movement : MonoBehaviour
     private bool Grounded;
 
     [SerializeField] private bool batHit;
-    [SerializeField] private GameObject E;
+    [SerializeField] private TextMeshProUGUI E;
 
 
     private void Awake()
@@ -52,14 +53,7 @@ public class Movement : MonoBehaviour
     {
         if (batHit)
         {
-            if (mashCooldown < -1)
-            {
-                mashCooldown = -1;
-            }
-            else
-            {
-                mashCooldown -= Time.deltaTime;
-            }
+          mashCooldown -= Time.deltaTime;
         }
 
 
@@ -115,20 +109,20 @@ public class Movement : MonoBehaviour
             batHit = true;
         }
     }
-    private void DealDamageIfNotCooldown() {       
+    private void DealDamageIfNotCooldown() {     
         if (mashCooldown < -1)
         {
-         health.TakeDamage(10);
-          E.SetActive(false);
+            E.text = "E";
+            health.TakeDamage(10);
         }
         else if (mashCooldown > 1)
         {
-         health.TakeDamage(10);
-        E.SetActive(false);
+         E.text = "E";
+            health.TakeDamage(10);
         }
         if (mashCooldown < 1 && mashCooldown > -1)
         {
-          E.SetActive(true);
+            E.text = "Mash the button to escape!";
         }
     }
     // future grapple code neglect for now 
