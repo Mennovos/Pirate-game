@@ -464,7 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbad60e696adfcf498ee1f819c8d6c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spin
-  spinSpeed: {x: 155, y: 359, z: 209}
+  spinSpeed: {x: 0, y: 180, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

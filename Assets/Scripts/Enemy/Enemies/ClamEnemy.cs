@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class ClamEnemy : Enemy
 {
+    private static readonly int animator_State = Animator.StringToHash("State");
+    
     private enum ClamState
     {
         SPAWNING,
@@ -52,6 +54,14 @@ public class ClamEnemy : Enemy
         transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
         
         StartCoroutine(AttackCoroutine());
+    }
+    
+    private void Update()
+    {
+        if (animator)
+        {
+            animator.SetInteger(animator_State, (int)state);
+        }
     }
 
     public override void attack(Vector2 impulse)
