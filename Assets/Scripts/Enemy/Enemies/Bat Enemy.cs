@@ -26,6 +26,7 @@ public class BatEnemy : Enemy
 
     private new void Awake()
     {
+        movement = FindAnyObjectByType<Movement>();
         BasePos = transform.position;
         base.Awake();
     }
@@ -41,6 +42,12 @@ public class BatEnemy : Enemy
 
                     // Move back to the base position
                     transform.position = Vector3.Lerp(transform.position, BasePos, moveBackSpeed * Time.fixedDeltaTime);
+
+                    // check if sucking blood is active and if the player has mashed enough to stop it
+                    if (movement.mashClicks() == 0)
+                    {
+                        Visualclutter.SetActive(false);
+                    }
 
                     // Check if the player is within range to start chasing
                     if (coolDownTimerChase < 0)
@@ -74,16 +81,13 @@ public class BatEnemy : Enemy
             case BatState.SuckingBlood:
                 if (currentState == BatState.SuckingBlood)
                 {
-                    movement = FindAnyObjectByType<Movement>();
 
                     if (movement.mashClicks() < 4)
                     {
                         Visualclutter.SetActive(true);
                     }
-                    if (movement.mashClicks() == 0) 
-                    { 
-                        Debug.Log("Player has mashed enough, exiting sucking blood state.");    
-                        Visualclutter.SetActive(false);
+                    if (movement.mashClicks() == 3)
+                    {
                         currentState = BatState.IDLE;
                     }
                 }

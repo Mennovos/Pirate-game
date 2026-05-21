@@ -64,6 +64,15 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(
                 Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
+        //make text work
+        if (mashCooldown < 1 && mashCooldown > -1)
+        {
+            E.text = "Mash the button to escape!";
+        }
+        else
+        {
+            E.text = "                     E";
+        }
 
 
     }
@@ -83,7 +92,7 @@ public class Movement : MonoBehaviour
     public void OnMashing(InputAction.CallbackContext context)
     {
         DealDamageIfNotCooldown();
-        if (mashCooldown < 0)
+        if (mashCooldown < 3)
          {
            mashAmount++;
            mashCooldown = 3f;
@@ -112,17 +121,16 @@ public class Movement : MonoBehaviour
     private void DealDamageIfNotCooldown() {     
         if (mashCooldown < -1)
         {
-            E.text = "E";
+        
             health.TakeDamage(10);
         }
         else if (mashCooldown > 1)
         {
-         E.text = "E";
             health.TakeDamage(10);
         }
         if (mashCooldown < 1 && mashCooldown > -1)
         {
-            E.text = "Mash the button to escape!";
+            health.TakeDamage(0);
         }
     }
     // future grapple code neglect for now 
