@@ -16,7 +16,8 @@ public class PelicanEnemy : Enemy
         BULLET_ATTACK,
         BULLET_ATTACK_WINDUP,
         BULLET_ATTACK_WINDDOWN,
-        SWOOP_ATTACK
+        SWOOP_ATTACK,
+        DEFEATED
     }
     
     private PelicanState state = PelicanState.IDLE;
@@ -26,6 +27,10 @@ public class PelicanEnemy : Enemy
     private float health;
     
     [SerializeField] private HealthBar healthBar;
+    
+    [Space]
+    [SerializeField] private float timeToDestroyAfterDefeat = 15f;
+    [SerializeField] private Vector3 velocityAfterDefeat = new(0f, 5f, 0f);
     
     [Header("Attack General")]
     [SerializeField] private Transform spawnerTransform;
@@ -72,7 +77,7 @@ public class PelicanEnemy : Enemy
 
     private void Update()
     {
-        if (state != PelicanState.SWOOP_ATTACK)
+        if (state != PelicanState.SWOOP_ATTACK && state != PelicanState.DEFEATED)
         {
             //TODO: point head to target
         }
@@ -96,7 +101,21 @@ public class PelicanEnemy : Enemy
 
     public override void kill()
     {
-        if (health <= 0f) base.kill();
+        if (health <= 0f)
+        {
+            isAlive = false;
+            
+            Destroy(gameObject, timeToDestroyAfterDefeat);
+            
+            state = PelicanState.DEFEATED;
+            
+            rb.useGravity = true;
+            rb.excludeLayers = ~0;
+
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+            rb.linearVelocity = velocityAfterDefeat;
+        }
     }
 
 
@@ -136,6 +155,8 @@ public class PelicanEnemy : Enemy
 
         for (int i = 0; i < seagulls; i++)
         {
+            if (state == PelicanState.DEFEATED) yield break;
+            
             Vector2 direction = (target.position - spawnerTransform.position).normalized;
             
             GameObject seagull = Instantiate(seagullPrefab, spawnerTransform.position, spawnerTransform.rotation);
@@ -160,6 +181,8 @@ public class PelicanEnemy : Enemy
 
         for (int i = 0; i < fans; i++)
         {
+            if (state == PelicanState.DEFEATED) yield break;
+            
             Vector2 direction = (target.position - spawnerTransform.position).normalized;
             int bullets = Random.Range(bulletFanSizeRange.x, bulletFanSizeRange.y);
 
@@ -192,6 +215,8 @@ public class PelicanEnemy : Enemy
 
         while (Time.time < endTime)
         {
+            if (state == PelicanState.DEFEATED) yield break;
+            
             float progress = Mathf.Clamp01((Time.time - startTime) / swoopDuration);
 
             float t = Mathf.Sin(Mathf.PI / 2f * progress) * Mathf.Sin(Mathf.PI / 2f * progress);

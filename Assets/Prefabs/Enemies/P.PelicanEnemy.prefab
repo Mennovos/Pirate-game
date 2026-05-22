@@ -81,6 +81,8 @@ MonoBehaviour:
   attackDamage: 3
   maxHealth: 120
   healthBar: {fileID: 5242275302560298461}
+  timeToDestroyAfterDefeat: 30
+  velocityAfterDefeat: {x: 0, y: 5, z: 0}
   spawnerTransform: {fileID: 8758815292528928110}
   seagullAttackWeight: 2
   bulletAttackWeight: 2
