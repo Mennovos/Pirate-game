@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,7 +7,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float mashAmount = 0f;
+    [SerializeField] public float mashAmount = 0f;
     [SerializeField] private float mashCooldown = 3f;
 
 
@@ -14,8 +15,9 @@ public class Movement : MonoBehaviour
     private Vector3 movement;
 
     private Controls Controls;
-    private LayerMask GroundLayer;
+    private Health health;
 
+    private LayerMask GroundLayer;
     private Rigidbody Rb;
     private Animator Anim;
 
@@ -23,13 +25,15 @@ public class Movement : MonoBehaviour
     private bool Grounded;
 
     [SerializeField] private bool batHit;
+    //for mashing text
+    // [SerializeField] private TextMeshProUGUI E;
 
 
     private void Awake()
     {
-        mashAmount = 1;
         GroundLayer = LayerMask.GetMask("Ground");
         Anim = GetComponent<Animator>();
+        health = FindAnyObjectByType<Health>();
 
         Controls = new Controls();
 
@@ -50,14 +54,7 @@ public class Movement : MonoBehaviour
     {
         if (batHit)
         {
-            if (mashCooldown < -1)
-            {
-                mashCooldown = -1;
-            }
-            else
-            {
-                mashCooldown -= Time.deltaTime;
-            }
+          mashCooldown -= Time.deltaTime;
         }
 
 
@@ -68,6 +65,17 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(
                 Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
+        //make text work for  mashing thingie
+
+
+        //if (mashCooldown < 1 && mashCooldown > -1)
+        //{
+        //    E.text = "Mash the button to escape!";
+        //}
+        //else
+        //{
+        //    E.text = "                     E";
+        //}
 
 
     }
@@ -86,7 +94,8 @@ public class Movement : MonoBehaviour
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
-         if (mashCooldown < 0)
+        DealDamageIfNotCooldown();
+        if (mashCooldown < 3)
          {
            mashAmount++;
            mashCooldown = 3f;
@@ -96,6 +105,8 @@ public class Movement : MonoBehaviour
             batHit = false;
             mashAmount = 0;
         }
+
+       
     }
 
     public float mashClicks()
@@ -110,7 +121,21 @@ public class Movement : MonoBehaviour
             batHit = true;
         }
     }
-
+    private void DealDamageIfNotCooldown() {     
+        if (mashCooldown < -1)
+        {
+        
+            health.TakeDamage(10);
+        }
+        else if (mashCooldown > 1)
+        {
+            health.TakeDamage(10);
+        }
+        if (mashCooldown < 1 && mashCooldown > -1)
+        {
+            health.TakeDamage(0);
+        }
+    }
     // future grapple code neglect for now 
 
     //IEnumerator GrappleCooldown()
