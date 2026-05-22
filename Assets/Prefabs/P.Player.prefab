@@ -270,7 +270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 5
-  jumpForce: 7
+  jumpForce: 8
+  mashAmount: 0
+  mashCooldown: 3
+  batHit: 0
 --- !u!1001 &5285092898628684574
 PrefabInstance:
   m_ObjectHideFlags: 0
