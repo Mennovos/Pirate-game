@@ -977,6 +977,10 @@ PrefabInstance:
       propertyPath: Visualclutter
       value: 
       objectReference: {fileID: 206792143}
+    - target: {fileID: 5770427319872839599, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1837b28b433b56843b68243b0278df7b, type: 2}
     - target: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_Name
       value: Player
