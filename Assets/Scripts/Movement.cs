@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] public float mashAmount = 0f;
     [SerializeField] private float mashCooldown = 3f;
+    [SerializeField] private Transform modelTransform;
 
 
     private Vector2 moveInput;
@@ -62,7 +63,7 @@ public class Movement : MonoBehaviour
 
         if (movement.magnitude > 0.1f)
         {
-            transform.rotation = Quaternion.LookRotation(
+            modelTransform.rotation = Quaternion.LookRotation(
                 Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
         //make text work for  mashing thingie
