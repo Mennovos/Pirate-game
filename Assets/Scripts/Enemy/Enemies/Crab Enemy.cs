@@ -14,7 +14,6 @@ public class CrabEnemy : Enemy
     [SerializeField] private float impulseReduction;
     [SerializeField] private GameObject Damage;
 
-    private bool Attacking;
     private bool chargingAttack;
     private bool hit;
   

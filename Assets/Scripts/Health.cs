@@ -32,10 +32,8 @@ public class Health : MonoBehaviour
     }
     private void Die()
     {
-        if (deathScreen)
-        {
-            deathScreen.SetActive(true);
-            Destroy(gameObject);
-        }
+        deathScreen.SetActive(true);
+        Destroy(gameObject);
+        Debug.Log("Entity has died.");
     }
 }
