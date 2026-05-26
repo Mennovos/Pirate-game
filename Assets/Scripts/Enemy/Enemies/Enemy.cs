@@ -26,6 +26,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     protected void FixedUpdate()
     {
+        if (!target) return;
+        
         targetVelocity = (target.position - oldTargetPos) / Time.fixedDeltaTime;
         
         oldTargetPos = target.position;

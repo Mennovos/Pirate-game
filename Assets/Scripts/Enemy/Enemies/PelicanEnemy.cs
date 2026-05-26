@@ -155,7 +155,7 @@ public class PelicanEnemy : Enemy
 
         for (int i = 0; i < seagulls; i++)
         {
-            if (state == PelicanState.DEFEATED) yield break;
+            if (state == PelicanState.DEFEATED || !target) yield break;
             
             Vector2 direction = (target.position - spawnerTransform.position).normalized;
             
@@ -181,7 +181,7 @@ public class PelicanEnemy : Enemy
 
         for (int i = 0; i < fans; i++)
         {
-            if (state == PelicanState.DEFEATED) yield break;
+            if (state == PelicanState.DEFEATED || !target) yield break;
             
             Vector2 direction = (target.position - spawnerTransform.position).normalized;
             int bullets = Random.Range(bulletFanSizeRange.x, bulletFanSizeRange.y);
