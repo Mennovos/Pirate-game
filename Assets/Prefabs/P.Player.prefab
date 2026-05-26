@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 2945199873060054388}
   - component: {fileID: 4320021255928521394}
   - component: {fileID: 5679303733481374348}
+  - component: {fileID: -6672035909423237752}
   m_Layer: 3
   m_Name: P.Player
   m_TagString: Player
@@ -274,6 +275,19 @@ MonoBehaviour:
   mashAmount: 0
   mashCooldown: 3
   batHit: 0
+--- !u!114 &-6672035909423237752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292754492190491993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa09c7b09ea1f64284e1d782172298c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackingTarget
+  weight: 1
 --- !u!1001 &5285092898628684574
 PrefabInstance:
   m_ObjectHideFlags: 0
