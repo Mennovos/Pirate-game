@@ -103,9 +103,9 @@ MonoBehaviour:
   bulletFanCountRange: {x: 2, y: 4}
   bulletFanSizeRange: {x: 4, y: 6}
   bulletFanAngle: 90
-  swoopLeft: {x: -15, y: 10}
-  swoopMiddle: {x: 5, y: 0}
-  swoopRight: {x: 15, y: 10}
+  swoopLeft: {x: -25, y: 10}
+  swoopMiddle: {x: -5, y: -3}
+  swoopRight: {x: 30, y: 10}
   isRight: 1
   swoopDuration: 5
 --- !u!135 &6439708960300517680
