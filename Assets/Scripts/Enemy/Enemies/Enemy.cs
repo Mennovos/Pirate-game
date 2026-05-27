@@ -8,7 +8,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space]
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
-    
+    [SerializeField] private float scoreAmount;
+
     private Vector3 oldTargetPos;
     protected Vector3 targetVelocity;
     
