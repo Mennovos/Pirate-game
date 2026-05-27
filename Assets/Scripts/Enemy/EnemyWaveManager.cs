@@ -13,6 +13,7 @@ public class EnemyWaveManager : MonoBehaviour
     [Space]
     [SerializeField, Range(0f, 1f)] private float lastWaveDefeatedThreshold = 0.5f;
     [SerializeField, Min(0f)] private float maxWaveDuration = 30f;
+    [SerializeField] private HealthBar progressBar;
     [Space]
     [SerializeField] private bool startOnAwake = true;
 
@@ -112,7 +113,7 @@ public class EnemyWaveManager : MonoBehaviour
             yield return new WaitUntil(() =>
             {
                 // if wave lasted longer than the max duration
-                bool timeThresholdMet = Time.time - time > maxWaveDuration;
+                bool timeThresholdMet = maxWaveDuration < Time.time - time;
                 
                 // or enough enemies have been defeated
                 bool killThresholdMet = waveEnemies.Count * lastWaveDefeatedThreshold < waveEnemies.Sum(enemy =>
@@ -120,6 +121,11 @@ public class EnemyWaveManager : MonoBehaviour
                     if (enemy == null) return 1;
                     return enemy.isDead() ? 1 : 0;
                 });
+                
+                progressBar?.setHealth(
+                    (1f - (Time.time - time) / maxWaveDuration) * 
+                    (1f - waveEnemies.Sum(enemy => { if (enemy == null) return 1; return enemy.isDead() ? 1 : 0; }) / 
+                        (waveEnemies.Count * lastWaveDefeatedThreshold)));
                 
                 return timeThresholdMet || killThresholdMet;
             });
