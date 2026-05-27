@@ -99,6 +99,7 @@ MonoBehaviour:
   animator: {fileID: 7130934321209635738}
   target: {fileID: 0}
   attackDamage: 1
+  scoreAmount: 0
   scaleRange: {x: 0.75, y: 1.25}
   horizontalIdleVelocity: 5
   verticalIdleVelocity: 3
@@ -109,7 +110,7 @@ MonoBehaviour:
   idleWallAvoidanceDistance: 2
   idleVelocitySmoothing: 1
   diveVelocity: 10
-  knockbackDuration: 1
+  knockbackDuration: 2
   whatIsTerrain:
     serializedVersion: 2
     m_Bits: 65
