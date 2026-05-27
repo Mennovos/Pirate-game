@@ -58,7 +58,12 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void kill()
     {
+        getScoreAmount();
         isAlive = false;
         Destroy(gameObject);
+    }
+    public float getScoreAmount()
+    {
+        return scoreAmount;
     }
 }
