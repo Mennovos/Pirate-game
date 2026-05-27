@@ -8584,6 +8584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 3.4028235e+38
+  knockback: {x: 0, y: 0}
 --- !u!65 &53706931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18243,6 +18245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 3.4028235e+38
+  knockback: {x: 0, y: 0}
 --- !u!65 &118375664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70513,7 +70517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.73
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70563,6 +70567,54 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d0bf13c87c830c047b6dc24d13f771f9, type: 2}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.301656
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.72332
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97383404
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.09232489
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.20116629
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.05153186
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -11.569
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -22.968
+      objectReference: {fileID: 0}
+    - target: {fileID: -6282019610603270928, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.25
+      objectReference: {fileID: 0}
     - target: {fileID: -4960584510277547667, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -83952,6 +84004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 3.4028235e+38
+  knockback: {x: 0, y: 0}
 --- !u!65 &556884830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193621,6 +193675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 2.5
+  knockback: {x: 0, y: 10}
 --- !u!4 &1316906158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
@@ -202570,32 +202626,40 @@ MonoBehaviour:
   - spawners:
     - {fileID: 1558319866}
     startWave: 0
-    endWave: 24
+    endWave: 14
     waveInterval: 1
     baseCount: 1
-    countPerSpawn: 0.2
+    countPerSpawn: 1
+    maxCount: 5
+  - spawners:
+    - {fileID: 1558319866}
+    startWave: 5
+    endWave: 14
+    waveInterval: 1
+    baseCount: 1
+    countPerSpawn: 0.5
     maxCount: 10
   - spawners:
     - {fileID: 2124625563}
-    startWave: 5
-    endWave: 24
+    startWave: 3
+    endWave: 14
     waveInterval: 2
     baseCount: 1
     countPerSpawn: 0.3
     maxCount: 3
   - spawners:
     - {fileID: 105567936}
-    startWave: 25
-    endWave: 25
+    startWave: 15
+    endWave: 15
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 0
     maxCount: 1
   lootSpawnGroups: []
-  lastWaveDefeatedThreshold: 0.75
+  lastWaveDefeatedThreshold: 0.6
   maxWaveDuration: 45
   startOnAwake: 0
-  finalWaveNumber: 25
+  finalWaveNumber: 15
 --- !u!4 &1381001054
 Transform:
   m_ObjectHideFlags: 0
