@@ -10,6 +10,10 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private float attackDamage;
     [SerializeField] private float scoreAmount;
 
+
+    [Space] 
+    [SerializeField, Min(0f)] private Vector2 scaleRange = Vector2.one;
+    
     private Vector3 oldTargetPos;
     protected Vector3 targetVelocity;
     
@@ -20,6 +24,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     protected void Awake()
     {
+        transform.localScale *= Random.Range(scaleRange.x, scaleRange.y);
+        
         if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         
         rb = GetComponent<Rigidbody>();

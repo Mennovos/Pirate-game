@@ -80,6 +80,7 @@ MonoBehaviour:
   animator: {fileID: 1869460006029512797}
   target: {fileID: 0}
   attackDamage: 3
+  scaleRange: {x: 0.9, y: 1.1}
   maxHealth: 120
   healthBar: {fileID: 5242275302560298461}
   timeToDestroyAfterDefeat: 30
