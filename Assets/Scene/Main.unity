@@ -8584,6 +8584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 3.4028235e+38
+  knockback: {x: 0, y: 0}
 --- !u!65 &53706931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18243,6 +18245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 3.4028235e+38
+  knockback: {x: 0, y: 0}
 --- !u!65 &118375664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83952,6 +83956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 3.4028235e+38
+  knockback: {x: 0, y: 0}
 --- !u!65 &556884830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -193621,6 +193627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c046f267792e5e43baa365ff9febd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
+  damage: 2.5
+  knockback: {x: 0, y: 10}
 --- !u!4 &1316906158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
