@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Utilities : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class Utilities : MonoBehaviour
 
     private bool wavesStarted;
 
+    [Header("Text for score")]
+    [SerializeField] private TextMeshProUGUI ScoreAmount;
+
+    private float score;
+    private Enemy enemy;
     private void Start()
     {
+        enemy = FindAnyObjectByType<Enemy>();
         wavesStarted = false;
     }
-
     public void Home()
     {
         SceneManager.LoadScene(0);
@@ -31,12 +37,15 @@ public class Utilities : MonoBehaviour
 
     void Update()
     {
-        if(Keyboard.current.anyKey.wasPressedThisFrame && !wavesStarted)
+        score += enemy.getScoreAmount();
+        ScoreAmount.text = "Score: " + score;
+        if (Keyboard.current.anyKey.wasPressedThisFrame && !wavesStarted)
         {
             pressAnyKey.Invoke();
             
             wavesStarted = true;
         }
+
     }
 
     [Serializable] private class AnyKeyPressedEvent : UnityEvent {}

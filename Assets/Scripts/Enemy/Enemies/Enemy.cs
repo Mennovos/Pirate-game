@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -9,7 +10,6 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
     [SerializeField] private float scoreAmount;
-
 
     [Space] 
     [SerializeField, Min(0f)] private Vector2 scaleRange = Vector2.one;
@@ -58,7 +58,12 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void kill()
     {
+        getScoreAmount();
         isAlive = false;
         Destroy(gameObject);
+    }
+    public float getScoreAmount()
+    {
+        return scoreAmount;
     }
 }
