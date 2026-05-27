@@ -99,6 +99,7 @@ MonoBehaviour:
   animator: {fileID: 7130934321209635738}
   target: {fileID: 0}
   attackDamage: 1
+  scaleRange: {x: 0.75, y: 1.25}
   horizontalIdleVelocity: 5
   verticalIdleVelocity: 3
   verticalIdleVelocityPassive: -0.5
