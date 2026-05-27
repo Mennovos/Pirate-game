@@ -202570,32 +202570,40 @@ MonoBehaviour:
   - spawners:
     - {fileID: 1558319866}
     startWave: 0
-    endWave: 24
+    endWave: 14
     waveInterval: 1
     baseCount: 1
-    countPerSpawn: 0.2
+    countPerSpawn: 1
+    maxCount: 5
+  - spawners:
+    - {fileID: 1558319866}
+    startWave: 5
+    endWave: 14
+    waveInterval: 1
+    baseCount: 1
+    countPerSpawn: 0.5
     maxCount: 10
   - spawners:
     - {fileID: 2124625563}
-    startWave: 5
-    endWave: 24
+    startWave: 3
+    endWave: 14
     waveInterval: 2
     baseCount: 1
     countPerSpawn: 0.3
     maxCount: 3
   - spawners:
     - {fileID: 105567936}
-    startWave: 25
-    endWave: 25
+    startWave: 15
+    endWave: 15
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 0
     maxCount: 1
   lootSpawnGroups: []
-  lastWaveDefeatedThreshold: 0.75
+  lastWaveDefeatedThreshold: 0.6
   maxWaveDuration: 45
   startOnAwake: 0
-  finalWaveNumber: 25
+  finalWaveNumber: 15
 --- !u!4 &1381001054
 Transform:
   m_ObjectHideFlags: 0
