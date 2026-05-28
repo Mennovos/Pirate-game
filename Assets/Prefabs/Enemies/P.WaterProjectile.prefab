@@ -76,7 +76,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
   animator: {fileID: 0}
   target: {fileID: 0}
-  attackDamage: 0.25
+  attackDamage: 0.1
+  scoreAmount: 0
+  scaleRange: {x: 1, y: 1}
+  hitSounds: []
+  audioSource: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 65

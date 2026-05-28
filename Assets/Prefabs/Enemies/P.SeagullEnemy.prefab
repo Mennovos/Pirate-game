@@ -102,7 +102,6 @@ MonoBehaviour:
   attackDamage: 1
   scoreAmount: 10
   scaleRange: {x: 0.75, y: 1.25}
-  isKilled: 0
   hitSounds:
   - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
   audioSource: {fileID: 6448827058796163954}
@@ -144,7 +143,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 5
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -318,7 +317,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7724633376996404095, guid: 2d607ad9ee584534fa48ab26339396ea, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4f0208f480185944e84085fa9f73b042, type: 2}
     m_RemovedComponents: []

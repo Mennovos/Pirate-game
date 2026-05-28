@@ -312736,7 +312736,7 @@ Transform:
   m_GameObject: {fileID: 2124625561}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 3.5, z: 0}
+  m_LocalPosition: {x: 10, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -312755,7 +312755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 3986486366963365198, guid: b34a991cec35fbe469f0d252a69fa142, type: 3}
-  maxOffset: {x: 9, y: 0.1}
+  maxOffset: {x: 5, y: 0.1}
 --- !u!1001 &2125387465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -315856,7 +315856,7 @@ PrefabInstance:
       objectReference: {fileID: 1396405665}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: deathScreen
@@ -315864,7 +315864,7 @@ PrefabInstance:
       objectReference: {fileID: 2075969763}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: currentHealth
-      value: 1000
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_LocalPosition.x
