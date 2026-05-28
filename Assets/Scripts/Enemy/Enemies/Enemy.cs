@@ -9,10 +9,14 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space]
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
-    [SerializeField] public float scoreAmount;
+    [SerializeField] private float scoreAmount;
 
     [Space] 
     [SerializeField, Min(0f)] private Vector2 scaleRange = Vector2.one;
+    
+    [Space]
+    [SerializeField] private List<AudioClip> hitSounds;
+    [SerializeField] private AudioSource audioSource;
     
     private Vector3 oldTargetPos;
     protected Vector3 targetVelocity;
@@ -51,6 +55,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     public virtual void attack(Vector2 impulse)
     {
         TimeManager.Instance.AddHitstop(0.1f);
+        PlayHitSound();
         
         rb.linearVelocity = impulse / rb.mass;
     }
@@ -66,5 +71,18 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         isAlive = false;
         Destroy(gameObject);
     }
-    
+    public float getScoreAmount()
+    {
+        return (float) scoreAmount;
+    }
+
+    protected void PlayHitSound()
+    {
+        if (hitSounds.Count == 0 || !audioSource) return;
+        
+        int index = Random.Range(0, hitSounds.Count);
+        AudioClip clip = hitSounds[index];
+        
+        audioSource.PlayOneShot(clip);
+    }
 }
