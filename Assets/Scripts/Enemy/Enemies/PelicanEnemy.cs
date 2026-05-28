@@ -91,6 +91,7 @@ public class PelicanEnemy : Enemy
     public override void attack(Vector2 impulse)
     {
         TimeManager.Instance.AddHitstop(0.2f);
+        PlayHitSound();
         
         health -= impulse.magnitude;
         
