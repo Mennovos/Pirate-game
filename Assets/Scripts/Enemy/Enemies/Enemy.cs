@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -70,10 +71,6 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         utilities.AddScore(scoreAmount);
         isAlive = false;
         Destroy(gameObject);
-    }
-    public float getScoreAmount()
-    {
-        return (float) scoreAmount;
     }
 
     protected void PlayHitSound()
