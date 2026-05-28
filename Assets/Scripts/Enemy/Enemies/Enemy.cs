@@ -48,6 +48,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void attack(Vector2 impulse)
     {
+        TimeManager.Instance.AddHitstop(0.1f);
+        
         rb.linearVelocity = impulse / rb.mass;
     }
 

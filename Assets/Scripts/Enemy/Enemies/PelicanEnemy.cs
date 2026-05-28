@@ -90,6 +90,8 @@ public class PelicanEnemy : Enemy
 
     public override void attack(Vector2 impulse)
     {
+        TimeManager.Instance.AddHitstop(0.2f);
+        
         health -= impulse.magnitude;
         
         health = Mathf.Clamp(health, 0f, maxHealth);
@@ -115,6 +117,11 @@ public class PelicanEnemy : Enemy
             rb.constraints = RigidbodyConstraints.FreezeRotation;
 
             rb.linearVelocity = velocityAfterDefeat;
+
+            if (TryGetComponent(out TrackingTarget trackingTarget))
+            {
+                trackingTarget.Weight = 0f;
+            }
         }
     }
 

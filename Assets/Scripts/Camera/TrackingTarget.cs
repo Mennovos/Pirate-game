@@ -5,7 +5,7 @@ public class TrackingTarget : MonoBehaviour
 {
     [SerializeField] private float weight = 1f;
 
-    public float Weight { get { return weight; } private set { weight = value; } }
+    public float Weight { get { return weight; } set { weight = value; } }
 
     private void Start()
     {
