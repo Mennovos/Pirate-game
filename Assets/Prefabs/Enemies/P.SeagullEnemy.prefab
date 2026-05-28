@@ -105,6 +105,10 @@ MonoBehaviour:
   hitSounds:
   - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
   audioSource: {fileID: 6448827058796163954}
+  meshRenderers:
+  - {fileID: 6738655815854249415}
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   horizontalIdleVelocity: 5
   verticalIdleVelocity: 3
   verticalIdleVelocityPassive: -0.5
@@ -360,6 +364,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!137 &6738655815854249415 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7724633376996404095, guid: 2d607ad9ee584534fa48ab26339396ea, type: 3}
+  m_PrefabInstance: {fileID: 3942878262960848568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8926424531393780069
 PrefabInstance:
   m_ObjectHideFlags: 0

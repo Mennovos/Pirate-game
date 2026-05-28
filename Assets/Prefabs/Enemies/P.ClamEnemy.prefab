@@ -85,6 +85,10 @@ MonoBehaviour:
   hitSounds:
   - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
   audioSource: {fileID: 1986692485362844130}
+  meshRenderers:
+  - {fileID: 3812481748289709413}
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   shellCloseChance: 0.5
   shellOpenChance: 0.5
   shellOpenCheckInterval: 1
@@ -424,5 +428,10 @@ PrefabInstance:
 --- !u!4 &2640106844632653322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}
+  m_PrefabInstance: {fileID: 2533611595520899553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3812481748289709413 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 93635c5d0d102674196420b111706603, type: 3}
   m_PrefabInstance: {fileID: 2533611595520899553}
   m_PrefabAsset: {fileID: 0}

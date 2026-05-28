@@ -52,7 +52,7 @@ public class BulletEnemy : Enemy
         if (parryable)
         {
             TimeManager.Instance.AddHitstop(0.1f);
-            PlayHitSound();
+            OnHit();
             
             rb.linearVelocity = impulse.normalized * speed;
         }

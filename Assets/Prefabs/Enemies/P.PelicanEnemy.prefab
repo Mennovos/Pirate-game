@@ -86,6 +86,10 @@ MonoBehaviour:
   hitSounds:
   - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
   audioSource: {fileID: 8778737579601793625}
+  meshRenderers:
+  - {fileID: 6456239345080918346}
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   maxHealth: 120
   healthBar: {fileID: 5242275302560298461}
   timeToDestroyAfterDefeat: 30
@@ -617,6 +621,11 @@ Transform:
 --- !u!4 &5697488028861041191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: af27df0dd7e5cec408a17781f17df15a, type: 3}
+  m_PrefabInstance: {fileID: 5231830717858639308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6456239345080918346 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7997802312384770938, guid: af27df0dd7e5cec408a17781f17df15a, type: 3}
   m_PrefabInstance: {fileID: 5231830717858639308}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6553081253909300021
