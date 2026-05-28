@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space]
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
-    [SerializeField] private float scoreAmount;
+    [SerializeField] public float scoreAmount;
 
     [Space] 
     [SerializeField, Min(0f)] private Vector2 scaleRange = Vector2.one;
@@ -18,6 +18,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     protected Vector3 targetVelocity;
     
     protected Rigidbody rb;
+    protected Utilities utilities;
     
     protected bool isAlive = true;
 
@@ -29,6 +30,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         
         rb = GetComponent<Rigidbody>();
+        utilities = FindAnyObjectByType<Utilities>();
     }
 
     protected void FixedUpdate()
@@ -58,12 +60,9 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void kill()
     {
-        getScoreAmount();
+        utilities.AddScore(scoreAmount);
         isAlive = false;
         Destroy(gameObject);
     }
-    public float getScoreAmount()
-    {
-        return (float) scoreAmount;
-    }
+    
 }
