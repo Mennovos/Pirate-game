@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7520910716790021361}
   - component: {fileID: 6439708960300517680}
   - component: {fileID: -141506713394972171}
+  - component: {fileID: 8778737579601793625}
   m_Layer: 7
   m_Name: P.PelicanEnemy
   m_TagString: Untagged
@@ -79,8 +80,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PelicanEnemy
   animator: {fileID: 1869460006029512797}
   target: {fileID: 0}
-  attackDamage: 3
+  attackDamage: 5
+  scoreAmount: 350
   scaleRange: {x: 0.9, y: 1.1}
+  hitSounds:
+  - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
+  audioSource: {fileID: 8778737579601793625}
+  meshRenderers:
+  - {fileID: 6456239345080918346}
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   maxHealth: 120
   healthBar: {fileID: 5242275302560298461}
   timeToDestroyAfterDefeat: 30
@@ -143,6 +152,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackingTarget
   weight: 0.5
+--- !u!82 &8778737579601793625
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590780746568459965}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 5
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6324142063841551530
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +621,11 @@ Transform:
 --- !u!4 &5697488028861041191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: af27df0dd7e5cec408a17781f17df15a, type: 3}
+  m_PrefabInstance: {fileID: 5231830717858639308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6456239345080918346 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7997802312384770938, guid: af27df0dd7e5cec408a17781f17df15a, type: 3}
   m_PrefabInstance: {fileID: 5231830717858639308}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6553081253909300021

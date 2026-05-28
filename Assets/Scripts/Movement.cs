@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -42,7 +43,7 @@ public class Movement : MonoBehaviour
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Jump.performed += OnJump;
         Controls.Player.Mashing.performed += OnMashing;    
-        // Controls.Player.Grapple.performed += Grapple;
+        Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -136,22 +137,21 @@ public class Movement : MonoBehaviour
             health.TakeDamage(0);
         }
     }
-    // future grapple code neglect for now 
 
-    //IEnumerator GrappleCooldown()
-    //{
-    //    Anim.SetTrigger("Grapple");
-    //    yield return new WaitForSeconds(1f);
-    //    Grappling = true;
-    //    yield return new WaitForSeconds(0.01f);
-    //    Grappling = false;
-    //}
+    IEnumerator GrappleCooldown()
+    {
+        Anim.SetTrigger("Grapple");
+        yield return new WaitForSeconds(1f);
+        Grappling = true;
+        yield return new WaitForSeconds(0.01f);
+        Grappling = false;
+    }
 
-    //public void Grapple(InputAction.CallbackContext context)
-    //{
-    //    if (context.performed)
-    //    {
-    //        StartCoroutine(GrappleCooldown());
-    //    }
-    //}
+    public void Grapple(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            StartCoroutine(GrappleCooldown());
+        }
+    }
 }

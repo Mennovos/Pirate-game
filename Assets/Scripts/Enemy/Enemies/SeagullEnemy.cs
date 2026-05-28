@@ -186,6 +186,6 @@ public class SeagullEnemy : Enemy
     {
         state = SeagullState.KNOCKBACK;
         
-        rb.linearVelocity = impulse / rb.mass;
+        base.attack(impulse);
     }
 }

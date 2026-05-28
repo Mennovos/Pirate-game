@@ -15,10 +15,9 @@ public class Utilities : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ScoreAmount;
 
     private float score;
-    private Enemy enemy;
     private void Start()
     {
-        enemy = FindAnyObjectByType<Enemy>();
+        ScoreAmount.text = "Score: " + score;
         wavesStarted = false;
     }
     public void Home()
@@ -37,8 +36,6 @@ public class Utilities : MonoBehaviour
 
     void Update()
     {
-        score += enemy.getScoreAmount();
-        ScoreAmount.text = "Score: " + score;
         if (Keyboard.current.anyKey.wasPressedThisFrame && !wavesStarted)
         {
             pressAnyKey.Invoke();
@@ -46,6 +43,16 @@ public class Utilities : MonoBehaviour
             wavesStarted = true;
         }
 
+    }
+
+    public void AddScore(float amount)
+    {
+        score += amount;
+        UpdateScoreUI();
+    }
+    private void UpdateScoreUI()
+    {
+       ScoreAmount.text = "Score: " + score;
     }
 
     [Serializable] private class AnyKeyPressedEvent : UnityEvent {}

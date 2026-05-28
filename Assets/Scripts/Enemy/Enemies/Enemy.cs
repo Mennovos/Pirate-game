@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
@@ -14,10 +16,22 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space] 
     [SerializeField, Min(0f)] private Vector2 scaleRange = Vector2.one;
     
+    [Space]
+    [SerializeField] private List<AudioClip> hitSounds;
+    [SerializeField] private AudioSource audioSource;
+
+    [Space] 
+    [SerializeField] private List<Renderer> meshRenderers;
+    [SerializeField] private Color colorOnHit = new Color(1f, 0.5f, 0.5f);
+    [SerializeField] private float colorOnHitDuration = 0.1f;
+
+    private Coroutine colorResetCoroutine;
+
     private Vector3 oldTargetPos;
     protected Vector3 targetVelocity;
     
     protected Rigidbody rb;
+    protected Utilities utilities;
     
     protected bool isAlive = true;
 
@@ -29,6 +43,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
         
         rb = GetComponent<Rigidbody>();
+        utilities = FindAnyObjectByType<Utilities>();
     }
 
     protected void FixedUpdate()
@@ -48,6 +63,9 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void attack(Vector2 impulse)
     {
+        TimeManager.Instance.AddHitstop(0.1f);
+        OnHit();
+        
         rb.linearVelocity = impulse / rb.mass;
     }
 
@@ -58,12 +76,45 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual void kill()
     {
-        getScoreAmount();
+        utilities.AddScore(scoreAmount);
         isAlive = false;
         Destroy(gameObject);
     }
-    public float getScoreAmount()
+
+    protected void OnHit()
     {
-        return scoreAmount;
+        if (colorResetCoroutine != null) StopCoroutine(colorResetCoroutine);
+
+        foreach (Renderer meshRenderer in meshRenderers)
+        {
+            foreach (Material mat in meshRenderer.materials)
+            {
+                mat.color = colorOnHit;
+            }
+        }
+        
+        colorResetCoroutine = StartCoroutine(ColorResetCoroutine());
+        
+        if (hitSounds.Count == 0 || !audioSource) return;
+        
+        int index = Random.Range(0, hitSounds.Count);
+        AudioClip clip = hitSounds[index];
+        
+        audioSource.PlayOneShot(clip);
+    }
+
+    private IEnumerator ColorResetCoroutine()
+    {
+        yield return new WaitForSeconds(colorOnHitDuration);
+
+        foreach (Renderer meshRenderer in meshRenderers)
+        {
+            foreach (Material mat in meshRenderer.materials)
+            {
+                mat.color = Color.white;
+            }
+        }
+        
+        colorResetCoroutine = null;
     }
 }
