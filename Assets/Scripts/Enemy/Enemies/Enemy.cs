@@ -64,6 +64,6 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     }
     public float getScoreAmount()
     {
-        return scoreAmount;
+        return (float) scoreAmount;
     }
 }

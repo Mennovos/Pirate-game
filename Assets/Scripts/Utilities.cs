@@ -37,7 +37,7 @@ public class Utilities : MonoBehaviour
 
     void Update()
     {
-        score += enemy.getScoreAmount();
+        //enemy.getScoreAmount() += score; 
         ScoreAmount.text = "Score: " + score;
         if (Keyboard.current.anyKey.wasPressedThisFrame && !wavesStarted)
         {
