@@ -95,6 +95,7 @@ public class Movement : MonoBehaviour
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
+        if (batHit)
         DealDamageIfNotCooldown();
         if (mashCooldown < 3)
          {
@@ -125,7 +126,6 @@ public class Movement : MonoBehaviour
     private void DealDamageIfNotCooldown() {     
         if (mashCooldown < -1)
         {
-        
             health.TakeDamage(10);
         }
         else if (mashCooldown > 1)
