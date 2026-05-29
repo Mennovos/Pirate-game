@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -18,7 +19,14 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space]
     [SerializeField] private List<AudioClip> hitSounds;
     [SerializeField] private AudioSource audioSource;
-    
+
+    [Space] 
+    [SerializeField] private List<Renderer> meshRenderers;
+    [SerializeField] private Color colorOnHit = new Color(1f, 0.5f, 0.5f);
+    [SerializeField] private float colorOnHitDuration = 0.1f;
+
+    private Coroutine colorResetCoroutine;
+
     private Vector3 oldTargetPos;
     protected Vector3 targetVelocity;
     
@@ -56,7 +64,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     public virtual void attack(Vector2 impulse)
     {
         TimeManager.Instance.AddHitstop(0.1f);
-        PlayHitSound();
+        OnHit();
         
         rb.linearVelocity = impulse / rb.mass;
     }
@@ -73,13 +81,40 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         Destroy(gameObject);
     }
 
-    protected void PlayHitSound()
+    protected void OnHit()
     {
+        if (colorResetCoroutine != null) StopCoroutine(colorResetCoroutine);
+
+        foreach (Renderer meshRenderer in meshRenderers)
+        {
+            foreach (Material mat in meshRenderer.materials)
+            {
+                mat.color = colorOnHit;
+            }
+        }
+        
+        colorResetCoroutine = StartCoroutine(ColorResetCoroutine());
+        
         if (hitSounds.Count == 0 || !audioSource) return;
         
         int index = Random.Range(0, hitSounds.Count);
         AudioClip clip = hitSounds[index];
         
         audioSource.PlayOneShot(clip);
+    }
+
+    private IEnumerator ColorResetCoroutine()
+    {
+        yield return new WaitForSeconds(colorOnHitDuration);
+
+        foreach (Renderer meshRenderer in meshRenderers)
+        {
+            foreach (Material mat in meshRenderer.materials)
+            {
+                mat.color = Color.white;
+            }
+        }
+        
+        colorResetCoroutine = null;
     }
 }
