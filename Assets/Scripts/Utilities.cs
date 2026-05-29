@@ -47,7 +47,7 @@ public class Utilities : MonoBehaviour
 
     public void AddScore(float amount)
     {
-        score += amount;
+        amount += score;
         UpdateScoreUI();
     }
     private void UpdateScoreUI()
