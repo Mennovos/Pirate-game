@@ -245,6 +245,11 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 10
   healthBar: {fileID: 0}
+  meshRenderers:
+  - {fileID: 5770427319872839599}
+  - {fileID: 2383918201795665197}
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   deathScreen: {fileID: 0}
 --- !u!114 &4320021255928521394
 MonoBehaviour:
@@ -353,8 +358,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}
+--- !u!137 &2383918201795665197 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7515675465163314739, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}
+  m_PrefabInstance: {fileID: 5285092898628684574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4689865077568459216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 598368031647308494, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}
+  m_PrefabInstance: {fileID: 5285092898628684574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5770427319872839599 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1823050676033885361, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}
   m_PrefabInstance: {fileID: 5285092898628684574}
   m_PrefabAsset: {fileID: 0}
