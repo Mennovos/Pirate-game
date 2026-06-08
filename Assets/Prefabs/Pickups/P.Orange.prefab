@@ -316,7 +316,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6fbe911eadc00b34fb043e90a0b1d4ff, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6ebedfdffdc8e0e4f87e595526280906, type: 2}
+      objectReference: {fileID: 2100000, guid: f7b8f8af859fe0d4abe61e854f009d0a, type: 2}
     - target: {fileID: 919132149155446097, guid: 6fbe911eadc00b34fb043e90a0b1d4ff, type: 3}
       propertyPath: m_Name
       value: Orange
