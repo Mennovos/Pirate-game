@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerGrapple : MonoBehaviour
 {
     LayerMask grappleLayerMask;
+    private LineRenderer lineRenderer;
     [SerializeField] private float GrappleSpeed = 5f;
     [SerializeField] private Transform Grapplepoint;
     [SerializeField] private List<Transform> grapplePoints;
@@ -17,6 +18,7 @@ public class PlayerGrapple : MonoBehaviour
         Controls = new Controls();
         Controls.Player.Grapple.performed += Grapple;
         grappleLayerMask = LayerMask.GetMask("Grappling");
+        lineRenderer = GetComponent<LineRenderer>();
     }
     IEnumerator GrappleCooldown()
     {
@@ -49,6 +51,9 @@ public class PlayerGrapple : MonoBehaviour
             //{
             //    PickupsPosition.Add(hit.collider.gameObject);
             //}
+            Vector3 endPoint = Grapplepoint.position + (Grapplepoint.forward * 100);
+            lineRenderer.SetPosition(0, Grapplepoint.position); // Start
+            lineRenderer.SetPosition(1, endPoint);  // End
         }
 
 
