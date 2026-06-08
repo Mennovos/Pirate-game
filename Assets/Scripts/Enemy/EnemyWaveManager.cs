@@ -114,10 +114,10 @@ public class EnemyWaveManager : MonoBehaviour
             yield return new WaitUntil(() =>
             {
                 // if wave lasted longer than the max duration
-                bool timeThresholdMet = maxWaveDuration < Time.time - time;
+                bool timeThresholdMet = maxWaveDuration <= Time.time - time;
                 
                 // or enough enemies have been defeated
-                bool killThresholdMet = waveEnemies.Count * lastWaveDefeatedThreshold < waveEnemies.Sum(enemy =>
+                bool killThresholdMet = waveEnemies.Count * lastWaveDefeatedThreshold <= waveEnemies.Sum(enemy =>
                 { 
                     if (enemy == null) return 1;
                     return enemy.isDead() ? 1 : 0;

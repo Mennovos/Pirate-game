@@ -43,7 +43,6 @@ public class Movement : MonoBehaviour
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Jump.performed += OnJump;
         Controls.Player.Mashing.performed += OnMashing;    
-        Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -95,6 +94,7 @@ public class Movement : MonoBehaviour
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
+        if (batHit)
         DealDamageIfNotCooldown();
         if (mashCooldown < 3)
          {
@@ -125,7 +125,6 @@ public class Movement : MonoBehaviour
     private void DealDamageIfNotCooldown() {     
         if (mashCooldown < -1)
         {
-        
             health.TakeDamage(10);
         }
         else if (mashCooldown > 1)
@@ -135,23 +134,6 @@ public class Movement : MonoBehaviour
         if (mashCooldown < 1 && mashCooldown > -1)
         {
             health.TakeDamage(0);
-        }
-    }
-
-    IEnumerator GrappleCooldown()
-    {
-        Anim.SetTrigger("Grapple");
-        yield return new WaitForSeconds(1f);
-        Grappling = true;
-        yield return new WaitForSeconds(0.01f);
-        Grappling = false;
-    }
-
-    public void Grapple(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            StartCoroutine(GrappleCooldown());
         }
     }
 }

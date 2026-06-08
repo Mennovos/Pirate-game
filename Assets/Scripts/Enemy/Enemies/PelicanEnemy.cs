@@ -123,6 +123,8 @@ public class PelicanEnemy : Enemy
             {
                 trackingTarget.Weight = 0f;
             }
+            
+            utilities.AddScore(scoreAmount);
         }
     }
 

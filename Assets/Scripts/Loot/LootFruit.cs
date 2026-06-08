@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class LootFruit : MonoBehaviour, IPickup
+public class LootFruit : Loot
 {
+    [Space]
     [SerializeField] private float healAmount;
     
     private bool isPickedUp = false;
     
-    public void onGrab(GameObject grabber)
+    public override void onGrab(GameObject grabber)
     {
         if (!isPickedUp)
         {
