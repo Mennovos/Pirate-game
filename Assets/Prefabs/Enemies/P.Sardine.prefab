@@ -80,9 +80,11 @@ MonoBehaviour:
   attackDamage: 1.5
   scoreAmount: 0
   scaleRange: {x: 0.9, y: 1.1}
-  hitSounds:
-  - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
+  hitSounds: []
   audioSource: {fileID: 9003015373922230621}
+  meshRenderers: []
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 65

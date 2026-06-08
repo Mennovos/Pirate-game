@@ -82,8 +82,7 @@ MonoBehaviour:
   attackDamage: 0
   scoreAmount: 25
   scaleRange: {x: 0.9, y: 1.1}
-  hitSounds:
-  - {fileID: 8300000, guid: 528bfe12f37b9ed44a8843d3fc5728d9, type: 3}
+  hitSounds: []
   audioSource: {fileID: 1986692485362844130}
   meshRenderers:
   - {fileID: 3812481748289709413}
