@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space]
     [SerializeField] protected Transform target;
     [SerializeField] private float attackDamage;
-    [SerializeField] private float scoreAmount;
+    [SerializeField] protected float scoreAmount;
 
     [Space] 
     [SerializeField, Min(0f)] private Vector2 scaleRange = Vector2.one;
