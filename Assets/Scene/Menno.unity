@@ -1857,6 +1857,9 @@ MonoBehaviour:
   scaleRange: {x: 1, y: 1}
   hitSounds: []
   audioSource: {fileID: 0}
+  meshRenderers: []
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   enemyHealth: 3
   chargeAttackSpeed: 0.5
   chargeAttackAnimDuration: 1.2
@@ -2683,6 +2686,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2021702643}
+    - target: {fileID: 6805110912005687730, guid: 37c3dedce47be76448992dd450e24a25, type: 3}
+      propertyPath: scoreAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6805110912005687730, guid: 37c3dedce47be76448992dd450e24a25, type: 3}
       propertyPath: Visualclutter
       value: 
