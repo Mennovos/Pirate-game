@@ -9,7 +9,9 @@ public class EnemySpawner : MonoBehaviour
     public IEnemy summon()
     {
         Vector2 pos = (Vector2)transform.position 
-                      + new Vector2(Random.Range(-maxOffset.x, maxOffset.x), Random.Range(-maxOffset.y, maxOffset.y));
+                      + new Vector2(
+                          Random.Range(-maxOffset.x * transform.lossyScale.x, maxOffset.x * transform.lossyScale.x), 
+                          Random.Range(-maxOffset.y * transform.lossyScale.y, maxOffset.y * transform.lossyScale.y));
         
         GameObject obj = Instantiate(enemyPrefab, pos, Quaternion.Euler(Vector3.zero));
 
@@ -24,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.crimson;
-        Gizmos.DrawWireCube(transform.position, 2 * maxOffset);
-        Gizmos.DrawCube(transform.position, 2 * maxOffset);
+        Gizmos.DrawWireCube(transform.position, 2 * maxOffset * transform.lossyScale);
+        Gizmos.DrawCube(transform.position, 2 * maxOffset * transform.lossyScale);
     }
 }

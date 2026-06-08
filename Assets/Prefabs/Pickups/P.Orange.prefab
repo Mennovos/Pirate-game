@@ -219,6 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bff5bc91925204882f2cd6fdc29815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LootFruit
+  indicatorPrefab: {fileID: 6367816409014491349, guid: 3858760ae11608043ba187abcf57f9ef, type: 3}
+  indicatorTransform: {fileID: 0}
   healAmount: 5
 --- !u!54 &5296992132584588189
 Rigidbody:
