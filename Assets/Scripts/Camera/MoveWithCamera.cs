@@ -12,6 +12,13 @@ public class MoveWithCamera : MonoBehaviour
     private void Start()
     {
         cameraDefaultDistance = cameraTransform.position.z;
+        
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        
+        if (plane.Raycast(ray, out float entryDistance))
+        {
+            cameraDefaultDistance = entryDistance;
+        }
     }
 
     private void Update()
@@ -23,7 +30,7 @@ public class MoveWithCamera : MonoBehaviour
             Vector2 center = ray.GetPoint(entryDistance);
 
             transform.position = center;
-            transform.localScale = Vector3.one * cameraTransform.position.z / cameraDefaultDistance;
+            transform.localScale = Vector3.one * entryDistance / cameraDefaultDistance;
         }
     }
 }
