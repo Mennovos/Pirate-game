@@ -92,7 +92,7 @@ MonoBehaviour:
   - {fileID: 6456239345080918346}
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
-  maxHealth: 120
+  maxHealth: 360
   healthBar: {fileID: 5242275302560298461}
   timeToDestroyAfterDefeat: 30
   velocityAfterDefeat: {x: 0, y: 5, z: 0}
