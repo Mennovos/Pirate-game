@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TextboxNPC : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class TextboxNPC : MonoBehaviour
     [SerializeField, Min(0f)] private float timePerCharacter = 0.1f;
     [SerializeField, Min(0f)] private float timeAddPerStop = 0.4f;
     [SerializeField, Min(0f)] private float timeAfterText = 5f;
+    
+    [Space]
+    [SerializeField] private EndTextEvent onEndText;
 
     private void Start()
     {
@@ -49,6 +54,11 @@ public class TextboxNPC : MonoBehaviour
         
         //TODO: disappear anim?
         
+        onEndText.Invoke();
+        
         Destroy(gameObject);
     }
+    
+    
+    [Serializable] private class EndTextEvent : UnityEvent {}
 }

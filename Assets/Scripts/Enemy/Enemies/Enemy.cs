@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [Space]
     [SerializeField] private List<AudioClip> hitSounds;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private List<GameObject> hitParticles;
 
     [Space] 
     [SerializeField] private List<Renderer> meshRenderers;
@@ -94,6 +95,14 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         }
         
         colorResetCoroutine = StartCoroutine(ColorResetCoroutine());
+        
+        if (hitParticles.Count > 0)
+        {
+            foreach (GameObject particle in hitParticles)
+            {
+                Instantiate(particle, transform.position, Quaternion.Euler(Vector3.zero));
+            }
+        }
         
         if (hitSounds.Count == 0 || !audioSource) return;
         

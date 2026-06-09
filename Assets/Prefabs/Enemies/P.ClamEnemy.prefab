@@ -84,6 +84,8 @@ MonoBehaviour:
   scaleRange: {x: 0.9, y: 1.1}
   hitSounds: []
   audioSource: {fileID: 1986692485362844130}
+  hitParticles:
+  - {fileID: 2950752720075198735, guid: c0fac72b69ba73345b4e022955f33e15, type: 3}
   meshRenderers:
   - {fileID: 3812481748289709413}
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
