@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
 
     private LayerMask GroundLayer;
     private Rigidbody Rb;
-    private Animator Anim;
+    [SerializeField] private Animator Anim;
 
     private bool Grappling;
     private bool Grounded;
@@ -33,7 +33,6 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         GroundLayer = LayerMask.GetMask("Ground");
-        Anim = GetComponent<Animator>();
         health = FindAnyObjectByType<Health>();
 
         Controls = new Controls();
