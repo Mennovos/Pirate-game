@@ -72,6 +72,7 @@ public class Movement : MonoBehaviour
         if (!Grounded)
         {
             Anim.SetBool("Falling", true);
+            Anim.SetBool("Walking", false); 
         }
         else
         {
