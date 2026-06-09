@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,10 +16,12 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float lastWaveDefeatedThreshold = 0.5f;
     [SerializeField, Min(0f)] private float maxWaveDuration = 30f;
     [SerializeField] private HealthBar progressBar;
+    [SerializeField] private TextMeshProUGUI waveText;
     [Space]
     [SerializeField] private bool startOnAwake = true;
 
-    [Space] [SerializeField, Min(-1)] private int finalWaveNumber;
+    [Space] 
+    [SerializeField, Min(-1)] private int finalWaveNumber;
     
     private int waveNumber;
     private List<IEnemy> waveEnemies;
@@ -64,6 +67,8 @@ public class EnemyWaveManager : MonoBehaviour
             }
             
             Debug.Log($"Wave #{waveNumber}");
+            
+            if (waveText) waveText.text = waveNumber == finalWaveNumber ? "Final Wave" : $"Wave {waveNumber}";
             
             // clear old wave
             waveEnemies.Clear();
