@@ -111,8 +111,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2190842132501141876, guid: 67c6f466725c5af4285ef35a52571439, type: 3}
   bulletWindupTime: 1
   bulletWinddownTime: 1
-  bulletIntervalTime: 0.5
-  bulletFanCountRange: {x: 2, y: 4}
+  bulletIntervalTime: 0.4
+  bulletFanCountRange: {x: 4, y: 7}
   bulletFanSizeRange: {x: 4, y: 6}
   bulletFanAngle: 90
   swoopLeft: {x: -25, y: 10}
