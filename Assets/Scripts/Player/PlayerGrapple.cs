@@ -12,7 +12,7 @@ public class PlayerGrapple : MonoBehaviour
     [SerializeField] private List<Transform> grapplePoints;
     [SerializeField] public List<GameObject> PickupsPosition;
     private Controls Controls;
-    private bool grappling;
+   [SerializeField] private bool grappling;
     private void Awake()
     {
         Controls = new Controls();
