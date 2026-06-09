@@ -62,9 +62,16 @@ public class Movement : MonoBehaviour
 
         if (movement.magnitude > 0.1f)
         {
-            transform.rotation = Quaternion.LookRotation(
-                Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
+            Anim.SetBool("Walking", true);
+            transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
+        else 
+        {
+            Anim.SetBool("Walking", false);
+            Anim.SetBool("Idle", true);
+        }
+
+
         //make text work for  mashing thingie
 
 
