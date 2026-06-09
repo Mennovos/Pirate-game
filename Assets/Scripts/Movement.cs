@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
 
         transform.position += movement * (speed * Time.deltaTime);
 
-        if (movement.magnitude > 0.1f)
+        if (movement.magnitude > 0.001f)
         {
             Anim.SetBool("Walking", true);
             transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
@@ -68,7 +68,6 @@ public class Movement : MonoBehaviour
         else 
         {
             Anim.SetBool("Walking", false);
-            Anim.SetBool("Idle", true);
         }
 
 
