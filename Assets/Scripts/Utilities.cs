@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,19 @@ public class Utilities : MonoBehaviour
     [Header("Text for score")]
     [SerializeField] private TextMeshProUGUI ScoreAmount;
 
+    [Space] 
+    [SerializeField] private GameObject scoreParticle;
+    [SerializeField] private Transform scoreParticleSpawn;
+    
     private float score;
+    private float scoreToAdd;
+    
     private void Start()
     {
         ScoreAmount.text = "Score: " + score;
         wavesStarted = false;
+        
+        StartCoroutine(ScoreCoroutine());
     }
     public void Home()
     {
@@ -47,13 +56,31 @@ public class Utilities : MonoBehaviour
 
     public void AddScore(float amount)
     {
-        score +=amount;
+        scoreToAdd +=amount;
         UpdateScoreUI();
     }
     private void UpdateScoreUI()
     {
        ScoreAmount.text = "Score: " + score;
     }
+
+
+    private IEnumerator ScoreCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => scoreToAdd > 0);
+            
+            score += 1;
+            scoreToAdd--;
+
+            if (scoreParticle && scoreParticleSpawn) 
+                Instantiate(scoreParticle, scoreParticleSpawn.position, Quaternion.Euler(Vector3.zero));
+            
+            UpdateScoreUI();
+        }
+    }
+    
 
     [Serializable] private class AnyKeyPressedEvent : UnityEvent {}
 }
