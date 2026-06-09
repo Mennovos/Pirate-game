@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
 
     private LayerMask GroundLayer;
     private Rigidbody Rb;
-    private Animator Anim;
+    [SerializeField] private Animator Anim;
 
     private bool Grappling;
     private bool Grounded;
@@ -33,7 +33,6 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         GroundLayer = LayerMask.GetMask("Ground");
-        Anim = GetComponent<Animator>();
         health = FindAnyObjectByType<Health>();
 
         Controls = new Controls();
@@ -60,7 +59,7 @@ public class Movement : MonoBehaviour
 
         transform.position += movement * (speed * Time.deltaTime);
 
-        if (movement.magnitude > 0.1f)
+        if (movement.magnitude > 0.001f)
         {
             Anim.SetBool("Walking", true);
             transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
@@ -68,9 +67,16 @@ public class Movement : MonoBehaviour
         else 
         {
             Anim.SetBool("Walking", false);
-            Anim.SetBool("Idle", true);
         }
 
+        if (!Grounded)
+        {
+            Anim.SetBool("Falling", true);
+        }
+        else
+        {
+            Anim.SetBool("Falling", false);
+        }
 
         //make text work for  mashing thingie
 
@@ -95,10 +101,13 @@ public class Movement : MonoBehaviour
        // Anim.SetBool("Walking", Walking);
     }
     public void OnJump(InputAction.CallbackContext context)
-    { 
-        if(Grounded)
+    {
+        if (Grounded)
+        {
+            Anim.SetTrigger("Jumping");
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    }
+        }
+        }
     public void OnMashing(InputAction.CallbackContext context)
     {
         if (batHit)
