@@ -70,6 +70,14 @@ public class Movement : MonoBehaviour
             Anim.SetBool("Walking", false);
         }
 
+        if (!Grounded)
+        {
+            Anim.SetBool("Falling", true);
+        }
+        else
+        {
+            Anim.SetBool("Falling", false);
+        }
 
         //make text work for  mashing thingie
 
@@ -94,10 +102,13 @@ public class Movement : MonoBehaviour
        // Anim.SetBool("Walking", Walking);
     }
     public void OnJump(InputAction.CallbackContext context)
-    { 
-        if(Grounded)
+    {
+        if (Grounded)
+        {
+            Anim.SetTrigger("Jumping");
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    }
+        }
+        }
     public void OnMashing(InputAction.CallbackContext context)
     {
         if (batHit)
