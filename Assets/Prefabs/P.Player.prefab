@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca32344abd60d14fa625f0683b8b36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  anim: {fileID: 1726448365514230698}
   duration: 0.3
   cooldown: 0.1
   strength: 25
@@ -242,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e79455c2cd77ec4aa45935ec8b83454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 25
+  currentHealth: 25
   healthBar: {fileID: 0}
   meshRenderers:
   - {fileID: 5770427319872839599}
