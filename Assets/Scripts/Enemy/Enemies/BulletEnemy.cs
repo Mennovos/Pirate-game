@@ -65,14 +65,14 @@ public class BulletEnemy : Enemy
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (((1 << collision.gameObject.layer) & groundLayerMask.value) != 0)
+        if (((1 << other.gameObject.layer) & groundLayerMask.value) != 0)
         {
             kill();
         }
         
-        if (parried && collision.gameObject.TryGetComponent(out IEnemy enemy))
+        if (parried && other.TryGetComponent(out IEnemy enemy))
         {
             enemy.attack(transform.forward * parryStrength);
         }

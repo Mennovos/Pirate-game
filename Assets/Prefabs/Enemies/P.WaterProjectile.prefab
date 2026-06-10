@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6476843936266230038}
   - component: {fileID: 6435765086398807947}
   - component: {fileID: 3745240137616451919}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: P.WaterProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,17 +76,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
   animator: {fileID: 0}
   target: {fileID: 0}
-  attackDamage: 0.1
+  contactDamage: 0.1
   scoreAmount: 0
   scaleRange: {x: 1, y: 1}
   hitSounds: []
   audioSource: {fileID: 0}
+  hitParticles: []
+  meshRenderers: []
+  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHitDuration: 0.1
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 65
   speed: 15
   destroyAfterTime: 1
   parryable: 0
+  parryStrength: 0
   homing: 0
   homingStrength: 0
   homingVelocityCorrection: 1
@@ -124,7 +129,7 @@ GameObject:
   - component: {fileID: 8435334121133027276}
   - component: {fileID: 8264292434454099826}
   - component: {fileID: 3238073164562603005}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
