@@ -2,6 +2,23 @@ using UnityEngine;
 
 public class FishbearEnemy : Enemy
 {
+    private static readonly int animator_State = Animator.StringToHash("State");
+    
+    private enum FishbearState
+    {
+        IDLE,
+        CRAB_ATTACK,
+        CRAB_ATTACK_WINDUP,
+        CRAB_ATTACK_WINDDOWN,
+        DASH_ATTACK,
+        DASH_ATTACK_WINDUP,
+        DASH_ATTACK_WINDDOWN,
+        CHOMP_ATTACK,
+        DEFEATED
+    }
+    
+    private FishbearState state = FishbearState.IDLE;
+    
     [Space]
     [SerializeField] private float maxHealth;
     private float health;
@@ -17,6 +34,14 @@ public class FishbearEnemy : Enemy
         base.Awake();
 
         health = maxHealth;
+    }
+    
+    private void Update()
+    {
+        if (animator)
+        {
+            animator.SetInteger(animator_State, (int)state);
+        }
     }
     
     public override void attack(Vector2 impulse)
@@ -40,8 +65,8 @@ public class FishbearEnemy : Enemy
             isAlive = false;
             
             Destroy(gameObject, timeToDestroyAfterDefeat);
-            
-            //TODO: set state
+
+            state = FishbearState.DEFEATED;
             
             rb.useGravity = true;
             rb.excludeLayers = ~0;
