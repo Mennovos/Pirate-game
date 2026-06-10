@@ -8,9 +8,12 @@ public class BulletEnemy : Enemy
 
     [Space] 
     [SerializeField] private bool parryable;
+    [SerializeField] private float parryStrength;
     [SerializeField] private bool homing;
     [SerializeField] private float homingStrength;
     [SerializeField] private float homingVelocityCorrection = 1f;
+
+    private bool parried;
 
     public float Speed => speed;
     public bool UsesGravity => rb.useGravity;
@@ -55,6 +58,10 @@ public class BulletEnemy : Enemy
             OnHit();
             
             rb.linearVelocity = impulse.normalized * speed;
+            
+            homing = false;
+            
+            parried = true;
         }
     }
 
@@ -63,6 +70,11 @@ public class BulletEnemy : Enemy
         if (((1 << collision.gameObject.layer) & groundLayerMask.value) != 0)
         {
             kill();
+        }
+        
+        if (parried && collision.gameObject.TryGetComponent(out IEnemy enemy))
+        {
+            enemy.attack(transform.forward * parryStrength);
         }
     }
 }

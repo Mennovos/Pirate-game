@@ -82,6 +82,7 @@ MonoBehaviour:
   scaleRange: {x: 0.9, y: 1.1}
   hitSounds: []
   audioSource: {fileID: 9003015373922230621}
+  hitParticles: []
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
@@ -91,6 +92,7 @@ MonoBehaviour:
   speed: 10
   destroyAfterTime: 1
   parryable: 1
+  parryStrength: 15
   homing: 0
   homingStrength: 0
   homingVelocityCorrection: 1
