@@ -93,15 +93,18 @@ MonoBehaviour:
   timeToDestroyAfterDefeat: 15
   velocityAfterDefeat: {x: 0, y: 5, z: 0}
   cameraMovement: {fileID: 0}
-  spawnerTransform: {fileID: 0}
-  crabAttackWeight: 0
-  crabPrefab: {fileID: 0}
-  crabWindupTime: 0
-  crabWinddownTime: 0
-  crabIntervalTime: 0
-  crabFanCountRange: {x: 0, y: 0}
-  crabFanSizeRange: {x: 0, y: 0}
-  crabFanAngle: 0
+  spawnerTransform: {fileID: 2615482948212829785}
+  crabAttackWeight: 1
+  dashAttackWeight: 1
+  idleWeight: 1
+  idleDuration: 1
+  crabPrefab: {fileID: 2342724726820145723, guid: 364c9006a188df248a82385b56a00288, type: 3}
+  crabWindupTime: 1
+  crabWinddownTime: 1
+  crabIntervalTime: 0.6
+  crabFanCountRange: {x: 3, y: 5}
+  crabFanSizeRange: {x: 2, y: 6}
+  crabFanAngle: 60
   dashSpeed: 15
   dashDamage: 0
   dashWindupTime: 0.25
@@ -109,8 +112,11 @@ MonoBehaviour:
   dashRebound: {x: 2, y: 5}
   dashShakeStrength: 0.5
   dashShakeDuration: 1
-  dashWallCheckPosition: {x: 0, y: 2.5, z: 3.5}
+  dashWallCheckPosition: {x: 0, y: 0, z: 3.5}
   dashWallCheckRadius: 2
+  pushDistance: 5.5
+  pushDuration: 1
+  pushSpeed: {x: 10, y: 10}
 --- !u!136 &1650875987144953452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -133,7 +139,7 @@ CapsuleCollider:
   m_Radius: 2.5
   m_Height: 8
   m_Direction: 2
-  m_Center: {x: 0, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!114 &165170024906228239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 3074413621983737791}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 0.5, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2068460067596579241, guid: 9f474f1ea7efc8647ba8996d76771ac9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2068460067596579241, guid: 9f474f1ea7efc8647ba8996d76771ac9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -419,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5260589831974990073, guid: de468f97a744eb74c8b555ac212916ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5260589831974990073, guid: de468f97a744eb74c8b555ac212916ad, type: 3}
       propertyPath: m_LocalPosition.z

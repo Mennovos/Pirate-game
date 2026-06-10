@@ -256,6 +256,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12306962}
   m_CullTransparentMesh: 1
+--- !u!1 &75395833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75395834}
+  m_Layer: 3
+  m_Name: grapple point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75395834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75395833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.993}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1395234756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88011939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1073,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ScoreAmount: {fileID: 369204508}
+  scoreParticle: {fileID: 0}
+  scoreParticleSpawn: {fileID: 0}
 --- !u!1001 &847882018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1119,6 +1152,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: Grapplepoint
+      value: 
+      objectReference: {fileID: 75395834}
+    - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: Visualclutter
       value: 
       objectReference: {fileID: 206792143}
@@ -1132,20 +1169,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1395234738}
+      addedObject: {fileID: 75395834}
+    m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1395234739}
     - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1395234755}
-    - targetCorrespondingSourceObject: {fileID: 4571865372551785059, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1915142281}
   m_SourcePrefab: {fileID: 100100000, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
 --- !u!1 &969999963
 GameObject:
@@ -1328,7 +1362,7 @@ Transform:
   m_GameObject: {fileID: 1061330618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: 1.21, z: -0.109}
+  m_LocalPosition: {x: 1.02, y: 0.826, z: 0.497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1471,11 +1505,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183010831}
   m_CullTransparentMesh: 1
---- !u!1 &1215148427 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4571865372551785059, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-  m_PrefabInstance: {fileID: 847882018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1337043987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,22 +1674,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
   m_PrefabInstance: {fileID: 847882018}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1395234738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395234730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e07e02967fcabb418a1f07868d95c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrapple
-  GrappleSpeed: 5
-  Grapplepoint: {fileID: 1915142278}
-  grapplePoints: []
-  PickupsPosition: []
 --- !u!114 &1395234739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,6 +1710,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1395234756 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 847882018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1477424229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CrabEnemy
   animator: {fileID: 0}
   target: {fileID: 0}
-  attackDamage: 1
+  contactDamage: 1
   scoreAmount: 0
   scaleRange: {x: 1, y: 1}
   hitSounds: []
@@ -2411,27 +2429,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710230633}
   m_CullTransparentMesh: 1
---- !u!4 &1915142278 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8830351460746971359, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-  m_PrefabInstance: {fileID: 847882018}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1915142281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215148427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e07e02967fcabb418a1f07868d95c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrapple
-  GrappleSpeed: 5
-  Grapplepoint: {fileID: 1915142278}
-  grapplePoints: []
-  PickupsPosition: []
 --- !u!1 &1980555026
 GameObject:
   m_ObjectHideFlags: 0

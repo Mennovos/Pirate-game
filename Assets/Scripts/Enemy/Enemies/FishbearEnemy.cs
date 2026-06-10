@@ -37,7 +37,10 @@ public class FishbearEnemy : Enemy
     
     [Header("Attack General")]
     [SerializeField] private Transform spawnerTransform;
-    [SerializeField, Min(0)] private int crabAttackWeight;
+    [SerializeField, Min(0)] private int crabAttackWeight = 1;
+    [SerializeField, Min(0)] private int dashAttackWeight = 1;
+    [SerializeField, Min(0)] private int idleWeight = 1;
+    [SerializeField, Min(0f)] private float idleDuration;
 
     [Header("Attack Crab")] 
     [SerializeField] private GameObject crabPrefab;
@@ -58,6 +61,11 @@ public class FishbearEnemy : Enemy
     [SerializeField, Min(0f)] private float dashShakeDuration;
     [SerializeField] private Vector3 dashWallCheckPosition;
     [SerializeField] private float dashWallCheckRadius;
+    
+    [Header("Attack Push")] 
+    [SerializeField, Min(0f)] private float pushDistance;
+    [SerializeField, Min(0f)] private float pushDuration;
+    [SerializeField, Min(0f)] private Vector2 pushSpeed;
 
     private new void Awake()
     {
@@ -65,7 +73,7 @@ public class FishbearEnemy : Enemy
 
         health = maxHealth;
 
-        StartCoroutine(DashAttack());
+        StartCoroutine(AttackCoroutine());
     }
     
     private void Update()
@@ -116,6 +124,45 @@ public class FishbearEnemy : Enemy
         }
     }
     
+    
+    private IEnumerator AttackCoroutine()
+    {
+        while (isAlive)
+        {
+            int num = Random.Range(0, crabAttackWeight + dashAttackWeight + idleWeight);
+
+            if (num < crabAttackWeight)
+            {
+                yield return StartCoroutine(CrabAttack());
+            }
+            else if (num < crabAttackWeight + dashAttackWeight)
+            {
+                yield return StartCoroutine(DashAttack());
+            }
+            else
+            {
+                float endTime = Time.time + idleDuration;
+                
+                yield return new WaitUntil(() => Time.time >= endTime 
+                            || Vector2.Distance(transform.position, target.position) < pushDistance);
+
+                if (Vector2.Distance(transform.position, target.position) < pushDistance)
+                {
+                    state = FishbearState.PUSH_ATTACK;
+
+                    if (target.TryGetComponent(out Rigidbody rb))
+                    {
+                        rb.linearVelocity = transform.forward * pushSpeed.x + Vector3.up * pushSpeed.y;
+                    }
+                    
+                    yield return new WaitForSeconds(pushDuration);
+                    
+                    state = FishbearState.IDLE;
+                }
+            }
+        }
+    }
+    
 
     private IEnumerator CrabAttack()
     {
@@ -128,6 +175,22 @@ public class FishbearEnemy : Enemy
         for (int i = 0; i < fans; i++)
         {
             if (state == FishbearState.DEFEATED || !target) yield break;
+            
+            if (Vector2.Distance(transform.position, target.position) < pushDistance)
+            {
+                state = FishbearState.PUSH_ATTACK;
+
+                if (target.TryGetComponent(out Rigidbody rb))
+                {
+                    rb.linearVelocity = transform.forward * pushSpeed.x + Vector3.up * pushSpeed.y;
+                }
+                    
+                yield return new WaitForSeconds(pushDuration);
+                    
+                state = FishbearState.IDLE;
+                
+                yield break;
+            }
             
             Vector2 direction = (target.position - spawnerTransform.position).normalized;
             int bullets = Random.Range(crabFanSizeRange.x, crabFanSizeRange.y);
@@ -162,6 +225,22 @@ public class FishbearEnemy : Enemy
             
             yield return null;
             
+            if (Vector2.Distance(transform.position, target.position) < pushDistance)
+            {
+                state = FishbearState.PUSH_ATTACK;
+
+                if (target.TryGetComponent(out Rigidbody rb))
+                {
+                    rb.linearVelocity = transform.forward * pushSpeed.x + Vector3.up * pushSpeed.y;
+                }
+                    
+                yield return new WaitForSeconds(pushDuration);
+                    
+                state = FishbearState.IDLE;
+                
+                yield break;
+            }
+            
             if (state == FishbearState.CHOMP_ATTACK) yield break;
         }
         
@@ -192,5 +271,8 @@ public class FishbearEnemy : Enemy
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.TransformPoint(dashWallCheckPosition), dashWallCheckRadius);
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, pushDistance);
     }
 }
