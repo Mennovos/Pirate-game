@@ -14,6 +14,7 @@ public class FishbearEnemy : Enemy
         DASH_ATTACK_WINDUP,
         DASH_ATTACK_WINDDOWN,
         CHOMP_ATTACK,
+        PUSH_ATTACK,
         DEFEATED
     }
     

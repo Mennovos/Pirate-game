@@ -45,6 +45,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        anim.ResetTrigger("Attacking");
         anim.SetTrigger("Attacking");
         coroutine ??= StartCoroutine(AttackCoroutine());
     }
