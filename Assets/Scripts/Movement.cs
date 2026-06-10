@@ -57,6 +57,10 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(Grapplepoint == null)
+        {
+            return;
+        }
         Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
 
         Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
