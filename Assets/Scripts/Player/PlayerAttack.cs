@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Collider))]
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private Animator anim;
     [SerializeField, Min(0f)] private float duration;
     [SerializeField, Min(0f)] private float cooldown;
     [SerializeField, Min(0f)] private float strength;
@@ -44,6 +45,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        anim.ResetTrigger("Attacking");
+        anim.SetTrigger("Attacking");
         coroutine ??= StartCoroutine(AttackCoroutine());
     }
 

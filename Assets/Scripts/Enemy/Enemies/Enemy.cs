@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour, IEnemy
@@ -10,7 +11,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     
     [Space]
     [SerializeField] protected Transform target;
-    [SerializeField] private float attackDamage;
+    [FormerlySerializedAs("attackDamage"), SerializeField] private float contactDamage;
     [SerializeField] protected float scoreAmount;
 
     [Space] 
@@ -72,7 +73,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     public virtual float getAttackDamage()
     {
-        return attackDamage;
+        return contactDamage;
     }
 
     public virtual void kill()
