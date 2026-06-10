@@ -83,7 +83,7 @@ MonoBehaviour:
   scoreAmount: 750
   scaleRange: {x: 1, y: 1}
   hitSounds: []
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3790453383788234309}
   hitParticles: []
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
@@ -92,6 +92,25 @@ MonoBehaviour:
   healthBar: {fileID: 4370756371887690812}
   timeToDestroyAfterDefeat: 15
   velocityAfterDefeat: {x: 0, y: 5, z: 0}
+  cameraMovement: {fileID: 0}
+  spawnerTransform: {fileID: 0}
+  crabAttackWeight: 0
+  crabPrefab: {fileID: 0}
+  crabWindupTime: 0
+  crabWinddownTime: 0
+  crabIntervalTime: 0
+  crabFanCountRange: {x: 0, y: 0}
+  crabFanSizeRange: {x: 0, y: 0}
+  crabFanAngle: 0
+  dashSpeed: 25
+  dashDamage: 0
+  dashWindupTime: 1.5
+  dashWinddownTime: 2.5
+  dashRebound: {x: 2, y: 5}
+  dashShakeStrength: 0.5
+  dashShakeDuration: 1
+  dashWallCheckPosition: {x: 0, y: 2.5, z: 3.5}
+  dashWallCheckRadius: 2
 --- !u!136 &1650875987144953452
 CapsuleCollider:
   m_ObjectHideFlags: 0

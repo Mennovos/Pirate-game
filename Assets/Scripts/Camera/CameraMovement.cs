@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -84,5 +85,30 @@ public class CameraMovement : MonoBehaviour
         }
 
         return toReturn / weightSum;
+    }
+
+
+    public void CameraShake(float strength, float duration)
+    {
+        StartCoroutine(ShakeCoroutine(duration, strength));
+    }
+
+
+    private IEnumerator ShakeCoroutine(float time, float strength)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < time)
+        {
+            float intensity = strength * (1 + (startTime - Time.time) / time);
+
+            transform.position += new Vector3(
+                    Random.Range(-intensity, intensity),
+                    Random.Range(-intensity, intensity),
+                    Random.Range(-intensity, intensity)
+                );
+
+            yield return null;
+        }
     }
 }

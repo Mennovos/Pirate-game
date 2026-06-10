@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class FishbearEnemy : Enemy
 {
@@ -29,12 +33,39 @@ public class FishbearEnemy : Enemy
     [Space]
     [SerializeField] private float timeToDestroyAfterDefeat = 15f;
     [SerializeField] private Vector3 velocityAfterDefeat = new(0f, 5f, 0f);
+    [SerializeField] private CameraMovement cameraMovement;
+    
+    [Header("Attack General")]
+    [SerializeField] private Transform spawnerTransform;
+    [SerializeField, Min(0)] private int crabAttackWeight;
+
+    [Header("Attack Crab")] 
+    [SerializeField] private GameObject crabPrefab;
+    [SerializeField, Min(0f)] private float crabWindupTime;
+    [SerializeField, Min(0f)] private float crabWinddownTime;
+    [SerializeField, Min(0f)] private float crabIntervalTime;
+    [SerializeField, Min(1)] private Vector2Int crabFanCountRange;
+    [SerializeField, Min(2)] private Vector2Int crabFanSizeRange;
+    [SerializeField, Min(0f)] private float crabFanAngle;
+    
+    [Header("Attack Dash")]
+    [SerializeField, Min(0f)] private float dashSpeed;
+    [SerializeField, Min(0f)] private float dashDamage;
+    [SerializeField, Min(0f)] private float dashWindupTime;
+    [SerializeField, Min(0f)] private float dashWinddownTime;
+    [SerializeField] private Vector2 dashRebound;
+    [SerializeField, Min(0f)] private float dashShakeStrength;
+    [SerializeField, Min(0f)] private float dashShakeDuration;
+    [SerializeField] private Vector3 dashWallCheckPosition;
+    [SerializeField] private float dashWallCheckRadius;
 
     private new void Awake()
     {
         base.Awake();
 
         health = maxHealth;
+
+        StartCoroutine(DashAttack());
     }
     
     private void Update()
@@ -83,5 +114,83 @@ public class FishbearEnemy : Enemy
             
             utilities.AddScore(scoreAmount);
         }
+    }
+    
+
+    private IEnumerator CrabAttack()
+    {
+        state = FishbearState.CRAB_ATTACK_WINDUP;
+        yield return new WaitForSeconds(crabWindupTime);
+        state = FishbearState.CRAB_ATTACK;
+        
+        int fans = Random.Range(crabFanCountRange.x, crabFanCountRange.y);
+
+        for (int i = 0; i < fans; i++)
+        {
+            if (state == FishbearState.DEFEATED || !target) yield break;
+            
+            Vector2 direction = (target.position - spawnerTransform.position).normalized;
+            int bullets = Random.Range(crabFanSizeRange.x, crabFanSizeRange.y);
+
+            for (int j = 0; j < bullets; j++)
+            {
+                float angleOffset = (j / (bullets - 1f) - 0.5f) * crabFanAngle;
+                
+                GameObject bullet = Instantiate(crabPrefab, spawnerTransform.position, spawnerTransform.rotation);
+                bullet.transform.forward = Quaternion.Euler(0, 0, angleOffset) * direction;
+            }
+            
+            yield return new WaitForSeconds(crabIntervalTime);
+        }
+        
+        state = FishbearState.CRAB_ATTACK_WINDDOWN;
+        yield return new WaitForSeconds(crabWinddownTime);
+        state = FishbearState.IDLE;
+    }
+
+    private IEnumerator DashAttack()
+    {
+        state = FishbearState.DASH_ATTACK_WINDUP;
+        yield return new WaitForSeconds(dashWindupTime);
+        state = FishbearState.DASH_ATTACK;
+
+        while (!Physics.CheckSphere(transform.TransformPoint(dashWallCheckPosition), dashWallCheckRadius,
+                   LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore))
+        {
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0)
+                + transform.forward * dashSpeed;
+            
+            yield return null;
+            
+            if (state == FishbearState.CHOMP_ATTACK) yield break;
+        }
+        
+        state = FishbearState.DASH_ATTACK_WINDDOWN;
+        cameraMovement.CameraShake(dashShakeStrength, dashShakeDuration);
+        rb.linearVelocity = Vector3.up * dashRebound.y - transform.forward * dashRebound.x;
+        yield return new WaitForSeconds(dashWinddownTime);
+        transform.Rotate(Vector3.up, 180);
+        state = FishbearState.IDLE;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (state == FishbearState.DASH_ATTACK)
+        {
+            if (other.TryGetComponent(out PlayerHurtbox player))
+            {
+                //state = FishbearState.CHOMP_ATTACK;
+                
+                //TODO: mash stuff
+            }
+        }
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.TransformPoint(dashWallCheckPosition), dashWallCheckRadius);
     }
 }
