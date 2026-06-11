@@ -96,7 +96,7 @@ MonoBehaviour:
   timeToDestroyAfterDefeat: 15
   velocityAfterDefeat: {x: 0, y: 5, z: 0}
   wakeDistance: 15
-  wakeDuration: 1.5
+  wakeDuration: 3
   onWakeEvent:
     m_PersistentCalls:
       m_Calls: []
