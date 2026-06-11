@@ -62,6 +62,11 @@ public class FishbearEnemy : Enemy
     [SerializeField] private Vector3 dashWallCheckPosition;
     [SerializeField] private float dashWallCheckRadius;
     
+    [Header("Attack Chomp")]
+    [SerializeField, Min(0)] private int chompMashRequirement;
+    [SerializeField, Min(0f)] private float chompDamage;
+    [SerializeField, Min(0f)] private float chompDamageInterval;
+    
     [Header("Attack Push")] 
     [SerializeField, Min(0f)] private float pushDistance;
     [SerializeField, Min(0f)] private float pushDuration;
@@ -86,6 +91,8 @@ public class FishbearEnemy : Enemy
     
     public override void attack(Vector2 impulse)
     {
+        if (state == FishbearState.CHOMP_ATTACK) return;
+        
         TimeManager.Instance.AddHitstop(0.2f);
         OnHit();
         
@@ -220,6 +227,22 @@ public class FishbearEnemy : Enemy
         while (!Physics.CheckSphere(transform.TransformPoint(dashWallCheckPosition), dashWallCheckRadius,
                    LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore))
         {
+            if (Physics.CheckSphere(transform.TransformPoint(dashWallCheckPosition), dashWallCheckRadius,
+                    LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.TransformPoint(dashWallCheckPosition), dashWallCheckRadius,
+                    LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
+                
+                Collider playerCollider = colliders[0];
+
+                if (playerCollider)
+                {
+                    yield return StartCoroutine(ChompAttack(playerCollider));
+                    
+                    yield break;
+                }
+            }
+            
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0)
                 + transform.forward * dashSpeed;
             
@@ -250,6 +273,37 @@ public class FishbearEnemy : Enemy
         yield return new WaitForSeconds(dashWinddownTime);
         transform.Rotate(Vector3.up, 180);
         state = FishbearState.IDLE;
+    }
+
+    private IEnumerator ChompAttack(Collider playerCollider)
+    {
+        playerCollider.TryGetComponent(out Movement playerMovement);
+        playerCollider.TryGetComponent(out Health playerHealth);
+        
+        playerMovement.mashAmount = 1;
+        
+        state = FishbearState.CHOMP_ATTACK;
+
+        float nextDamageTime = Time.time + chompDamageInterval;
+
+        while (true)
+        {
+            playerCollider.transform.position = transform.TransformPoint(dashWallCheckPosition);
+
+            if (playerMovement.mashClicks() >= chompMashRequirement || state == FishbearState.DEFEATED) break;
+
+            if (Time.time > nextDamageTime)
+            {
+                nextDamageTime += chompDamageInterval;
+                
+                playerHealth.TakeDamage(chompDamage);
+            }
+            
+            yield return new WaitForFixedUpdate();
+        }
+        
+        if (state != FishbearState.DEFEATED) 
+            state = FishbearState.IDLE;
     }
 
 

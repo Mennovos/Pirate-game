@@ -114,6 +114,9 @@ MonoBehaviour:
   dashShakeDuration: 1
   dashWallCheckPosition: {x: 0, y: 0, z: 3.5}
   dashWallCheckRadius: 2
+  chompMashRequirement: 5
+  chompDamage: 2
+  chompDamageInterval: 1
   pushDistance: 5.5
   pushDuration: 1
   pushSpeed: {x: 10, y: 10}
