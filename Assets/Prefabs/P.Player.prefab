@@ -179,6 +179,7 @@ Transform:
   - {fileID: 4689865077568459216}
   - {fileID: 8247986675827728778}
   - {fileID: 8830351460746971359}
+  - {fileID: 4940525420054242965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3557021468158903186
@@ -280,6 +281,11 @@ MonoBehaviour:
   jumpForce: 8
   mashAmount: 0
   mashCooldown: 3
+  GrappleSpeed: 5
+  Grapplepoint: {fileID: 0}
+  grapplePoints: []
+  PickupsPosition: []
+  grappling: 0
   Anim: {fileID: 1726448365514230698}
   batHit: 0
 --- !u!114 &-6672035909423237752
@@ -295,6 +301,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackingTarget
   weight: 1
+--- !u!1 &7346122751427289223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4940525420054242965}
+  m_Layer: 3
+  m_Name: Grapplepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4940525420054242965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7346122751427289223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.859}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4053806634620236715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5285092898628684574
 PrefabInstance:
   m_ObjectHideFlags: 0

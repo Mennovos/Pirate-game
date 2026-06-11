@@ -18,7 +18,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private List<Transform> grapplePoints;
     [SerializeField] public List<GameObject> PickupsPosition;
     [SerializeField] private bool grappling;
-    [SerializeField] private GameObject player;
 
     private Vector2 moveInput;
     private Vector3 movement;
@@ -57,10 +56,6 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Grapplepoint == null)
-        {
-            return;
-        }
         Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
 
         Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
@@ -83,8 +78,8 @@ public class Movement : MonoBehaviour
 
         for (int i = 0; i < grapplePoints.Count; i++)
         {
-            player.transform.position = Vector3.Lerp(player.transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
-            if (Vector3.Distance(player.transform.position, grapplePoints[i].position) < 4f)
+            transform.position = Vector3.Lerp(transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
+            if (Vector3.Distance(transform.position, grapplePoints[i].position) < 4f)
             {
                 grapplePoints.RemoveAt(i);
             }
