@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public abstract class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] protected Animator animator;
+    [SerializeField] protected CameraMovement cameraMovement;
     
     [Space]
     [SerializeField] protected Transform target;
@@ -21,6 +22,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private List<AudioClip> hitSounds;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private List<GameObject> hitParticles;
+    [SerializeField, Min(0f)] private float hitShakeStrength;
+    [SerializeField, Min(0f)] private float hitShakeDuration;
 
     [Space] 
     [SerializeField] private List<Renderer> meshRenderers;
@@ -42,7 +45,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     {
         transform.localScale *= Random.Range(scaleRange.x, scaleRange.y);
         
-        if (target == null) target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!target) target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!cameraMovement) cameraMovement = Camera.main?.GetComponent<CameraMovement>();
         
         rb = GetComponent<Rigidbody>();
         utilities = FindAnyObjectByType<Utilities>();
@@ -103,6 +107,11 @@ public abstract class Enemy : MonoBehaviour, IEnemy
             {
                 Instantiate(particle, transform.position, Quaternion.Euler(Vector3.zero));
             }
+        }
+
+        if (cameraMovement)
+        {
+            cameraMovement.CameraShake(hitShakeStrength, hitShakeDuration);
         }
         
         if (hitSounds.Count == 0 || !audioSource) return;

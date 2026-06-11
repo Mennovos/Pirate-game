@@ -45,7 +45,7 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdatePosition(Vector3 position, Vector3 lookat)
     {
-        transform.position = Vector3.Lerp(transform.position, position, positionSmoothing * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, position, positionSmoothing * Time.unscaledDeltaTime);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookat - transform.position, Vector3.up), lookatSmoothing * Time.unscaledDeltaTime);
     }

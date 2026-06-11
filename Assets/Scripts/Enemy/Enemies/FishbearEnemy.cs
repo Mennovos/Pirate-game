@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -19,10 +20,11 @@ public class FishbearEnemy : Enemy
         DASH_ATTACK_WINDDOWN,
         CHOMP_ATTACK,
         PUSH_ATTACK,
+        DORMANT,
         DEFEATED
     }
     
-    private FishbearState state = FishbearState.IDLE;
+    private FishbearState state = FishbearState.DORMANT;
     
     [Space]
     [SerializeField] private float maxHealth;
@@ -33,7 +35,11 @@ public class FishbearEnemy : Enemy
     [Space]
     [SerializeField] private float timeToDestroyAfterDefeat = 15f;
     [SerializeField] private Vector3 velocityAfterDefeat = new(0f, 5f, 0f);
-    [SerializeField] private CameraMovement cameraMovement;
+    
+    [Space]
+    [SerializeField, Min(0f)] private float wakeDistance;
+    [SerializeField, Min(0f)] private float wakeDuration;
+    [SerializeField] private WakeEvent onWakeEvent;
     
     [Header("Attack General")]
     [SerializeField] private Transform spawnerTransform;
@@ -134,6 +140,14 @@ public class FishbearEnemy : Enemy
     
     private IEnumerator AttackCoroutine()
     {
+        yield return new WaitUntil(() => Vector3.Distance(transform.position, target.position) < wakeDistance);
+        
+        state = FishbearState.IDLE;
+        
+        onWakeEvent.Invoke();
+        
+        yield return new WaitForSeconds(wakeDuration);
+        
         while (isAlive)
         {
             int num = Random.Range(0, crabAttackWeight + dashAttackWeight + idleWeight);
@@ -328,5 +342,11 @@ public class FishbearEnemy : Enemy
         
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, pushDistance);
+        
+        Gizmos.color = Color.hotPink;
+        Gizmos.DrawWireSphere(transform.position, wakeDistance);
     }
+    
+    
+    [Serializable] private class WakeEvent : UnityEvent {}
 }
