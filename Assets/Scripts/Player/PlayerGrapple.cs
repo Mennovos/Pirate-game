@@ -6,18 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerGrapple : MonoBehaviour
 {
     LayerMask grappleLayerMask;
-    private LineRenderer lineRenderer;
     [SerializeField] private float GrappleSpeed = 5f;
     [SerializeField] private Transform Grapplepoint;
     [SerializeField] private List<Transform> grapplePoints;
     [SerializeField] public List<GameObject> PickupsPosition;
-    private Controls Controls;
-   [SerializeField] private bool grappling;
+    [SerializeField] private bool grappling;
+    [SerializeField] private GameObject player;
+    private Controls controls;
     private void Awake()
     {
-        Controls = new Controls();
+        controls = new Controls();
         grappleLayerMask = LayerMask.GetMask("Grappling");
-        Controls.Player.Grapple.performed += Grapple;
+        controls.Player.Grapple.performed += Grapple;
     }
 
     public void Grapple(InputAction.CallbackContext context)
@@ -35,24 +35,23 @@ public class PlayerGrapple : MonoBehaviour
 
         if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
         {
-            Debug.Log($"Grapple hit: {hit.collider.name}");
             if (grappling == true && !hit.collider.CompareTag("Pickup"))
             {
                 grapplePoints.Add(hit.transform);
                 Vector3 EndPoint = hit.point;
             }
-            //if (grappling == true && hit.collider.CompareTag("Pickup"))
-            //{
-            //    PickupsPosition.Add(hit.collider.gameObject);
-            //}
+            if (grappling == true && hit.collider.CompareTag("Pickup"))
+            {
+                PickupsPosition.Add(hit.collider.gameObject);
+            }
 
         }
 
 
         for (int i = 0; i < grapplePoints.Count; i++)
         {
-             transform.position = Vector3.Lerp(transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
-            if (Vector3.Distance(transform.position, grapplePoints[i].position) < 4f)
+             player.transform.position = Vector3.Lerp(player.transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
+            if (Vector3.Distance(player.transform.position, grapplePoints[i].position) < 4f)
             {
                 grapplePoints.RemoveAt(i);
             }

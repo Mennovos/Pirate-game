@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,11 +7,17 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    LayerMask grappleLayerMask;
+
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] public float mashAmount = 0f;
     [SerializeField] private float mashCooldown = 3f;
-
+    [SerializeField] private float GrappleSpeed = 5f;
+    [SerializeField] private Transform Grapplepoint;
+    [SerializeField] private List<Transform> grapplePoints;
+    [SerializeField] public List<GameObject> PickupsPosition;
+    [SerializeField] private bool grappling;
 
     private Vector2 moveInput;
     private Vector3 movement;
@@ -33,6 +40,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         GroundLayer = LayerMask.GetMask("Ground");
+        grappleLayerMask = LayerMask.GetMask("Grappling");
         health = FindAnyObjectByType<Health>();
 
         Controls = new Controls();
@@ -41,20 +49,52 @@ public class Movement : MonoBehaviour
         Controls.Player.Move.performed += OnMove;
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Jump.performed += OnJump;
-        Controls.Player.Mashing.performed += OnMashing;    
+        Controls.Player.Mashing.performed += OnMashing;
+        Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
         Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
+
+        Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+
+
+        if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
+        {
+            if (grappling == true && !hit.collider.CompareTag("Pickup"))
+            {
+                grapplePoints.Add(hit.transform);
+                Vector3 EndPoint = hit.point;
+            }
+            if (grappling == true && hit.collider.CompareTag("Pickup"))
+            {
+                PickupsPosition.Add(hit.collider.gameObject);
+            }
+
+        }
+
+
+        for (int i = 0; i < grapplePoints.Count; i++)
+        {
+            transform.position = Vector3.Lerp(transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
+            if (Vector3.Distance(transform.position, grapplePoints[i].position) < 4f)
+            {
+                grapplePoints.RemoveAt(i);
+            }
+        }
+        for (int i = 0; i < PickupsPosition.Count; i++)
+        {
+            PickupsPosition[i].transform.position = Vector3.Lerp(PickupsPosition[i].transform.position, transform.position + new Vector3(0, 5, 0), Time.deltaTime * 2);
+        }
     }
     private void Update()
     {
-        if (batHit)
-        {
-          mashCooldown -= Time.deltaTime;
-        }
+        //if (batHit)
+        //{ 
+            mashCooldown -= Time.deltaTime;
+        //}
 
 
         transform.position += movement * (speed * Time.deltaTime);
@@ -112,19 +152,26 @@ public class Movement : MonoBehaviour
     public void OnMashing(InputAction.CallbackContext context)
     {
         if (batHit)
-        DealDamageIfNotCooldown();
+            DealDamageIfNotCooldown();
+        
         if (mashCooldown < 3)
-         {
+        {
            mashAmount++;
            mashCooldown = 3f;
-         }
-        if (mashAmount == 4)
+        }
+        
+        if (mashAmount >= 4)
         {
             batHit = false;
-            mashAmount = 0;
         }
-
-       
+    }
+    public void Grapple(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Grapple performed");
+            StartCoroutine(GrappleCooldown());
+        }
     }
 
     public float mashClicks()
@@ -152,5 +199,13 @@ public class Movement : MonoBehaviour
         {
             health.TakeDamage(0);
         }
+    }
+    IEnumerator GrappleCooldown()
+    {
+        //Anim.SetTrigger("Grapple");
+        yield return new WaitForSeconds(1f);
+        grappling = true;
+        yield return new WaitForSeconds(0.01f);
+        grappling = false;
     }
 }

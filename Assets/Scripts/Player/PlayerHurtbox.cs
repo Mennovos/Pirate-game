@@ -13,4 +13,9 @@ public class PlayerHurtbox : MonoBehaviour
             playerHealth.TakeDamage(enemy.getAttackDamage());
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+        playerHealth.TakeDamage(damage);
+    }
 }
