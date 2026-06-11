@@ -111,10 +111,10 @@ public class Movement : MonoBehaviour
    
     private void Update()
     {
-        if (batHit)
-        {
-          mashCooldown -= Time.deltaTime;
-        }
+        //if (batHit)
+        //{ 
+            mashCooldown -= Time.deltaTime;
+        //}
 
 
         transform.position += movement * (speed * Time.deltaTime);
@@ -156,16 +156,17 @@ public class Movement : MonoBehaviour
     public void OnMashing(InputAction.CallbackContext context)
     {
         if (batHit)
-        DealDamageIfNotCooldown();
+            DealDamageIfNotCooldown();
+        
         if (mashCooldown < 3)
-         {
+        {
            mashAmount++;
            mashCooldown = 3f;
-         }
-        if (mashAmount == 4)
+        }
+        
+        if (mashAmount >= 4)
         {
             batHit = false;
-            mashAmount = 0;
         }
     }
 
