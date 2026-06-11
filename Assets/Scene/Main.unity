@@ -137728,6 +137728,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
   m_PrefabInstance: {fileID: 274970376}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &935162018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4940525420054242965, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 6946444946969454732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &935366040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317968,6 +317973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: Grapplepoint
+      value: 
+      objectReference: {fileID: 935162018}
     - target: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_Name
       value: Player
