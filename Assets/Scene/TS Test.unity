@@ -1224,18 +1224,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 920232788}
-    - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: maxHealth
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: currentHealth
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -1276,10 +1264,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: Anim
-      value: 
-      objectReference: {fileID: 1574959228}
     - target: {fileID: 5770427319872839599, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
