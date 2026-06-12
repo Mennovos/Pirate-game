@@ -54,7 +54,7 @@ public class FishbearEnemy : Enemy
     [SerializeField, Min(0f)] private float crabWinddownTime;
     [SerializeField, Min(0f)] private float crabIntervalTime;
     [SerializeField, Min(1)] private Vector2Int crabFanCountRange;
-    [SerializeField, Min(2)] private Vector2Int crabFanSizeRange;
+    [SerializeField, Min(1)] private Vector2Int crabFanSizeRange;
     [SerializeField, Min(0f)] private float crabFanAngle;
     
     [Header("Attack Dash")]
@@ -134,6 +134,8 @@ public class FishbearEnemy : Enemy
             }
             
             utilities.AddScore(scoreAmount);
+            
+            MenuManager.Instance.OnBossDeath("Fishbear");
         }
     }
     

@@ -125,6 +125,8 @@ public class PelicanEnemy : Enemy
             }
             
             utilities.AddScore(scoreAmount);
+            
+            MenuManager.Instance.OnBossDeath("Pelican");
         }
     }
 
