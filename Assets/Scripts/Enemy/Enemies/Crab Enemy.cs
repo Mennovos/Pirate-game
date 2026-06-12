@@ -90,6 +90,7 @@ public class CrabEnemy : Enemy
     {
         chargingAttack = true;
         //charge atttack animation here
+        animator.SetTrigger("Attacking");
         yield return new WaitForSeconds(chargeAttackAnimDuration);
         // Activate damage hitbox
         Damage.SetActive(true);
