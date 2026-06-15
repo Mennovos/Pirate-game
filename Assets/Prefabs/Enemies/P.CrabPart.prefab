@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1175082756068749738}
   - component: {fileID: 1949099037536970253}
   - component: {fileID: 1226406138866746633}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: P.CrabPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
   animator: {fileID: 0}
+  cameraMovement: {fileID: 0}
   target: {fileID: 0}
   contactDamage: 1.5
   scoreAmount: 0
@@ -83,6 +84,8 @@ MonoBehaviour:
   hitSounds: []
   audioSource: {fileID: 1226406138866746633}
   hitParticles: []
+  hitShakeStrength: 0
+  hitShakeDuration: 0
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
@@ -227,7 +230,7 @@ GameObject:
   - component: {fileID: 1179611589806127090}
   - component: {fileID: 4169808996105316460}
   - component: {fileID: 2035082127811971195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

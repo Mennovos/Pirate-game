@@ -90,7 +90,7 @@ MonoBehaviour:
   hitShakeStrength: 0.25
   hitShakeDuration: 0.5
   meshRenderers:
-  - {fileID: 3812481748289709413}
+  - {fileID: 0}
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
   shellCloseChance: 0.5
@@ -382,15 +382,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}
       propertyPath: m_LocalRotation.w
@@ -432,10 +432,5 @@ PrefabInstance:
 --- !u!4 &2640106844632653322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}
-  m_PrefabInstance: {fileID: 2533611595520899553}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &3812481748289709413 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 93635c5d0d102674196420b111706603, type: 3}
   m_PrefabInstance: {fileID: 2533611595520899553}
   m_PrefabAsset: {fileID: 0}
