@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044408932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fa09c7b09ea1f64284e1d782172298c, type: 3}
   m_Name: 
@@ -1224,18 +1224,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 920232788}
-    - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: maxHealth
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: currentHealth
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -1276,10 +1264,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      propertyPath: Anim
-      value: 
-      objectReference: {fileID: 1574959228}
     - target: {fileID: 5770427319872839599, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1689,6 +1673,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165170024906228239, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1504313642132858009, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -1741,6 +1729,30 @@ PrefabInstance:
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 653659285}
+    - target: {fileID: 3444576237311098906, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: crabIntervalTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444576237311098906, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: crabFanSizeRange.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444576237311098906, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: crabFanSizeRange.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444576237311098906, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: crabFanCountRange.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444576237311098906, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: crabFanCountRange.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3444576237311098906, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: onWakeEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1044408933}
     m_RemovedComponents:
     - {fileID: 7984617307020422193, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
     m_RemovedGameObjects: []

@@ -12,6 +12,8 @@ public class CrabEnemy : Enemy
     [SerializeField] private float moveSpeed;
     [SerializeField] private float waitTime;
     [SerializeField] private float impulseReduction;
+    [SerializeField] private float pauseAtPoint = 1f;
+
     [SerializeField] private GameObject Damage;
 
     private bool chargingAttack;
@@ -34,7 +36,7 @@ public class CrabEnemy : Enemy
                 float elapsedTime = 0;
                 while (elapsedTime < waitTime)
                 {
-
+                 animator.SetBool("Walking", true);
                 if (hit) 
                 {
                     yield return null;
@@ -46,9 +48,10 @@ public class CrabEnemy : Enemy
                     elapsedTime += Time.deltaTime * moveSpeed;
                     yield return null;
                 }
-
-                // Swap start and end positions
-                Vector3 temp = startPos;
+                animator.SetBool("Walking", false);
+            yield return new WaitForSeconds(pauseAtPoint);
+            // Swap start and end positions
+            Vector3 temp = startPos;
                 startPos = endPos;
                 endPos = temp;
             }
@@ -87,6 +90,7 @@ public class CrabEnemy : Enemy
     {
         chargingAttack = true;
         //charge atttack animation here
+        animator.SetTrigger("Attacking");
         yield return new WaitForSeconds(chargeAttackAnimDuration);
         // Activate damage hitbox
         Damage.SetActive(true);
