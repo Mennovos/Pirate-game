@@ -256,37 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12306962}
   m_CullTransparentMesh: 1
---- !u!1 &75395833
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 75395834}
-  m_Layer: 3
-  m_Name: grapple point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &75395834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75395833}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.993}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1395234756}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88011939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1055,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &627765038 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4940525420054242965, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 847882018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &788642126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1265,7 @@ PrefabInstance:
     - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: Grapplepoint
       value: 
-      objectReference: {fileID: 75395834}
+      objectReference: {fileID: 0}
     - target: {fileID: 5679303733481374348, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: Visualclutter
       value: 
@@ -1306,10 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 75395834}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       insertIndex: -1
@@ -1317,6 +1288,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1395234755}
+    - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1395234763}
   m_SourcePrefab: {fileID: 100100000, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
 --- !u!1 &969999963
 GameObject:
@@ -1411,7 +1385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1061330619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1499,7 +1473,7 @@ Transform:
   m_GameObject: {fileID: 1061330618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: 0.826, z: 0.497}
+  m_LocalPosition: {x: -7.25, y: 4.14, z: 0.497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1847,11 +1821,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &1395234756 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
-  m_PrefabInstance: {fileID: 847882018}
+--- !u!114 &1395234763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395234730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e07e02967fcabb418a1f07868d95c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrapple
+  grappleLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  maxGrappleDistance: 1969.9
+  clickRadius: 1.5
+  GrappleSpeed: 3.28
+  Grapplepoint: {fileID: 627765038}
+  grapplePoints: []
+  player: {fileID: 1395234730}
+  grappleCooldown: 0.75
 --- !u!1 &1477424229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2180,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
       propertyPath: m_Name
       value: crab
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 948503342695001278, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

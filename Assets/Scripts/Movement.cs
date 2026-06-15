@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Jump.performed += OnJump;
         Controls.Player.Mashing.performed += OnMashing;
-        Controls.Player.Grapple.performed += Grapple;
+        //Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -72,41 +72,41 @@ public class Movement : MonoBehaviour
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
-    public void Grapple(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("Grapple performed");
-            StartCoroutine(GrappleCooldown());
-        }
-    }
+    //public void Grapple(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        Debug.Log("Grapple performed");
+    //        StartCoroutine(GrappleCooldown());
+    //    }
+    //}
 
     private void FixedUpdate()
     {
         Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
 
-        Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+       // Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.up) * 1000, Color.white);
 
 
-        if (Physics.Raycast(Grapplepoint.position, transform.forward, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
-        {
-            if (grappling == true)
-            {
-                grapplePoints.Add(hit.transform);
-                Vector3 EndPoint = hit.point;
-            }
+        //if (Physics.Raycast(Grapplepoint.position, transform.up, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
+        //{
+        //    if (grappling == true)
+        //    {
+        //        grapplePoints.Add(hit.transform);
+        //        Vector3 EndPoint = hit.point;
+        //    }
 
-        }
+        //}
 
 
-        for (int i = 0; i < grapplePoints.Count; i++)
-        {
-            transform.position = Vector3.Lerp(transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
-            if (Vector3.Distance(transform.position, grapplePoints[i].position) < 2f)
-            {
-                grapplePoints.RemoveAt(i);
-            }
-        }
+        //for (int i = 0; i < grapplePoints.Count; i++)
+        //{
+        //    transform.position = Vector3.Lerp(transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
+        //    if (Vector3.Distance(transform.position, grapplePoints[i].position) < 2f)
+        //    {
+        //        grapplePoints.RemoveAt(i);
+        //    }
+        //}
     }
    
     private void Update()
@@ -196,12 +196,12 @@ public class Movement : MonoBehaviour
             health.TakeDamage(0);
         }
     }
-    IEnumerator GrappleCooldown()
-    {
-        //Anim.SetTrigger("Grapple");
-        yield return new WaitForSeconds(0.003f);
-        grappling = true;
-        yield return new WaitForSeconds(0.001f);
-        grappling = false;
-    }
+    //IEnumerator GrappleCooldown()
+    //{
+    //    //Anim.SetTrigger("Grapple");
+    //    yield return new WaitForSeconds(0.003f);
+    //    grappling = true;
+    //    yield return new WaitForSeconds(0.001f);
+    //    grappling = false;
+    //}
 }
