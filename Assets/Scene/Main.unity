@@ -296515,6 +296515,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
   m_PrefabInstance: {fileID: 492205734}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1999590881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 6946444946969454732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1999931677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
@@ -316990,7 +316995,7 @@ GameObject:
   - component: {fileID: 2124593362}
   - component: {fileID: 2124593361}
   - component: {fileID: 2124593360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320230,6 +320235,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8128298205128360543, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1999590881}
+    - target: {fileID: -8128298205128360543, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: GrappleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8128298205128360543, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: Grapplepoint
+      value: 
+      objectReference: {fileID: 935162018}
+    - target: {fileID: -8128298205128360543, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      propertyPath: grappleLayerMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 2945199873060054388, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       propertyPath: healthBar
       value: 
