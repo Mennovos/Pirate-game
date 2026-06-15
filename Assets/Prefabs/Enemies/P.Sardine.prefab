@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5609884034367478274}
   - component: {fileID: 1811261304940323649}
   - component: {fileID: 9003015373922230621}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: P.Sardine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletEnemy
   animator: {fileID: 0}
+  cameraMovement: {fileID: 0}
   target: {fileID: 0}
   contactDamage: 1.5
   scoreAmount: 0
@@ -83,6 +84,8 @@ MonoBehaviour:
   hitSounds: []
   audioSource: {fileID: 9003015373922230621}
   hitParticles: []
+  hitShakeStrength: 0
+  hitShakeDuration: 0
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
@@ -286,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fecab1821aa655b40b02b733c259cad6, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

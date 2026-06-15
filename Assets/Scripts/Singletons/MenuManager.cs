@@ -21,6 +21,8 @@ public class MenuManager : MonoBehaviour
     
     [SerializeField] private string[] levelSceneNames;
     
+    [SerializeField] private Canvas mainMenuCanvas;
+    
     private void Awake()
     {
         if (!instance)
@@ -37,6 +39,8 @@ public class MenuManager : MonoBehaviour
 
     public void OnStartLevel(int level)
     {
+        mainMenuCanvas.gameObject.SetActive(false);
+        
         SceneManager.LoadScene(levelSceneNames[level]);
     }
 
@@ -53,13 +57,13 @@ public class MenuManager : MonoBehaviour
         {
             case "Pelican":
             {
-                
+                //TODO: after delay go to win screen (with score?)
                 break;
             }
 
             case "Fishbear":
             {
-                
+                //TODO: after delay go to win screen (with score?)
                 break;
             }
         }
