@@ -21,8 +21,6 @@ public class MenuManager : MonoBehaviour
     
     [SerializeField] private string[] levelSceneNames;
     
-    [SerializeField] private Canvas mainMenuCanvas;
-    
     private void Awake()
     {
         if (!instance)
@@ -37,10 +35,14 @@ public class MenuManager : MonoBehaviour
     }
 
 
+    public void OnReturnToMain()
+    {
+        SceneManager.LoadScene("Title Screen");
+    }
+
+
     public void OnStartLevel(int level)
     {
-        mainMenuCanvas.gameObject.SetActive(false);
-        
         SceneManager.LoadScene(levelSceneNames[level]);
     }
 
