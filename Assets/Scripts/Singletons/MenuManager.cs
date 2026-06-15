@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     private static MenuManager instance;
+    [SerializeField] private GameObject menuManger;
+
+    private Controls controls;
 
     public static MenuManager Instance
     {
@@ -32,6 +35,8 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(this);
         }
+        controls = new Controls();
+        controls.Player.Pause.performed += ctx => OnPause();
     }
 
 
@@ -52,6 +57,10 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnPause()
+    {
+        
+    }
 
     public void OnBossDeath(string bossType)
     {
