@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
@@ -36,7 +37,8 @@ public class MenuManager : MonoBehaviour
             Destroy(this);
         }
         controls = new Controls();
-        controls.Player.Pause.performed += ctx => OnPause();
+        controls.Enable();
+        controls.Player.Pause.performed += OnPause;
     }
 
 
@@ -57,9 +59,11 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnPause()
+    public void OnPause(InputAction.CallbackContext context)
     {
-        
+        Debug.Log("Pause button pressed");
+        //TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
+        //Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
     }
 
     public void OnBossDeath(string bossType)
