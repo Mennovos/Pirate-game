@@ -131,6 +131,12 @@ public class PelicanEnemy : Enemy
     }
 
 
+    public override float getAttackDamage()
+    {
+        return state == PelicanState.SWOOP_ATTACK ? contactDamage : 0f;
+    }
+
+
     private IEnumerator AttackCoroutine()
     {
         while (isAlive)

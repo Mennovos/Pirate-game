@@ -88030,7 +88030,6 @@ MonoBehaviour:
   typingSoundClip: {fileID: 8300000, guid: a00dae5f1674f2445ba5d1c79574a048, type: 3}
   timePerCharacter: 0.05
   timeAddPerStop: 0.2
-  timeAfterText: 2
   onEndText:
     m_PersistentCalls:
       m_Calls:
@@ -210455,7 +210454,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 479
+    m_Bits: 4063
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

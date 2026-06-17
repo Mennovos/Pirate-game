@@ -70,6 +70,29 @@ public class EnemyWaveManager : MonoBehaviour
             
             if (waveText) waveText.text = waveNumber == finalWaveNumber ? "Final Wave" : $"Wave {waveNumber}";
             
+            foreach (SpawnGroup<LootSpawner> spawnGroup in lootSpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber <= g.EndWave))
+            {
+                // only spawn if it should spawn
+                if ((waveNumber - spawnGroup.StartWave) % spawnGroup.WaveInterval == 0)
+                {
+                    // get how much loot to spawn
+                    int count = spawnGroup.BaseCount +
+                                (int)(spawnGroup.CountPerSpawn * ((waveNumber - spawnGroup.StartWave) / spawnGroup.WaveInterval));
+
+                    // spawn the number of loot drops at random spawners in the group
+                    for (int i = 0; i < Mathf.Min(count, spawnGroup.MaxCount); i++)
+                    {
+                        // get which spawner to spawn the loot from
+                        int index = Random.Range(0, spawnGroup.Spawners.Count);
+                        
+                        // spawn the loot
+                        spawnGroup.Spawners[index].summon();
+                    }
+                }
+            }
+            
+            //TODO: rest time
+            
             // clear old wave
             waveEnemies.Clear();
 
@@ -90,27 +113,6 @@ public class EnemyWaveManager : MonoBehaviour
                         
                         // spawn an enemy and add it to the wave enemies
                         waveEnemies.Add(spawnGroup.Spawners[index].summon());
-                    }
-                }
-            }
-            
-            foreach (SpawnGroup<LootSpawner> spawnGroup in lootSpawnGroups.Where(g => waveNumber >= g.StartWave && waveNumber <= g.EndWave))
-            {
-                // only spawn if it should spawn
-                if ((waveNumber - spawnGroup.StartWave) % spawnGroup.WaveInterval == 0)
-                {
-                    // get how much loot to spawn
-                    int count = spawnGroup.BaseCount +
-                                (int)(spawnGroup.CountPerSpawn * ((waveNumber - spawnGroup.StartWave) / spawnGroup.WaveInterval));
-
-                    // spawn the number of loot drops at random spawners in the group
-                    for (int i = 0; i < Mathf.Min(count, spawnGroup.MaxCount); i++)
-                    {
-                        // get which spawner to spawn the loot from
-                        int index = Random.Range(0, spawnGroup.Spawners.Count);
-                        
-                        // spawn the loot
-                        spawnGroup.Spawners[index].summon();
                     }
                 }
             }

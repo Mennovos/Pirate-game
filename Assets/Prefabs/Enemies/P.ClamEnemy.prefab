@@ -90,7 +90,7 @@ MonoBehaviour:
   hitShakeStrength: 0.25
   hitShakeDuration: 0.5
   meshRenderers:
-  - {fileID: 0}
+  - {fileID: 1296633285925638540}
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
   shellCloseChance: 0.5
@@ -420,9 +420,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7527978490870584613, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7123209004164561645, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -675580187185291551, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2321746569636470, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 93635c5d0d102674196420b111706603, type: 3}
       propertyPath: m_Name
       value: clam
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083898602170157530, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2851527575164492906, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903288518515067825, guid: 93635c5d0d102674196420b111706603, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -432,6 +464,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8170818348027178521}
   m_SourcePrefab: {fileID: 100100000, guid: 93635c5d0d102674196420b111706603, type: 3}
+--- !u!137 &1296633285925638540 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3663576351629043821, guid: 93635c5d0d102674196420b111706603, type: 3}
+  m_PrefabInstance: {fileID: 2533611595520899553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2640106844632653322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93635c5d0d102674196420b111706603, type: 3}

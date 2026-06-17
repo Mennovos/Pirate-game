@@ -278,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef35d37159140145b3e51d677237f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  speed: 5
-  jumpForce: 8
+  speed: 7
+  jumpForce: 15
   mashAmount: 0
   mashCooldown: 3
   GrappleSpeed: 5
