@@ -15,6 +15,7 @@ public class EnemyWaveManager : MonoBehaviour
     [Space]
     [SerializeField, Range(0f, 1f)] private float lastWaveDefeatedThreshold = 0.5f;
     [SerializeField, Min(0f)] private float maxWaveDuration = 30f;
+    [SerializeField, Min(0f)] private float waveRestTime = 5f;
     [SerializeField] private HealthBar progressBar;
     [SerializeField] private TextMeshProUGUI waveText;
     [Space]
@@ -91,7 +92,7 @@ public class EnemyWaveManager : MonoBehaviour
                 }
             }
             
-            //TODO: rest time
+            yield return new WaitForSeconds(waveRestTime);
             
             // clear old wave
             waveEnemies.Clear();

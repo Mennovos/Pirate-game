@@ -205844,7 +205844,7 @@ MonoBehaviour:
     - {fileID: 855170090}
     - {fileID: 2026455213}
     startWave: 0
-    endWave: 14
+    endWave: 9
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 1
@@ -205854,7 +205854,7 @@ MonoBehaviour:
     - {fileID: 855170090}
     - {fileID: 2026455213}
     startWave: 5
-    endWave: 14
+    endWave: 9
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 0.5
@@ -205862,15 +205862,15 @@ MonoBehaviour:
   - spawners:
     - {fileID: 2124625563}
     startWave: 3
-    endWave: 14
+    endWave: 9
     waveInterval: 2
     baseCount: 1
     countPerSpawn: 0.3
     maxCount: 3
   - spawners:
     - {fileID: 105567936}
-    startWave: 15
-    endWave: 15
+    startWave: 10
+    endWave: 10
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 0
@@ -205879,7 +205879,7 @@ MonoBehaviour:
   - spawners:
     - {fileID: 1558319866}
     startWave: 1
-    endWave: 15
+    endWave: 10
     waveInterval: 3
     baseCount: 1
     countPerSpawn: 0.5
@@ -205887,17 +205887,18 @@ MonoBehaviour:
   - spawners:
     - {fileID: 1558319866}
     startWave: 2
-    endWave: 15
+    endWave: 10
     waveInterval: 3
     baseCount: 1
     countPerSpawn: 0.25
     maxCount: 10
-  lastWaveDefeatedThreshold: 0.6
+  lastWaveDefeatedThreshold: 1
   maxWaveDuration: 45
+  waveRestTime: 5
   progressBar: {fileID: 750335298}
   waveText: {fileID: 812990191}
   startOnAwake: 0
-  finalWaveNumber: 15
+  finalWaveNumber: 10
 --- !u!4 &1381001054
 Transform:
   m_ObjectHideFlags: 0
