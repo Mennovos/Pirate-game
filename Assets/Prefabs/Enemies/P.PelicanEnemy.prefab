@@ -93,7 +93,7 @@ MonoBehaviour:
   hitShakeDuration: 0.5
   meshRenderers:
   - {fileID: 6456239345080918346}
-  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
   maxHealth: 360
   healthBar: {fileID: 5242275302560298461}
