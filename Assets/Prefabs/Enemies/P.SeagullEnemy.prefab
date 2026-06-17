@@ -112,7 +112,7 @@ MonoBehaviour:
   hitShakeDuration: 0.5
   meshRenderers:
   - {fileID: 6738655815854249415}
-  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
   horizontalIdleVelocity: 5
   verticalIdleVelocity: 3

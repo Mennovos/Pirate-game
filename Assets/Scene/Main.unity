@@ -196649,7 +196649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
   damage: 2.5
-  knockback: {x: 0, y: 10}
+  knockback: {x: 0, y: 20}
 --- !u!4 &1316906158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}

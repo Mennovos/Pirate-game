@@ -154,8 +154,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BatEnemy
   animator: {fileID: 0}
+  cameraMovement: {fileID: 0}
   target: {fileID: 0}
-  attackDamage: 4.42
+  contactDamage: 4.42
+  scoreAmount: 0
+  scaleRange: {x: 1, y: 1}
+  hitSounds: []
+  audioSource: {fileID: 0}
+  hitParticles: []
+  hitShakeStrength: 0
+  hitShakeDuration: 0
+  meshRenderers: []
+  colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
+  colorOnHitDuration: 0.1
   currentState: 0
   moveSpeed: 4.13
   moveBackSpeed: 0.5
