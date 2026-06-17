@@ -98,7 +98,7 @@ public class PlayerGrapple : MonoBehaviour
             if (grapplePoints[i] == null) { grapplePoints.RemoveAt(i); i--; continue; }
 
             player.transform.position = Vector3.Lerp(player.transform.position, grapplePoints[i].position, GrappleSpeed);
-            if (Vector3.Distance(player.transform.position, grapplePoints[i].position) < 1.5f)
+            if (Vector3.Distance(player.transform.position, grapplePoints[i].position) < 2f)
             {
                 if (grapplePoints[i].gameObject.name == "GrapplePointTemp")
                     Destroy(grapplePoints[i].gameObject);
