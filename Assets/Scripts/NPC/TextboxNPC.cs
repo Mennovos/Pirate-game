@@ -17,18 +17,27 @@ public class TextboxNPC : MonoBehaviour
     [Space] 
     [SerializeField, Min(0f)] private float timePerCharacter = 0.1f;
     [SerializeField, Min(0f)] private float timeAddPerStop = 0.4f;
-    [SerializeField, Min(0f)] private float timeAfterText = 5f;
     
     [Space]
     [SerializeField] private EndTextEvent onEndText;
+    
+    private Controls input;
+    
+    private bool skip = false;
 
     private void Start()
     {
+        input = new Controls();
+        
+        input.Player.TextContinue.started += context => skip = true;
+        
         StartCoroutine(TextboxCoroutine());
     }
 
     private IEnumerator TextboxCoroutine()
     {
+        input.Enable();
+        
         textbox.text = "";
         
         //TODO: appear anim?
@@ -47,14 +56,27 @@ public class TextboxNPC : MonoBehaviour
                 if (".?!".Contains(text[i])) yield return new WaitForSecondsRealtime(timeAddPerStop);
                 
                 yield return new WaitForSecondsRealtime(timePerCharacter);
+
+                if (skip)
+                {
+                    textbox.text = text;
+                    
+                    skip = false;
+                    
+                    break;
+                }
             }
+
+            yield return new WaitUntil(() => skip);
             
-            yield return new WaitForSecondsRealtime(timeAfterText);
+            skip = false;
         }
         
         //TODO: disappear anim?
         
         onEndText.Invoke();
+        
+        input.Disable();
         
         Destroy(gameObject);
     }

@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     
     [Space]
     [SerializeField] protected Transform target;
-    [FormerlySerializedAs("attackDamage"), SerializeField] private float contactDamage;
+    [FormerlySerializedAs("attackDamage"), SerializeField] protected float contactDamage;
     [SerializeField] protected float scoreAmount;
 
     [Space] 
