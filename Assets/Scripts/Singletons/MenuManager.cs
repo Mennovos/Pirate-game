@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     private static MenuManager instance;
+    [SerializeField] private GameObject menuManger;
+
+    private Controls controls;
 
     public static MenuManager Instance
     {
@@ -21,8 +25,6 @@ public class MenuManager : MonoBehaviour
     
     [SerializeField] private string[] levelSceneNames;
     
-    [SerializeField] private Canvas mainMenuCanvas;
-    
     private void Awake()
     {
         if (!instance)
@@ -34,13 +36,20 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(this);
         }
+        controls = new Controls();
+        controls.Enable();
+        controls.Player.Pause.performed += OnPause;
+    }
+
+
+    public void OnReturnToMain()
+    {
+        SceneManager.LoadScene("Title Screen");
     }
 
 
     public void OnStartLevel(int level)
     {
-        mainMenuCanvas.gameObject.SetActive(false);
-        
         SceneManager.LoadScene(levelSceneNames[level]);
     }
 
@@ -50,6 +59,12 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        Debug.Log("Pause button pressed");
+        //TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
+        //Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
+    }
 
     public void OnBossDeath(string bossType)
     {

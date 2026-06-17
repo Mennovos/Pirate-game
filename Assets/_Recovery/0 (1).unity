@@ -88030,6 +88030,7 @@ MonoBehaviour:
   typingSoundClip: {fileID: 8300000, guid: a00dae5f1674f2445ba5d1c79574a048, type: 3}
   timePerCharacter: 0.05
   timeAddPerStop: 0.2
+  timeAfterText: 2
   onEndText:
     m_PersistentCalls:
       m_Calls:
@@ -205844,7 +205845,7 @@ MonoBehaviour:
     - {fileID: 855170090}
     - {fileID: 2026455213}
     startWave: 0
-    endWave: 9
+    endWave: 14
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 1
@@ -205854,7 +205855,7 @@ MonoBehaviour:
     - {fileID: 855170090}
     - {fileID: 2026455213}
     startWave: 5
-    endWave: 9
+    endWave: 14
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 0.5
@@ -205862,15 +205863,15 @@ MonoBehaviour:
   - spawners:
     - {fileID: 2124625563}
     startWave: 3
-    endWave: 9
+    endWave: 14
     waveInterval: 2
     baseCount: 1
     countPerSpawn: 0.3
     maxCount: 3
   - spawners:
     - {fileID: 105567936}
-    startWave: 10
-    endWave: 10
+    startWave: 15
+    endWave: 15
     waveInterval: 1
     baseCount: 1
     countPerSpawn: 0
@@ -205879,7 +205880,7 @@ MonoBehaviour:
   - spawners:
     - {fileID: 1558319866}
     startWave: 1
-    endWave: 10
+    endWave: 15
     waveInterval: 3
     baseCount: 1
     countPerSpawn: 0.5
@@ -205887,18 +205888,17 @@ MonoBehaviour:
   - spawners:
     - {fileID: 1558319866}
     startWave: 2
-    endWave: 10
+    endWave: 15
     waveInterval: 3
     baseCount: 1
     countPerSpawn: 0.25
     maxCount: 10
-  lastWaveDefeatedThreshold: 1
+  lastWaveDefeatedThreshold: 0.6
   maxWaveDuration: 45
-  waveRestTime: 5
   progressBar: {fileID: 750335298}
   waveText: {fileID: 812990191}
   startOnAwake: 0
-  finalWaveNumber: 10
+  finalWaveNumber: 15
 --- !u!4 &1381001054
 Transform:
   m_ObjectHideFlags: 0
@@ -210455,7 +210455,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4063
+    m_Bits: 479
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

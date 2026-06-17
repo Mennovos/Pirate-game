@@ -13,15 +13,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] public float mashAmount = 0f;
     [SerializeField] private float mashCooldown = 3f;
-    [SerializeField] private float GrappleSpeed = 5f;
-
-    [SerializeField] private Transform Grapplepoint;
-
-    [SerializeField] private List<Transform> grapplePoints;
-    [SerializeField] public List<GameObject> PickupsPosition;
-
-    [SerializeField] private bool grappling;
-
+ 
     private Vector3 movement;
 
     private Controls Controls;
@@ -31,10 +23,11 @@ public class Movement : MonoBehaviour
     private Rigidbody Rb;
     [SerializeField] private Animator Anim;
 
-    private bool Grappling;
     private bool Grounded;
+    private bool batHit;
 
-    [SerializeField] private bool batHit;
+    [SerializeField] private GameObject menuManger;
+
     //for mashing text
     // [SerializeField] private TextMeshProUGUI E;
 
@@ -52,6 +45,7 @@ public class Movement : MonoBehaviour
         Controls.Player.Move.canceled += OnMove;
         Controls.Player.Jump.performed += OnJump;
         Controls.Player.Mashing.performed += OnMashing;
+        Controls.Player.Pause.performed += OnPause; 
         //Controls.Player.Grapple.performed += Grapple;
 
         Rb = GetComponent<Rigidbody>();
@@ -72,50 +66,23 @@ public class Movement : MonoBehaviour
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
-    //public void Grapple(InputAction.CallbackContext context)
-    //{
-    //    if (context.performed)
-    //    {
-    //        Debug.Log("Grapple performed");
-    //        StartCoroutine(GrappleCooldown());
-    //    }
-    //}
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        Debug.Log("Pause button pressed");
+        TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
+        Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
+    }
 
     private void FixedUpdate()
     {
         Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
 
-       // Debug.DrawRay(Grapplepoint.position, transform.TransformDirection(Vector3.up) * 1000, Color.white);
-
-
-        //if (Physics.Raycast(Grapplepoint.position, transform.up, out RaycastHit hit, Mathf.Infinity, grappleLayerMask))
-        //{
-        //    if (grappling == true)
-        //    {
-        //        grapplePoints.Add(hit.transform);
-        //        Vector3 EndPoint = hit.point;
-        //    }
-
-        //}
-
-
-        //for (int i = 0; i < grapplePoints.Count; i++)
-        //{
-        //    transform.position = Vector3.Lerp(transform.position, grapplePoints[i].position, Time.deltaTime * GrappleSpeed);
-        //    if (Vector3.Distance(transform.position, grapplePoints[i].position) < 2f)
-        //    {
-        //        grapplePoints.RemoveAt(i);
-        //    }
-        //}
     }
    
     private void Update()
-    {
-        //if (batHit)
-        //{ 
-            mashCooldown -= Time.deltaTime;
-        //}
-
+    {  
+        mashCooldown -= Time.deltaTime;
 
         transform.position += movement * (speed * Time.deltaTime);
 
@@ -196,12 +163,5 @@ public class Movement : MonoBehaviour
             health.TakeDamage(0);
         }
     }
-    //IEnumerator GrappleCooldown()
-    //{
-    //    //Anim.SetTrigger("Grapple");
-    //    yield return new WaitForSeconds(0.003f);
-    //    grappling = true;
-    //    yield return new WaitForSeconds(0.001f);
-    //    grappling = false;
-    //}
+ 
 }
