@@ -201264,9 +201264,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManagerInteractor
   levelPreview: {fileID: 0}
+  levelName: {fileID: 0}
   nextLevelButton: {fileID: 0}
   prevLevelButton: {fileID: 0}
   levelPreviewSprites: []
+  levelNames: []
 --- !u!1001 &1346424598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296995,6 +296997,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
   m_PrefabInstance: {fileID: 6946444946969454732}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1999590889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4053806634620236715, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 6946444946969454732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1999590890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999590881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40f56a58eb26b04a8fea537543807b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMouseFollow
+  upperBodyBone: {fileID: 1999590889}
+  leanAngle: -25
+  maxYaw: 45
+  blendInTime: 0.1
+  blendOutTime: 0.18
+  holdTime: 0.06
 --- !u!4 &1999931677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
@@ -320858,7 +320883,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1999590890}
   m_SourcePrefab: {fileID: 100100000, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

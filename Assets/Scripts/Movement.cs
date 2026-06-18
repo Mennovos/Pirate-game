@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
 
     private bool Grounded;
     private bool batHit;
+    private bool isPaused;
 
     [SerializeField] private GameObject menuManger;
 
@@ -41,27 +42,27 @@ public class Movement : MonoBehaviour
         Controls = new Controls();
 
         Controls.Player.Enable();
-        if(TimeManager.Instance.IsPaused == false)
-        {
             Controls.Player.Move.performed += OnMove;
             Controls.Player.Move.canceled += OnMove;
             Controls.Player.Jump.performed += OnJump;
             Controls.Player.Mashing.performed += OnMashing;
             Controls.Player.Pause.performed += OnPause;
-        }
 
         Rb = GetComponent<Rigidbody>();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 input = context.ReadValue<Vector2>();
-        movement.x = context.ReadValue<Vector2>().x;
-        bool Walking = input.sqrMagnitude > 0.01f;
-        // Anim.SetBool("Walking", Walking);
+        if (!isPaused)
+        {
+            Vector2 input = context.ReadValue<Vector2>();
+            movement.x = context.ReadValue<Vector2>().x;
+            bool Walking = input.sqrMagnitude > 0.01f;
+            // Anim.SetBool("Walking", Walking);
+        }
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (Grounded)
+        if (Grounded && !isPaused)
         {
             Anim.SetTrigger("Jumping");
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -71,6 +72,7 @@ public class Movement : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         Debug.Log("Pause button pressed");
+        isPaused = !isPaused;
         TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
         Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
     }
