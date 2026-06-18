@@ -41,12 +41,14 @@ public class Movement : MonoBehaviour
         Controls = new Controls();
 
         Controls.Player.Enable();
-        Controls.Player.Move.performed += OnMove;
-        Controls.Player.Move.canceled += OnMove;
-        Controls.Player.Jump.performed += OnJump;
-        Controls.Player.Mashing.performed += OnMashing;
-        Controls.Player.Pause.performed += OnPause; 
-        //Controls.Player.Grapple.performed += Grapple;
+        if(TimeManager.Instance.IsPaused == false)
+        {
+            Controls.Player.Move.performed += OnMove;
+            Controls.Player.Move.canceled += OnMove;
+            Controls.Player.Jump.performed += OnJump;
+            Controls.Player.Mashing.performed += OnMashing;
+            Controls.Player.Pause.performed += OnPause;
+        }
 
         Rb = GetComponent<Rigidbody>();
     }
@@ -54,7 +56,6 @@ public class Movement : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
         movement.x = context.ReadValue<Vector2>().x;
-        // movement.z = context.ReadValue<Vector2>().y;
         bool Walking = input.sqrMagnitude > 0.01f;
         // Anim.SetBool("Walking", Walking);
     }

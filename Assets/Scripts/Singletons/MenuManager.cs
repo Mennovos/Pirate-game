@@ -6,7 +6,6 @@ public class MenuManager : MonoBehaviour
 {
     private static MenuManager instance;
 
-    private Controls controls;
 
     public static MenuManager Instance
     {
@@ -37,9 +36,6 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(this);
         }
-        controls = new Controls();
-        controls.Enable();
-        controls.Player.Pause.performed += OnPause;
     }
 
 
@@ -60,12 +56,6 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnPause(InputAction.CallbackContext context)
-    {
-        Debug.Log("Pause button pressed");
-        //TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
-        //Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
-    }
 
     public void OnBossDeath(string bossType)
     {
