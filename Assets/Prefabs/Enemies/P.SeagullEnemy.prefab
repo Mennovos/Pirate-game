@@ -103,7 +103,11 @@ MonoBehaviour:
   contactDamage: 1
   scoreAmount: 10
   scaleRange: {x: 0.75, y: 1.25}
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: 936cd887a69492a4ba12514ff4742b91, type: 3}
+  - {fileID: 8300000, guid: 2086b38620854d54187bad3963d81c07, type: 3}
+  - {fileID: 8300000, guid: 50a46d022b3f4374db45bfbb9efaa288, type: 3}
+  - {fileID: 8300000, guid: 559258a4ed64b214993f15d606835f3e, type: 3}
   audioSource: {fileID: 6448827058796163954}
   hitParticles:
   - {fileID: 2950752720075198735, guid: c0fac72b69ba73345b4e022955f33e15, type: 3}
