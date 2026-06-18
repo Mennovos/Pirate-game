@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
     
     [SerializeField] private string[] levelSceneNames;
     
+    public string[] LevelSceneNames => levelSceneNames;
+    
     private void Awake()
     {
         if (!instance)
