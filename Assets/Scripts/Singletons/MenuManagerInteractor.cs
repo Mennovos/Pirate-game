@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,12 @@ public class MenuManagerInteractor : MonoBehaviour
 
 
     [SerializeField] private Image levelPreview;
+    [SerializeField] private TextMeshProUGUI levelName;
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button prevLevelButton;
     
     [SerializeField] private Sprite[] levelPreviewSprites;
+    [SerializeField] private string[] levelNames;
     
     private int selectedLevelIndex;
     
@@ -55,6 +58,7 @@ public class MenuManagerInteractor : MonoBehaviour
     public void UpdateLevelPreview()
     {
         levelPreview.sprite = levelPreviewSprites[selectedLevelIndex];
+        levelName.text = levelNames[selectedLevelIndex];
         
         nextLevelButton.gameObject.SetActive(selectedLevelIndex + 1 < instance.LevelSceneNames.Length);
         prevLevelButton.gameObject.SetActive(selectedLevelIndex > 0);
