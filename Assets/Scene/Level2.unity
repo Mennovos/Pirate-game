@@ -36372,6 +36372,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231f18317d8b5264d81eb54790a802ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManagerInteractor
+  levelPreview: {fileID: 0}
+  levelName: {fileID: 0}
+  nextLevelButton: {fileID: 0}
+  prevLevelButton: {fileID: 0}
+  levelPreviewSprites: []
+  levelNames: []
 --- !u!114 &1545848287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38207,6 +38213,42 @@ PrefabInstance:
     - target: {fileID: 6267791001153603994, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
       propertyPath: m_Name
       value: P.PlayerHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330485712604277572, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a0a2d68b7762ec4b8dcb38efd874c93, type: 3}
+    - target: {fileID: 7365892195851718525, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 587.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365892195851718525, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 73.9769
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365892195851718525, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 123.157
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365892195851718525, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -96.90112
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121421319679120506, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -161.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121421319679120506, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949226769296479918, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949226769296479918, guid: 693198661dd49c84290a7dba0a3a30bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
