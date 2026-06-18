@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -179,6 +180,15 @@ public class SeagullEnemy : Enemy
     private void OnCollisionEnter(Collision collision)
     {
         if (state == SeagullState.DIVE) state = SeagullState.IDLE;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out PlayerHurtbox playerHurtbox))
+        {
+            goingRight = !goingRight;
+            rb.linearVelocity = new Vector2(-rb.linearVelocity.x, rb.linearVelocity.y);
+        }
     }
 
 

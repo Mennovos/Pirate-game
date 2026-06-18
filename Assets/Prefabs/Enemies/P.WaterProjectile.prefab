@@ -86,7 +86,7 @@ MonoBehaviour:
   hitShakeStrength: 0
   hitShakeDuration: 0
   meshRenderers: []
-  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
   groundLayerMask:
     serializedVersion: 2

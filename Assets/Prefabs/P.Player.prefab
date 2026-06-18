@@ -251,7 +251,7 @@ MonoBehaviour:
   meshRenderers:
   - {fileID: 5770427319872839599}
   - {fileID: 2383918201795665197}
-  colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
+  colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
   deathScreen: {fileID: 0}
 --- !u!114 &4320021255928521394
@@ -282,13 +282,8 @@ MonoBehaviour:
   jumpForce: 15
   mashAmount: 0
   mashCooldown: 3
-  GrappleSpeed: 5
-  Grapplepoint: {fileID: 0}
-  grapplePoints: []
-  PickupsPosition: []
-  grappling: 0
   Anim: {fileID: 1726448365514230698}
-  batHit: 0
+  menuManger: {fileID: 0}
 --- !u!114 &-6672035909423237752
 MonoBehaviour:
   m_ObjectHideFlags: 0

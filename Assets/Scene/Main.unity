@@ -196649,7 +196649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deathwater
   damage: 2.5
-  knockback: {x: 0, y: 10}
+  knockback: {x: 0, y: 20}
 --- !u!4 &1316906158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
@@ -201263,6 +201263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231f18317d8b5264d81eb54790a802ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManagerInteractor
+  levelPreview: {fileID: 0}
+  nextLevelButton: {fileID: 0}
+  prevLevelButton: {fileID: 0}
+  levelPreviewSprites: []
 --- !u!1001 &1346424598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225841,8 +225845,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: aa2d6b6cb6536b740b1291221244db8f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -275749,8 +275753,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb44b22ac546e444ab22eff3438b9fbf, type: 2}
+  m_sharedMaterial: {fileID: -8699211528088709449, guid: cb44b22ac546e444ab22eff3438b9fbf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -275774,13 +275778,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontSizeMin: 16
+  m_fontSizeMax: 128
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

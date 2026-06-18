@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     private static MenuManager instance;
-    [SerializeField] private GameObject menuManger;
 
     private Controls controls;
 
@@ -24,6 +23,8 @@ public class MenuManager : MonoBehaviour
     }
     
     [SerializeField] private string[] levelSceneNames;
+    
+    public string[] LevelSceneNames => levelSceneNames;
     
     private void Awake()
     {
