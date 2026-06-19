@@ -28,6 +28,10 @@ public class Movement : MonoBehaviour
     private bool isPaused;
 
     [SerializeField] private GameObject menuManger;
+    
+    [Space]
+    [SerializeField] private List<AudioClip> jumpSounds;
+    [SerializeField] private AudioSource audioSource;
 
     //for mashing text
     // [SerializeField] private TextMeshProUGUI E;
@@ -65,6 +69,15 @@ public class Movement : MonoBehaviour
         if (Grounded && !isPaused)
         {
             Anim.SetTrigger("Jumping");
+            
+            if (audioSource && jumpSounds.Count > 0)
+            {
+                int index = Random.Range(0, jumpSounds.Count);
+                AudioClip clip = jumpSounds[index];
+        
+                audioSource.PlayOneShot(clip);
+            }
+            
             Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
