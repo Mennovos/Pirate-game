@@ -3,27 +3,29 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 
 public class Movement : MonoBehaviour
 {
-    LayerMask grappleLayerMask;
+    private LayerMask grappleLayerMask;
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] public float mashAmount = 0f;
+    public float mashAmount;
     [SerializeField] private float mashCooldown = 3f;
  
     private Vector3 movement;
 
-    private Controls Controls;
+    private Controls controls;
     private Health health;
 
-    private LayerMask GroundLayer;
-    private Rigidbody Rb;
-    [SerializeField] private Animator Anim;
+    private LayerMask groundLayer;
+    private Rigidbody rb;
+    [SerializeField] private Animator anim;
 
-    private bool Grounded;
+    private bool grounded;
+    private bool walking;
     private bool batHit;
     private bool isPaused;
 
@@ -31,6 +33,8 @@ public class Movement : MonoBehaviour
     
     [Space]
     [SerializeField] private List<AudioClip> jumpSounds;
+    private List<AudioClip> walkSounds;
+    [SerializeField, Min(float.Epsilon)] private float walkSoundInterval;
     [SerializeField] private AudioSource audioSource;
 
     //for mashing text
@@ -39,20 +43,20 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
-        GroundLayer = LayerMask.GetMask("Ground");
+        groundLayer = LayerMask.GetMask("Ground");
         grappleLayerMask = LayerMask.GetMask("Grappling");
         health = FindAnyObjectByType<Health>();
 
-        Controls = new Controls();
+        controls = new Controls();
 
-        Controls.Player.Enable();
-            Controls.Player.Move.performed += OnMove;
-            Controls.Player.Move.canceled += OnMove;
-            Controls.Player.Jump.performed += OnJump;
-            Controls.Player.Mashing.performed += OnMashing;
-            Controls.Player.Pause.performed += OnPause;
+        controls.Player.Enable();
+            controls.Player.Move.performed += OnMove;
+            controls.Player.Move.canceled += OnMove;
+            controls.Player.Jump.performed += OnJump;
+            controls.Player.Mashing.performed += OnMashing;
+            controls.Player.Pause.performed += OnPause;
 
-        Rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -60,15 +64,15 @@ public class Movement : MonoBehaviour
         {
             Vector2 input = context.ReadValue<Vector2>();
             movement.x = context.ReadValue<Vector2>().x;
-            bool Walking = input.sqrMagnitude > 0.01f;
+            walking = input.sqrMagnitude > 0.01f;
             // Anim.SetBool("Walking", Walking);
         }
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (Grounded && !isPaused)
+        if (grounded && !isPaused)
         {
-            Anim.SetTrigger("Jumping");
+            anim.SetTrigger("Jumping");
             
             if (audioSource && jumpSounds.Count > 0)
             {
@@ -78,7 +82,7 @@ public class Movement : MonoBehaviour
                 audioSource.PlayOneShot(clip);
             }
             
-            Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
@@ -92,8 +96,20 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, GroundLayer);
+        grounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, 
+            1.5f, groundLayer);
 
+        if (grounded)
+        {
+            if (hitInfo.collider.gameObject.TryGetComponent(out GroundSoundSupplier soundSupplier))
+            {
+                walkSounds = soundSupplier.WalkSounds;
+            }
+            else
+            {
+                walkSounds = new List<AudioClip>();
+            }
+        }
     }
    
     private void Update()
@@ -104,22 +120,22 @@ public class Movement : MonoBehaviour
 
         if (movement.magnitude > 0.001f)
         {
-            Anim.SetBool("Walking", true);
+            anim.SetBool("Walking", true);
             transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
         else 
         {
-            Anim.SetBool("Walking", false);
+            anim.SetBool("Walking", false);
         }
 
-        if (!Grounded)
+        if (!grounded)
         {
-            Anim.SetBool("Falling", true);
-            Anim.SetBool("Walking", false); 
+            anim.SetBool("Falling", true);
+            anim.SetBool("Walking", false); 
         }
         else
         {
-            Anim.SetBool("Falling", false);
+            anim.SetBool("Falling", false);
         }
 
         //make text work for  mashing thingie
@@ -179,5 +195,23 @@ public class Movement : MonoBehaviour
             health.TakeDamage(0);
         }
     }
- 
+
+
+    private IEnumerator WalkSoundCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => grounded && walking);
+
+            if (audioSource && walkSounds.Count > 0)
+            {
+                int index = Random.Range(0, walkSounds.Count);
+                AudioClip clip = walkSounds[index];
+        
+                audioSource.PlayOneShot(clip);
+            }
+
+            yield return new WaitForSeconds(walkSoundInterval);
+        }
+    }
 }
