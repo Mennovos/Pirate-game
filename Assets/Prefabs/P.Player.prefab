@@ -318,6 +318,9 @@ MonoBehaviour:
   Grapplepoint: {fileID: 0}
   grapplePoints: []
   player: {fileID: 0}
+  enemyPullForce: 8
+  enemyPullDuration: 0.6
+  enemyStopDistance: 1.5
   grappleCooldown: 0.5
 --- !u!1 &7346122751427289223
 GameObject:
