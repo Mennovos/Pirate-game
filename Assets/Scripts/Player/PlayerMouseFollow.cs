@@ -1,96 +1,113 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[DisallowMultipleComponent]
 public class PlayerMouseFollow : MonoBehaviour
 {
-    [Header("References")]
+    [Header("Bone / Auto Lookup")]
+    [Tooltip("Optional: assign upper-body bone (spine/chest). If empty, will try Animator.GetBoneTransform(HumanBodyBones.UpperChest/Chest/Spine).")]
     [SerializeField] private Transform upperBodyBone;
 
-    [Header("Lean / Aim Settings")]
-    [SerializeField] private float leanAngle = -25f;
-    [SerializeField] private float maxYaw = 45f;
-    [SerializeField] private float blendInTime = 0.10f;
-    [SerializeField] private float blendOutTime = 0.18f;
-    [SerializeField] private float holdTime = 0.06f;
+    [Header("Follow settings")]
+    [SerializeField, Min(0f)] private float smoothSpeed = 10f;
+
+    // X axis (horizontal) control
+    [Tooltip("Horizontal sensitivity multiplier (affects how far the upper body turns left/right).")]
+    [SerializeField, Min(0f)] private float xSensitivity = 1f;
+    [Tooltip("Invert horizontal axis.")]
+    [SerializeField] private bool invertX = false;
+    [SerializeField, Range(0f, 180f)] private float maxYaw = 60f;
+
+    [Header("Pitch (vertical) control")]
+    [SerializeField, Range(0f, 180f)] private float maxPitchUp = 90f;    // positive = look up
+    [SerializeField, Range(0f, 180f)] private float maxPitchDown = 45f;  // positive = look down
+    [SerializeField, Min(0.1f)] private float aimDistance = 30f;
+
+    [Header("Debug")]
+    [SerializeField] private bool debugLogs = false;
 
     private Quaternion initialLocalRot;
-    private Coroutine running;
+    private Camera cam;
+    private Animator animator;
 
     private void Awake()
     {
+        cam = Camera.main;
+        animator = GetComponentInChildren<Animator>();
+
+        if (upperBodyBone == null && animator != null && animator.isHuman)
+        {
+            upperBodyBone = animator.GetBoneTransform(HumanBodyBones.UpperChest)
+                         ?? animator.GetBoneTransform(HumanBodyBones.Chest)
+                         ?? animator.GetBoneTransform(HumanBodyBones.Spine);
+        }
+
         if (upperBodyBone == null)
         {
-            Debug.LogWarning("UpperBodyAttack: upperBodyBone not assigned. Attempting to find 'Spine' or 'Chest' child.");
-            // try common bone names
-            upperBodyBone = transform.Find("Spine") ?? transform.Find("Chest") ?? transform;
+            foreach (Transform t in GetComponentsInChildren<Transform>(true))
+            {
+                string n = t.name.ToLowerInvariant();
+                if (n.Contains("upper") || n.Contains("chest") || n.Contains("spine") || n.Contains("torso"))
+                {
+                    upperBodyBone = t;
+                    break;
+                }
+            }
+        }
+
+        if (upperBodyBone == null)
+        {
+            Debug.LogWarning("PlayerMouseFollow: upperBodyBone not found. Assign it in the inspector.");
+            enabled = false;
+            return;
         }
 
         initialLocalRot = upperBodyBone.localRotation;
+
+        if (debugLogs) Debug.Log($"PlayerMouseFollow Awake: bone='{upperBodyBone.name}', cam={(cam? cam.name : "null")}");
     }
 
-    /// <summary>
-    /// Trigger the upper-body attack using a world-space aim direction.
-    /// </summary>
-    public void DoUpperAttack(Vector3 aimWorldDirection)
+    // Use LateUpdate so the Animator's updates are applied first, then we override the bone.
+    private void LateUpdate()
     {
-        if (running != null) StopCoroutine(running);
-        running = StartCoroutine(UpperAttackRoutine(aimWorldDirection.normalized));
-    }
+        if (cam == null || upperBodyBone == null) return;
 
-    /// <summary>
-    /// Convenience: compute aim direction from camera + screen position (mouse) and do attack.
-    /// </summary>
-    public void DoUpperAttackAtMouse(Camera cam, Vector2 screenPosition)
-    {
-        if (cam == null) return;
-        Ray ray = cam.ScreenPointToRay(screenPosition);
-        // aim direction from player to long-distance point on ray
-        Vector3 targetPoint = ray.origin + ray.direction * 50f;
-        Vector3 dir = (targetPoint - transform.position);
-        dir.y = 0f; // keep aim rotation horizontal only for yaw
-        if (dir.sqrMagnitude < 0.001f)
-            dir = transform.forward;
-        DoUpperAttack(dir.normalized);
-    }
+        Vector2 mousePos = Mouse.current != null ? Mouse.current.position.ReadValue() : (Vector2)Input.mousePosition;
+        Ray ray = cam.ScreenPointToRay(mousePos);
+        Vector3 worldPoint = ray.origin + ray.direction * aimDistance;
 
-    private IEnumerator UpperAttackRoutine(Vector3 aimDir)
-    {
-        // Compute yaw angle between player's forward and aimDir
-        Vector3 forwardProj = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
-        Vector3 aimProj = Vector3.ProjectOnPlane(aimDir, Vector3.up).normalized;
-        float yaw = Vector3.SignedAngle(forwardProj, aimProj, Vector3.up);
+        Vector3 toTarget = worldPoint - transform.position;
+        if (toTarget.sqrMagnitude < 0.0001f) toTarget = transform.forward;
+
+        // Convert direction into local space of the player/root
+        Vector3 localDir = transform.InverseTransformDirection(toTarget.normalized);
+
+        // Yaw: left/right (x over z)
+        float yaw = Mathf.Atan2(localDir.x, localDir.z) * Mathf.Rad2Deg;
         yaw = Mathf.Clamp(yaw, -maxYaw, maxYaw);
 
-        // target local rotation: initial rotated by yaw around local up, then pitched by leanAngle around local X
-        Quaternion targetLocal = initialLocalRot * Quaternion.Euler(leanAngle, yaw, 0f);
+        // Pitch: up/down (y over z) - positive means up
+        float pitch = Mathf.Atan2(localDir.y, localDir.z) * Mathf.Rad2Deg;
+        // clamp with separate up/down limits
+        pitch = Mathf.Clamp(pitch, -maxPitchDown, maxPitchUp);
 
-        // Blend in
-        float t = 0f;
-        while (t < blendInTime)
+        // Compose local rotation: pitch around X, yaw around Y
+        Quaternion localRot = Quaternion.Euler(pitch, yaw, 0f);
+        Quaternion targetLocal = initialLocalRot * localRot;
+
+        // Smoothly blend the bone's local rotation
+        upperBodyBone.localRotation = Quaternion.Slerp(upperBodyBone.localRotation, targetLocal, 1f - Mathf.Exp(-smoothSpeed * Time.deltaTime));
+
+        if (debugLogs)
         {
-            float lerp = blendInTime > 0f ? (t / blendInTime) : 1f;
-            upperBodyBone.localRotation = Quaternion.Slerp(initialLocalRot, targetLocal, Mathf.SmoothStep(0f, 1f, lerp));
-            t += Time.deltaTime;
-            yield return null;
+            Debug.DrawRay(cam.transform.position, (worldPoint - cam.transform.position).normalized * 5f, Color.cyan, 0.02f);
         }
+    }
 
-        upperBodyBone.localRotation = targetLocal;
-
-        // Hold attack pose briefly
-        if (holdTime > 0f) yield return new WaitForSeconds(holdTime);
-
-        // Blend back to neutral
-        t = 0f;
-        Quaternion from = upperBodyBone.localRotation;
-        while (t < blendOutTime)
-        {
-            float lerp = blendOutTime > 0f ? (t / blendOutTime) : 1f;
-            upperBodyBone.localRotation = Quaternion.Slerp(from, initialLocalRot, Mathf.SmoothStep(0f, 1f, lerp));
-            t += Time.deltaTime;
-            yield return null;
-        }
-
-        upperBodyBone.localRotation = initialLocalRot;
-        running = null;
+    private void OnDisable()
+    {
+        if (upperBodyBone != null)
+            upperBodyBone.localRotation = initialLocalRot;
     }
 }
