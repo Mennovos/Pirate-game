@@ -145292,7 +145292,7 @@ PrefabInstance:
     - target: {fileID: 1283133562420713577, guid: 37c9698c5e1c0cf4483c7b9837ce17fc, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: cf1fa3391b1018c499722395543e9225, type: 2}
+      objectReference: {fileID: 2100000, guid: 3afeb80051072644c93bebbe848622c8, type: 2}
     - target: {fileID: 1438977690350343311, guid: 37c9698c5e1c0cf4483c7b9837ce17fc, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -225916,7 +225916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 840729f237b796f40b57a6611654e0db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e189080f29e1c444eb3983fe122f725c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
