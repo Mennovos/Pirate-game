@@ -290,9 +290,10 @@ MonoBehaviour:
   jumpForce: 15
   mashAmount: 0
   mashCooldown: 3
-  Anim: {fileID: 1726448365514230698}
+  anim: {fileID: 0}
   menuManger: {fileID: 0}
   jumpSounds: []
+  walkSoundInterval: 0.521
   audioSource: {fileID: 4393800613576256183}
 --- !u!114 &-6672035909423237752
 MonoBehaviour:
