@@ -31269,10 +31269,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119053515092701883, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.277
+      objectReference: {fileID: 0}
+    - target: {fileID: 119053515092701883, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.1762
+      objectReference: {fileID: 0}
+    - target: {fileID: 119053515092701883, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119053515092701883, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0551
+      objectReference: {fileID: 0}
+    - target: {fileID: 119053515092701883, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0881
+      objectReference: {fileID: 0}
     - target: {fileID: 165170024906228239, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 383654553162831870, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383654553162831870, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83517f36ae873b9428f4f9a4268d5c53, type: 3}
+    - target: {fileID: 734759595682389671, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 734759595682389671, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83517f36ae873b9428f4f9a4268d5c53, type: 3}
     - target: {fileID: 826545253592834389, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
       propertyPath: cam
       value: 
@@ -31320,6 +31356,26 @@ PrefabInstance:
     - target: {fileID: 2175705846827336984, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
       propertyPath: m_Name
       value: P.FishbearEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759045404225712225, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.5179
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759045404225712225, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.3556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759045404225712225, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759045404225712225, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.3007
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759045404225712225, guid: 4012a2af799280449b6a00576497a3b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0945
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
