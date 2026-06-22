@@ -48,7 +48,7 @@ public class CrabEnemy : Enemy
                     elapsedTime += Time.deltaTime * moveSpeed;
                     yield return null;
                 }
-                animator.SetBool("Walking", false);
+                 animator.SetBool("Walking", false);
             yield return new WaitForSeconds(pauseAtPoint);
             // Swap start and end positions
             Vector3 temp = startPos;
