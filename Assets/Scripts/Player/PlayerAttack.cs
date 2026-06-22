@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField, Min(0f)] private float duration;
     [SerializeField, Min(0f)] private float cooldown;
     [SerializeField, Min(0f)] private float strength;
+    
+    [Space]
+    [SerializeField] private List<AudioClip> attackSounds;
+    [SerializeField] private List<AudioClip> hitSounds;
+    [SerializeField] private AudioSource audioSource;
     
     private Controls controls;
     
@@ -39,6 +45,14 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.TryGetComponent(out IEnemy enemy))
         {
+            if (audioSource && hitSounds.Count > 0)
+            {
+                int index = Random.Range(0, hitSounds.Count);
+                AudioClip clip = hitSounds[index];
+        
+                audioSource.PlayOneShot(clip);
+            }
+            
             enemy.attack(transform.forward * strength);
         }
     }
@@ -58,6 +72,14 @@ public class PlayerAttack : MonoBehaviour
             -(transform.position - cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, -cam.transform.position.z))), 
             Vector3.up);
             
+        if (audioSource && attackSounds.Count > 0)
+        {
+            int index = Random.Range(0, attackSounds.Count);
+            AudioClip clip = attackSounds[index];
+        
+            audioSource.PlayOneShot(clip);
+        }
+        
         coll.enabled = true;
         yield return new WaitForSeconds(duration);
         

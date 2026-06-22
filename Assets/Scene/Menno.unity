@@ -1280,6 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8128298205128360543, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1292,6 +1293,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7292754492190491993, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1395234763}
+    - targetCorrespondingSourceObject: {fileID: 5358843598144670570, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2021702645}
   m_SourcePrefab: {fileID: 100100000, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
 --- !u!1 &969999963
 GameObject:
@@ -1480,6 +1484,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1127512217 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4725929699344047734, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 847882018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1183010831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,6 +1852,9 @@ MonoBehaviour:
   Grapplepoint: {fileID: 627765038}
   grapplePoints: []
   player: {fileID: 1395234730}
+  enemyPullForce: 8
+  enemyPullDuration: 0.6
+  enemyStopDistance: 1.5
   grappleCooldown: 0.75
 --- !u!1 &1477424229
 GameObject:
@@ -2493,6 +2505,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 287917240}
   m_SourcePrefab: {fileID: 100100000, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
+--- !u!1 &1491711162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5358843598144670570, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
+  m_PrefabInstance: {fileID: 847882018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623832887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,6 +3147,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4689865077568459216, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
   m_PrefabInstance: {fileID: 847882018}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2021702645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491711162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40f56a58eb26b04a8fea537543807b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMouseFollow
+  upperBodyBone: {fileID: 1127512217}
+  smoothSpeed: 400
+  xSensitivity: 7.18
+  invertX: 0
+  maxYaw: 0
+  maxPitchUp: 0
+  maxPitchDown: 85.3
+  aimDistance: 10.2
+  debugLogs: 0
 --- !u!1001 &59415993647658428
 PrefabInstance:
   m_ObjectHideFlags: 0
