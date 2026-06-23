@@ -466,16 +466,24 @@ MonoBehaviour:
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
-  enemyHealth: 0
-  chargeAttackSpeed: 0
-  chargeAttackAnimDuration: 0
-  startPos: {x: 0, y: 0.5, z: 0}
-  endPos: {x: 6, y: 0.5, z: 0}
-  moveSpeed: 4
-  waitTime: 5
-  impulseReduction: 0
+  patrolOffsetA: {x: -2, y: 0}
+  patrolOffsetB: {x: 2, y: 0}
+  patrolSpeed: 1.2
   pauseAtPoint: 2
-  Damage: {fileID: 0}
+  detectionRadius: 1.96
+  windupTime: 0.25
+  chargeDuration: 0.9
+  chargeMaxSpeed: 6
+  chargeAcceleration: 20
+  chargeCooldown: 1.2
+  stoppingDistance: 1.2
+  Damage: {fileID: 2031077246}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  groundSampleHeight: 2
+  groundRayDistance: 4
+  heightOffset: 0
 --- !u!54 &329361466
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2906,6 +2914,11 @@ MonoBehaviour:
   autoInvertXOnFlip: 0
   autoInvertYOnFlip: 0
   debugLogs: 0
+--- !u!1 &2031077246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7687638572045899498, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
+  m_PrefabInstance: {fileID: 1479568750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &59415993647658428
 PrefabInstance:
   m_ObjectHideFlags: 0
