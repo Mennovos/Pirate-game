@@ -251,7 +251,7 @@ public class FishbearEnemy : Enemy
                 
                 Collider playerCollider = colliders[0];
 
-                if (playerCollider)
+                if (playerCollider && state != FishbearState.DEFEATED)
                 {
                     yield return StartCoroutine(ChompAttack(playerCollider));
                     
@@ -282,6 +282,8 @@ public class FishbearEnemy : Enemy
             
             if (state == FishbearState.CHOMP_ATTACK) yield break;
         }
+        
+        if (state == FishbearState.DEFEATED) yield break;
         
         state = FishbearState.DASH_ATTACK_WINDDOWN;
         cameraMovement.CameraShake(dashShakeStrength, dashShakeDuration);
@@ -320,20 +322,6 @@ public class FishbearEnemy : Enemy
         
         if (state != FishbearState.DEFEATED) 
             state = FishbearState.IDLE;
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (state == FishbearState.DASH_ATTACK)
-        {
-            if (other.TryGetComponent(out PlayerHurtbox player))
-            {
-                //state = FishbearState.CHOMP_ATTACK;
-                
-                //TODO: mash stuff
-            }
-        }
     }
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +13,23 @@ public class Health : MonoBehaviour
     [Space] 
     [SerializeField] private List<Renderer> meshRenderers;
     [SerializeField] private Color colorOnHit = new(1f, 0.5f, 0.5f);
-    [SerializeField] private float colorOnHitDuration = 0.1f;
+    [SerializeField] private float colorOnHitDuration = 0.1f; // also invincibility duration
+    
+    [Space]
+    [SerializeField] private Image onHitVignette;
 
     private Coroutine colorResetCoroutine;
 
     [Header("Deathscreen")]
     [SerializeField] private GameObject deathScreen;
+
+    private void Start()
+    {
+        if (onHitVignette)
+        {
+            onHitVignette.gameObject.SetActive(false);
+        }
+    }
 
     void Update()
     {
@@ -36,7 +48,7 @@ public class Health : MonoBehaviour
     {
         if (damage > 0)
         {
-            if (colorResetCoroutine != null) StopCoroutine(colorResetCoroutine);
+            if (colorResetCoroutine != null) return;
 
             foreach (Renderer meshRenderer in meshRenderers)
             {
@@ -44,6 +56,11 @@ public class Health : MonoBehaviour
                 {
                     mat.color = colorOnHit;
                 }
+            }
+
+            if (onHitVignette)
+            {
+                onHitVignette.gameObject.SetActive(true);
             }
         
             colorResetCoroutine = StartCoroutine(ColorResetCoroutine());
@@ -73,6 +90,11 @@ public class Health : MonoBehaviour
             {
                 mat.color = Color.white;
             }
+        }
+        
+        if (onHitVignette)
+        {
+            onHitVignette.gameObject.SetActive(false);
         }
         
         colorResetCoroutine = null;

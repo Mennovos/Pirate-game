@@ -52,7 +52,7 @@ public class BulletEnemy : Enemy
 
     public override void attack(Vector2 impulse)
     {
-        if (parryable)
+        if (parryable && !parried)
         {
             TimeManager.Instance.AddHitstop(0.1f);
             OnHit();
