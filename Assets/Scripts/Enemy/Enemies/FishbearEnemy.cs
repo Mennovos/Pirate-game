@@ -283,6 +283,8 @@ public class FishbearEnemy : Enemy
             if (state == FishbearState.CHOMP_ATTACK) yield break;
         }
         
+        if (state == FishbearState.DEFEATED) yield break;
+        
         state = FishbearState.DASH_ATTACK_WINDDOWN;
         cameraMovement.CameraShake(dashShakeStrength, dashShakeDuration);
         rb.linearVelocity = Vector3.up * dashRebound.y - transform.forward * dashRebound.x;
