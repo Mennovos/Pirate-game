@@ -110,7 +110,7 @@ public class PlayerMouseFollow : MonoBehaviour
         yaw = Mathf.Clamp(yaw, -maxYaw, maxYaw);
 
         // Pitch: up/down (y over z) - positive means up
-        float pitch = Mathf.Atan2(localDir.y, Mathf.Max(0.0001f, localDir.z)) * Mathf.Rad2Deg;
+        float pitch = -Mathf.Atan2(localDir.y, Mathf.Max(0.0001f, localDir.z)) * Mathf.Rad2Deg;
 
         // Determine which pitch limits to use (swap when flipped if requested)
         float currentMaxUp = maxPitchUp;
@@ -138,6 +138,11 @@ public class PlayerMouseFollow : MonoBehaviour
             Debug.DrawRay(cam.transform.position, (worldPoint - cam.transform.position).normalized * 5f, Color.cyan, 0.02f);
             Debug.Log($"Mouse normY={normY:F2} flipped={isFlipped} yaw={yaw:F1} pitch={pitch:F1} upLimit={currentMaxUp} downLimit={currentMaxDown}");
         }
+    }
+
+    private void lookAtMouse()
+    {
+        upperBodyBone.rotation = Quaternion.LookRotation(Vector3.RotateTowards(upperBodyBone.position, Input.mousePosition, 1f, 0f));
     }
 
     private void UpdateFlipByMouseY(Vector2 mousePos)
