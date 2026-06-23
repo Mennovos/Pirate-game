@@ -326696,6 +326696,10 @@ PrefabInstance:
       propertyPath: scoreParticleSpawn
       value: 
       objectReference: {fileID: 1669798598}
+    - target: {fileID: 981460042506056114, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
+      objectReference: {fileID: 0}
     - target: {fileID: 6839728389976572380, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
       propertyPath: m_Pivot.x
       value: 0
