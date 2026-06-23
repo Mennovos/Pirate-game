@@ -29,7 +29,11 @@ public class TextboxNPC : MonoBehaviour
     {
         input = new Controls();
         
-        input.Player.TextContinue.started += context => skip = true;
+        input.Player.TextContinue.started += context =>
+        {
+            if (!TimeManager.Instance.IsPaused) 
+                skip = true;
+        };
         
         StartCoroutine(TextboxCoroutine());
     }
@@ -48,6 +52,8 @@ public class TextboxNPC : MonoBehaviour
             
             for (int i = 0; i < text.Length; i++)
             {
+                yield return new WaitUntil(() => !TimeManager.Instance.IsPaused);
+                
                 textbox.text += text[i];
                 
                 if (text[i] != ' ' && typingSoundSource && typingSoundClip) 

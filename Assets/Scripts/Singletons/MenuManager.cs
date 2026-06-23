@@ -41,6 +41,8 @@ public class MenuManager : MonoBehaviour
 
     public void OnReturnToMain()
     {
+        TimeManager.Instance.SetPaused(false);
+        
         SceneManager.LoadScene("Title Screen");
     }
 

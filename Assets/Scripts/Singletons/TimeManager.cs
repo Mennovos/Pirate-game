@@ -50,6 +50,7 @@ public class TimeManager : MonoBehaviour
     public void SetPaused(bool paused)
     {
         this.paused = paused;
+        OnTogglePause?.Invoke(paused);
     }
 
     public void AddHitstop(float time)
@@ -58,4 +59,7 @@ public class TimeManager : MonoBehaviour
         
         hitstopTimer += time;
     }
+
+
+    public event Action<bool> OnTogglePause;
 }
