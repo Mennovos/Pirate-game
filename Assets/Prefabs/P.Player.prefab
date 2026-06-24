@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: -6672035909423237752}
   - component: {fileID: -8128298205128360543}
   - component: {fileID: 4393800613576256183}
+  - component: {fileID: 910337363231179234}
   m_Layer: 3
   m_Name: P.Player
   m_TagString: Player
@@ -259,6 +260,7 @@ MonoBehaviour:
   - {fileID: 2383918201795665197}
   colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
+  onHitVignette: {fileID: 0}
   deathScreen: {fileID: 0}
 --- !u!114 &4320021255928521394
 MonoBehaviour:
@@ -430,6 +432,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &910337363231179234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292754492190491993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40f56a58eb26b04a8fea537543807b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMouseFollow
+  upperBodyBone: {fileID: 61644260842465207}
+  rotationSmoothing: 25
 --- !u!1 &7346122751427289223
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +550,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}
+--- !u!4 &61644260842465207 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5297195087196269737, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}
+  m_PrefabInstance: {fileID: 5285092898628684574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1726448365514230698 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6822382073655083188, guid: 9b2696e4df2e56243a850d44cd953822, type: 3}

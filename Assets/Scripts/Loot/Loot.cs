@@ -21,9 +21,9 @@ public abstract class Loot : MonoBehaviour, IPickup
         {
             Ray ray = new Ray(mainCamera.position, mainCamera.forward);
 
-            if (plane.Raycast(ray, out float entryDistance))
+            if (plane.Raycast(ray, out float entry_distance))
             {
-                Vector2 center = ray.GetPoint(entryDistance);
+                Vector2 center = ray.GetPoint(entry_distance);
                 
                 float rot = Mathf.Atan2(transform.position.y - center.y, transform.position.x -  center.x);
             
