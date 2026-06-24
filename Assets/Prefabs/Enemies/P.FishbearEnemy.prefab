@@ -426,6 +426,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 98586b160a0072b479016cf701f757a5, type: 2}
+    - target: {fileID: 3233387000308295456, guid: de468f97a744eb74c8b555ac212916ad, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233387000308295456, guid: de468f97a744eb74c8b555ac212916ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 08a0d610dc0a4fc4ea1e07ccb923a9c2, type: 2}
     - target: {fileID: 3547782087114508743, guid: de468f97a744eb74c8b555ac212916ad, type: 3}
       propertyPath: m_Layer
       value: 7

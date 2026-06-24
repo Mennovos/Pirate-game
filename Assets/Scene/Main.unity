@@ -9693,7 +9693,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -22978,7 +22978,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.605}
   m_Size: {x: 1, y: 1, z: 1.21}
@@ -37129,7 +37129,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 0.75, y: 0.75, z: 1}
@@ -54894,7 +54894,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -60133,7 +60133,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.65}
   m_Size: {x: 1, y: 1, z: 1.3}
@@ -61749,7 +61749,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -68999,7 +68999,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -79047,7 +79047,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -94514,7 +94514,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -101927,7 +101927,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 0.75, y: 0.75, z: 1}
@@ -102617,7 +102617,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -118395,7 +118395,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -125464,7 +125464,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -129946,7 +129946,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 0.75, y: 0.75, z: 1}
@@ -137364,7 +137364,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -173409,7 +173409,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -182294,7 +182294,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -187572,7 +187572,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.615}
   m_Size: {x: 1, y: 1, z: 1.23}
@@ -207572,7 +207572,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -211062,7 +211062,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.63}
   m_Size: {x: 1, y: 1, z: 1.26}
@@ -226062,7 +226062,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -233256,7 +233256,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -234886,7 +234886,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -237835,7 +237835,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.61}
   m_Size: {x: 1, y: 1, z: 1.22}
@@ -265944,7 +265944,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -269525,7 +269525,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -285953,7 +285953,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
@@ -286004,7 +286004,7 @@ MonoBehaviour:
   m_SoftShadowQuality: 0
   m_RenderingLayersMask:
     serializedVersion: 0
-    m_Bits: 1
+    m_Bits: 4294967295
   m_ShadowRenderingLayersMask:
     serializedVersion: 0
     m_Bits: 1
@@ -292548,7 +292548,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -297353,7 +297353,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -320739,7 +320739,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 0.75, y: 0.75, z: 1}
@@ -321279,7 +321279,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
@@ -322922,7 +322922,7 @@ MonoBehaviour:
   m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
-    m_Bits: 0
+    m_Bits: 1
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 1, y: 1, z: 1}
