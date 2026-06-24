@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Deathwater : MonoBehaviour
@@ -21,6 +22,17 @@ public class Deathwater : MonoBehaviour
         {
             Debug.Log("killed");
             enemy.kill();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent(out Health health))
+        {
+            if (other.TryGetComponent(out Rigidbody rb))
+            {
+                rb.linearVelocity = knockback;
+            }
         }
     }
 }
