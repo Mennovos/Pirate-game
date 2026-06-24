@@ -1,13 +1,12 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [DisallowMultipleComponent]
 public class PlayerMouseFollow : MonoBehaviour
 {
     [SerializeField] private Transform upperBodyBone;
-
-    [SerializeField] private float rotationSmoothing = 5f;
+    [SerializeField] private Transform midBodyBone;
+    
+    [SerializeField] private Vector3 rotationOffset;
     
     private Camera cam;
     private Quaternion initialLocalRot;
@@ -44,8 +43,12 @@ public class PlayerMouseFollow : MonoBehaviour
 
             Vector3 to_target = world_point - (Vector2)upperBodyBone.position;
 
-            upperBodyBone.rotation = Quaternion.Slerp(upperBodyBone.rotation, 
-                Quaternion.LookRotation(to_target, Vector3.up), Time.deltaTime * rotationSmoothing);
+            upperBodyBone.rotation = Quaternion.Lerp(upperBodyBone.rotation, 
+                Quaternion.LookRotation(to_target, Vector3.up) * Quaternion.Euler(rotationOffset), 0.75f);
+
+            midBodyBone.rotation = Quaternion.Lerp(midBodyBone.rotation, upperBodyBone.rotation, 0.5f);
+            
+            transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(to_target, Vector3.up), Vector3.up);
         }
     }
 

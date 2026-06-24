@@ -121,7 +121,6 @@ public class Movement : MonoBehaviour
         if (movement.magnitude > 0.001f)
         {
             anim.SetBool("Walking", true);
-            transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(movement, Vector3.up), Vector3.up);
         }
         else 
         {
