@@ -326886,7 +326886,8 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1936029057}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8128298205128360543, guid: 22aa45507077cfc4b958bbcd9561dafa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
