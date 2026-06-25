@@ -37,6 +37,9 @@ public class BatEnemy : Enemy
         switch (currentState)
             {
                 case BatState.IDLE:
+                animator.SetBool("Flying", false);
+                animator.SetBool("Idle", true);
+                animator.SetBool("SuckingBlood", false);
                 if (currentState == BatState.IDLE)
                 {
 
@@ -44,10 +47,10 @@ public class BatEnemy : Enemy
                     transform.position = Vector3.Lerp(transform.position, BasePos, moveBackSpeed * Time.fixedDeltaTime);
 
                     // check if sucking blood is active and if the player has mashed enough to stop it
-                    if (movement.mashClicks() == 0)
-                    {
-                        Visualclutter.SetActive(false);
-                    }
+                    //if (movement.mashClicks() == 0)
+                    //{
+                    //    Visualclutter.SetActive(false);
+                    //}
 
                     // Check if the player is within range to start chasing
                     if (coolDownTimerChase < 0)
@@ -65,6 +68,9 @@ public class BatEnemy : Enemy
                 break;
 
                 case BatState.Chase:
+                animator.SetBool("Flying", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("SuckingBlood", false);
                 if (currentState == BatState.Chase)
                 {
                     //chase the player
@@ -79,6 +85,9 @@ public class BatEnemy : Enemy
                 }
                     break;
             case BatState.SuckingBlood:
+                animator.SetBool("Flying", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("SuckingBlood", true);
                 if (currentState == BatState.SuckingBlood)
                 {
 
