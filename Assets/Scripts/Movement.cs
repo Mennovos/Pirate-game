@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private Animator anim;
 
+    public Rigidbody Rigidbody => rb;
+
     private bool grounded;
     private bool walking;
     private bool batHit;

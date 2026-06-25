@@ -161,9 +161,9 @@ GameObject:
   - component: {fileID: 4320021255928521394}
   - component: {fileID: 5679303733481374348}
   - component: {fileID: -6672035909423237752}
-  - component: {fileID: -8128298205128360543}
   - component: {fileID: 4393800613576256183}
   - component: {fileID: 910337363231179234}
+  - component: {fileID: 2415487217820326830}
   m_Layer: 3
   m_Name: P.Player
   m_TagString: Player
@@ -187,7 +187,6 @@ Transform:
   - {fileID: 4689865077568459216}
   - {fileID: 8247986675827728778}
   - {fileID: 8830351460746971359}
-  - {fileID: 4940525420054242965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3557021468158903186
@@ -310,31 +309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackingTarget
   weight: 1
---- !u!114 &-8128298205128360543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7292754492190491993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e07e02967fcabb418a1f07868d95c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrapple
-  grappleLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  maxGrappleDistance: 100
-  clickRadius: 1.5
-  GrappleSpeed: 5
-  Grapplepoint: {fileID: 0}
-  grapplePoints: []
-  player: {fileID: 0}
-  enemyPullForce: 8
-  enemyPullDuration: 0.6
-  enemyStopDistance: 1.5
-  grappleCooldown: 0.5
 --- !u!82 &4393800613576256183
 AudioSource:
   m_ObjectHideFlags: 0
@@ -447,37 +421,20 @@ MonoBehaviour:
   upperBodyBone: {fileID: 61644260842465207}
   midBodyBone: {fileID: 4725929699344047734}
   rotationOffset: {x: 0, y: 45, z: 0}
---- !u!1 &7346122751427289223
-GameObject:
+  animatorWeight: 0.5
+--- !u!114 &2415487217820326830
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4940525420054242965}
-  m_Layer: 3
-  m_Name: Grapplepoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4940525420054242965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7346122751427289223}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.859}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4053806634620236715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 7292754492190491993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe613544819e60439d6a33d9fcd3d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerGrappleV2
+  grappleProjectilePrefab: {fileID: 541660472416157967, guid: d4df755568c74d140ab3f4340f41714d, type: 3}
 --- !u!1001 &5285092898628684574
 PrefabInstance:
   m_ObjectHideFlags: 0

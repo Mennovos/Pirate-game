@@ -7,6 +7,8 @@ public class PlayerMouseFollow : MonoBehaviour
     [SerializeField] private Transform midBodyBone;
     
     [SerializeField] private Vector3 rotationOffset;
+
+    [SerializeField, Range(0f, 1f)] private float animatorWeight = 0.5f;
     
     private Camera cam;
     private Quaternion initialLocalRot;
@@ -44,7 +46,7 @@ public class PlayerMouseFollow : MonoBehaviour
             Vector3 to_target = world_point - (Vector2)upperBodyBone.position;
 
             upperBodyBone.rotation = Quaternion.Lerp(upperBodyBone.rotation, 
-                Quaternion.LookRotation(to_target, Vector3.up) * Quaternion.Euler(rotationOffset), 0.75f);
+                Quaternion.LookRotation(to_target, Vector3.up) * Quaternion.Euler(rotationOffset), animatorWeight);
 
             midBodyBone.rotation = Quaternion.Lerp(midBodyBone.rotation, upperBodyBone.rotation, 0.5f);
             
