@@ -198,4 +198,12 @@ public class SeagullEnemy : Enemy
         
         base.attack(impulse);
     }
+
+
+    public override void WhilePulling(PlayerGrappleV2 player, GrappleProjectile hook)
+    {
+        if (state == SeagullState.KNOCKBACK) Destroy(hook.gameObject);
+        
+        base.WhilePulling(player, hook);
+    }
 }

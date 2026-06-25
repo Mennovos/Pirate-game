@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
-public abstract class Enemy : MonoBehaviour, IEnemy
+public abstract class Enemy : MonoBehaviour, IEnemy, IHookPoint
 {
     [SerializeField] protected Animator animator;
     [SerializeField] protected CameraMovement cameraMovement;
@@ -28,6 +28,9 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] private List<Renderer> meshRenderers;
     [SerializeField] private Color colorOnHit = new Color(1f, 0.5f, 0.5f);
     [SerializeField] private float colorOnHitDuration = 0.1f;
+    
+    [Space]
+    [SerializeField, Min(0f)] private float grapplePullSpeed = 15f;
 
     private Coroutine colorResetCoroutine;
 
@@ -134,5 +137,31 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         }
         
         colorResetCoroutine = null;
+    }
+
+    
+    public virtual Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public virtual void OnHooked(PlayerGrappleV2 player, GrappleProjectile hook)
+    {
+        
+    }
+
+    public virtual void WhilePulling(PlayerGrappleV2 player, GrappleProjectile hook)
+    {
+        float mu = 1 / (Mathf.Sqrt(rb.mass) + Mathf.Sqrt(player.Rigidbody.mass));
+        
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        
+        rb.linearVelocity = direction * (Mathf.Sqrt(player.Rigidbody.mass) * mu * grapplePullSpeed);
+        player.Rigidbody.linearVelocity = -direction * (Mathf.Sqrt(rb.mass) * mu * grapplePullSpeed);
+    }
+
+    public virtual void OnReached(PlayerGrappleV2 player, GrappleProjectile hook)
+    {
+        
     }
 }
