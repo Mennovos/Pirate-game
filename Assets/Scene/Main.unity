@@ -208848,6 +208848,9 @@ MonoBehaviour:
   waveText: {fileID: 812990191}
   startOnAwake: 0
   finalWaveNumber: 10
+  onWavesEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1381001054
 Transform:
   m_ObjectHideFlags: 0
@@ -326770,10 +326773,6 @@ PrefabInstance:
       propertyPath: scoreParticleSpawn
       value: 
       objectReference: {fileID: 1669798598}
-    - target: {fileID: 770243159086852217, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6cedd6bae28be824a94a215e05495145, type: 3}
     - target: {fileID: 981460042506056114, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -60
@@ -326867,8 +326866,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5516817222723772615, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8699211528088709449, guid: cb44b22ac546e444ab22eff3438b9fbf, type: 2}
+    - target: {fileID: 5516817222723772615, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6045280564913467982, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -326958,6 +326961,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: P.UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7644483250708586057, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484090918220859774, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8780568310481229407, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -326975,8 +326986,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780568310481229407, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8699211528088709449, guid: cb44b22ac546e444ab22eff3438b9fbf, type: 2}
+    - target: {fileID: 8780568310481229407, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

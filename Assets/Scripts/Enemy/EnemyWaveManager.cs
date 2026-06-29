@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class EnemyWaveManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     [Space] 
     [SerializeField, Min(-1)] private int finalWaveNumber;
+    [SerializeField] private OnWavesEnded onWavesEnded;
     
     private int waveNumber;
     private List<IEnemy> waveEnemies;
@@ -63,6 +65,7 @@ public class EnemyWaveManager : MonoBehaviour
             if (waveNumber > finalWaveNumber && finalWaveNumber != -1)
             {
                 Debug.Log("Waves ended");
+                onWavesEnded.Invoke();
                 StopWaves();
                 yield break;
             }
@@ -165,4 +168,7 @@ public class EnemyWaveManager : MonoBehaviour
         public float CountPerSpawn => countPerSpawn;
         public int MaxCount => maxCount;
     }
+    
+    
+    [Serializable] private class OnWavesEnded : UnityEvent { }
 }

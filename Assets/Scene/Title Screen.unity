@@ -8622,13 +8622,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368292158}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 737671997}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 160, y: 0}
@@ -13455,8 +13455,8 @@ MonoBehaviour:
   nextLevelButton: {fileID: 576792546}
   prevLevelButton: {fileID: 1368292160}
   levelPreviewSprites:
-  - {fileID: 21300000, guid: ec5a345a134b5f845a87e0a713a840be, type: 3}
-  - {fileID: 21300000, guid: cca63052a25f98840b393b114b54ccfc, type: 3}
+  - {fileID: 21300000, guid: 73d9a66b56f9f9f4cb450c9797f43ed9, type: 3}
+  - {fileID: 21300000, guid: b1684f202f8a0b247a5dcc25c1d6e8a3, type: 3}
   levelNames:
   - Level 1 - The Docks
   - Level 2 - The Cave

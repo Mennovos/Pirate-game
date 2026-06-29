@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 
 public class Movement : MonoBehaviour
@@ -66,6 +68,12 @@ public class Movement : MonoBehaviour
     {
         return (bool)isPaused;
     }
+
+    private void OnDestroy()
+    {
+        controls.Player.Disable();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
@@ -96,9 +104,8 @@ public class Movement : MonoBehaviour
     public void OnPause(InputAction.CallbackContext context)
     {
         Debug.Log("Pause button pressed");
-        isPaused = !isPaused;
+        isPaused = !TimeManager.Instance.IsPaused;
         TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
-        Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
     }
 
     private void FixedUpdate()
