@@ -319,7 +319,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""22dd148b-b317-419d-85e0-6a900c932ec5"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",

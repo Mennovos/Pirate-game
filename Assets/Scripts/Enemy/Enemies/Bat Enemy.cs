@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BatEnemy : Enemy
@@ -22,8 +23,9 @@ public class BatEnemy : Enemy
 
     [SerializeField] private GameObject Visualclutter;
     public bool visualClutterActive = false;
+
     private Movement movement;
-   
+
 
     private new void Awake()
     {
@@ -91,7 +93,7 @@ public class BatEnemy : Enemy
                 animator.SetBool("SuckingBlood", true);
                 if (currentState == BatState.SuckingBlood)
                 {
-
+                    rb.linearVelocity = Vector3.zero; // Stop the bat's movement
                     if (movement.mashClicks() < 4)
                     {
                         Visualclutter.SetActive(true);

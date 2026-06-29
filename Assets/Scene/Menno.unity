@@ -1064,7 +1064,7 @@ MonoBehaviour:
   colorOnHitDuration: 0.1
   grapplePullSpeed: 15
   currentState: 0
-  moveSpeed: 10.08
+  moveSpeed: 5
   moveBackSpeed: 0.5
   playerInRange: 5.36
   coolDownTimerChase: 3.5
