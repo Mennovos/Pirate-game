@@ -12,6 +12,11 @@ public class ActiveOnPause : MonoBehaviour
         OnTogglePause(TimeManager.Instance.IsPaused);
     }
 
+    private void OnDestroy()
+    {
+        TimeManager.Instance.OnTogglePause -= OnTogglePause;
+    }
+
     private void OnTogglePause(bool paused)
     {
         gameObject.SetActive(paused ^ invert);

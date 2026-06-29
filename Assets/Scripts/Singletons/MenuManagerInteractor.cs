@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,8 +16,21 @@ public class MenuManagerInteractor : MonoBehaviour
     [SerializeField] private Sprite[] levelPreviewSprites;
     [SerializeField] private string[] levelNames;
     
-    private int selectedLevelIndex;
+    [SerializeField] private RectTransform winScreen;
     
+    private int selectedLevelIndex;
+
+
+    private void Start()
+    {
+        instance.OnWin += OnWin;
+    }
+
+    private void OnDestroy()
+    {
+        instance.OnWin -= OnWin;
+    }
+
 
     public void OnReturnToMain()
     {
@@ -62,5 +76,11 @@ public class MenuManagerInteractor : MonoBehaviour
         
         nextLevelButton.gameObject.SetActive(selectedLevelIndex + 1 < instance.LevelSceneNames.Length);
         prevLevelButton.gameObject.SetActive(selectedLevelIndex > 0);
+    }
+
+
+    private void OnWin()
+    {
+        winScreen.gameObject.SetActive(true);
     }
 }

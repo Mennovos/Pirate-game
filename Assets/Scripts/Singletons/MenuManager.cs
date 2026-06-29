@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -15,6 +17,7 @@ public class MenuManager : MonoBehaviour
             {
                 GameObject go = new GameObject("[Menu Manager]");
                 instance = go.AddComponent<MenuManager>();
+                DontDestroyOnLoad(go);
             }
             
             return instance;
@@ -65,15 +68,25 @@ public class MenuManager : MonoBehaviour
         {
             case "Pelican":
             {
-                //TODO: after delay go to win screen (with score?)
+                StartCoroutine(InvokeWinWithDelay(5f));
                 break;
             }
 
             case "Fishbear":
             {
-                //TODO: after delay go to win screen (with score?)
+                StartCoroutine(InvokeWinWithDelay(5f));
                 break;
             }
         }
     }
+
+
+    private IEnumerator InvokeWinWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        OnWin?.Invoke();
+    }
+
+
+    public event Action OnWin;
 }

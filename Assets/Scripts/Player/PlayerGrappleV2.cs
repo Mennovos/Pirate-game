@@ -30,6 +30,8 @@ public class PlayerGrappleV2 : MonoBehaviour
         controls.Player.Grapple.started += OnGrapple;
         controls.Player.Grapple.canceled += OnGrapple;
         
+        controls.Player.Attack.started += OnAttack;
+        
         controls.Player.Enable();
     }
 
@@ -38,6 +40,14 @@ public class PlayerGrappleV2 : MonoBehaviour
         controls.Player.Disable();
     }
 
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        if (grappleProjectile)
+        {
+            Destroy(grappleProjectile.gameObject);
+        }
+    }
 
     private void OnGrapple(InputAction.CallbackContext context)
     {
