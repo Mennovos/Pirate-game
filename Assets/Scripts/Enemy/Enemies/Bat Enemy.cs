@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -109,23 +110,33 @@ public class BatEnemy : Enemy
                     // Activate visual clutter if assigned
                     if (Visualclutter) Visualclutter.SetActive(true);
 
-                    // Pause player input once (movement.OnIspaused is idempotent here)
+                    // Start the mash challenge: require 4 presses in 3 seconds, otherwise deal 10 damage
                     if (movement != null)
                     {
-                        movement.OnIspaused();
+                        movement.StartMashingChallenge(requiredMashes: 4, timeWindow: 3f, damageOnFail: 10, onComplete: (success) =>
+                        {
+                            // Always turn off visual clutter when challenge completes
+                            if (Visualclutter) Visualclutter.SetActive(false);
+
+                            // If the player succeeded, return to idle; otherwise keep default behavior (damage already applied by Movement)
+                            if (success)
+                            {
+                                currentState = BatState.IDLE;
+                            }
+                            else
+                            {
+                                // Failure already handled by Movement (damage). Return to idle after a short delay.
+                                currentState = BatState.IDLE;
+                            }
+
+                            // Reset sucking init so future collisions behave correctly
+                            suckingInitialized = false;
+                        });
                     }
                 }
 
                 // While sucking, keep bat stopped
                 rb.linearVelocity = Vector3.zero; // Stop the bat's movement
-
-                // If player mashed enough, stop sucking
-                if (movement != null && movement.mashClicks() >= 5)
-                {
-                    if (Visualclutter) Visualclutter.SetActive(false);
-                    suckingInitialized = false;
-                    currentState = BatState.IDLE;
-                }
 
                 break;
         }
@@ -139,26 +150,17 @@ public class BatEnemy : Enemy
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Only use player's Movement component if needed; do not overwrite the stored 'movement' reference blindly
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Get Movement component from collided player (only if we don't already have one)
+            // Get Movement component from the player (if we don't already have it)
             if (movement == null)
             {
                 movement = collision.gameObject.GetComponent<Movement>();
             }
 
             currentState = BatState.SuckingBlood;
-
-            if (movement != null)
-            {
-                movement.mashAmount = 1;
-            }
-
-            coolDownTimerChase = 5f; // Reset the chase cooldown timer
-
-            // reset sucking initialization so FixedUpdate will do the one-time setup
             suckingInitialized = false;
+            coolDownTimerChase = 5f; // Reset the chase cooldown timer
         }
     }
 }
