@@ -17,7 +17,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     
     private Controls controls;
-    
+    private Movement movement;
+
     private Collider coll;
     private Camera cam;
 
@@ -27,6 +28,7 @@ public class PlayerAttack : MonoBehaviour
     {
         controls = new Controls();
         coll = GetComponent<Collider>();
+        movement = FindAnyObjectByType<Movement>();
         cam = Camera.main;
         
         coll.enabled = false;
@@ -59,9 +61,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        if (movement.IsPaused() == false) 
+        { 
         anim.ResetTrigger("Attacking");
         anim.SetTrigger("Attacking");
         coroutine ??= StartCoroutine(AttackCoroutine());
+        }
     }
 
     private IEnumerator AttackCoroutine()
