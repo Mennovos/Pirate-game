@@ -12,8 +12,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    public float mashAmount;
     [SerializeField] private float mashCooldown = 3f;
+    public float mashAmount;
  
     private Vector3 movement;
 
