@@ -38,8 +38,8 @@ public class Movement : MonoBehaviour
     private List<AudioClip> walkSounds;
     [SerializeField, Min(float.Epsilon)] private float walkSoundInterval;
     [SerializeField] private AudioSource audioSource;
-
-     [SerializeField] private TextMeshProUGUI E;
+    //For mashing ui
+   [SerializeField] private TextMeshProUGUI E;
 
 
     private void Awake()
@@ -58,6 +58,10 @@ public class Movement : MonoBehaviour
             controls.Player.Pause.performed += OnPause;
 
         rb = GetComponent<Rigidbody>();
+    }
+    public void OnIspaused()
+    {
+       isPaused = true;
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -145,8 +149,10 @@ public class Movement : MonoBehaviour
             {
                 E.text = "                     E";
             }
-
-
+        if(mashAmount == 5)
+        {
+            isPaused = false;
+        }
     }
     public void OnMashing(InputAction.CallbackContext context)
     {

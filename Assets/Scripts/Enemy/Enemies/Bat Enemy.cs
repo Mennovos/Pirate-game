@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class BatEnemy : Enemy
@@ -94,6 +95,7 @@ public class BatEnemy : Enemy
                     if (movement.mashClicks() < 4)
                     {
                         Visualclutter.SetActive(true);
+                       movement.OnIspaused();
                     }
                     if (movement.mashClicks() == 5)
                     {
