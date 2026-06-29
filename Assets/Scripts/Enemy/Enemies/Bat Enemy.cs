@@ -47,10 +47,10 @@ public class BatEnemy : Enemy
                     transform.position = Vector3.Lerp(transform.position, BasePos, moveBackSpeed * Time.fixedDeltaTime);
 
                     // check if sucking blood is active and if the player has mashed enough to stop it
-                    //if (movement.mashClicks() == 0)
-                    //{
-                    //    Visualclutter.SetActive(false);
-                    //}
+                    if (movement.mashClicks() == 5)
+                    {
+                        Visualclutter.SetActive(false);
+                    }
 
                     // Check if the player is within range to start chasing
                     if (coolDownTimerChase < 0)
@@ -95,7 +95,7 @@ public class BatEnemy : Enemy
                     {
                         Visualclutter.SetActive(true);
                     }
-                    if (movement.mashClicks() == 3)
+                    if (movement.mashClicks() == 5)
                     {
                         currentState = BatState.IDLE;
                     }

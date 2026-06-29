@@ -39,8 +39,7 @@ public class Movement : MonoBehaviour
     [SerializeField, Min(float.Epsilon)] private float walkSoundInterval;
     [SerializeField] private AudioSource audioSource;
 
-    //for mashing text
-    // [SerializeField] private TextMeshProUGUI E;
+     [SerializeField] private TextMeshProUGUI E;
 
 
     private void Awake()
@@ -67,7 +66,6 @@ public class Movement : MonoBehaviour
             Vector2 input = context.ReadValue<Vector2>();
             movement.x = context.ReadValue<Vector2>().x;
             walking = input.sqrMagnitude > 0.01f;
-            // Anim.SetBool("Walking", Walking);
         }
     }
     public void OnJump(InputAction.CallbackContext context)
@@ -139,17 +137,14 @@ public class Movement : MonoBehaviour
             anim.SetBool("Falling", false);
         }
 
-        //make text work for  mashing thingie
-
-
-        //if (mashCooldown < 1 && mashCooldown > -1)
-        //{
-        //    E.text = "Mash the button to escape!";
-        //}
-        //else
-        //{
-        //    E.text = "                     E";
-        //}
+        if (mashCooldown < 1 && mashCooldown > -1)
+            {
+                E.text = "Mash the button to escape!";
+            }
+            else
+            {
+                E.text = "                     E";
+            }
 
 
     }
