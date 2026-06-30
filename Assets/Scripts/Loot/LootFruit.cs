@@ -4,6 +4,7 @@ public class LootFruit : Loot
 {
     [Space]
     [SerializeField] private float healAmount;
+    [SerializeField] private GameObject healParticles;
     
     private bool isPickedUp = false;
     
@@ -14,6 +15,8 @@ public class LootFruit : Loot
             if (grabber.TryGetComponent(out Health health))
             {
                 health.TakeDamage(-healAmount);
+                
+                Instantiate(healParticles, grabber.transform.position, grabber.transform.rotation);
             }
             
             isPickedUp = true; 

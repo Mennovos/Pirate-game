@@ -222,6 +222,7 @@ MonoBehaviour:
   indicatorPrefab: {fileID: 6367816409014491349, guid: 3858760ae11608043ba187abcf57f9ef, type: 3}
   indicatorTransform: {fileID: 0}
   healAmount: 5
+  healParticles: {fileID: 8263761841204059209, guid: af9e6ecfa0b47654e8c45c99d29d6fc2, type: 3}
 --- !u!54 &5296992132584588189
 Rigidbody:
   m_ObjectHideFlags: 0
