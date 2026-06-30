@@ -118,6 +118,7 @@ public class CrabEnemy : Enemy
     { 
         if (other.CompareTag("Player") && cooldown <= 0f)
         {
+            Debug.Log("Start attack");
             currentState = CrabState.ChargeAttack;
             cooldown = 2f;
         }
