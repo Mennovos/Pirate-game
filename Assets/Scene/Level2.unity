@@ -2551,6 +2551,7 @@ GameObject:
   - component: {fileID: 51893132}
   - component: {fileID: 51893131}
   - component: {fileID: 51893130}
+  - component: {fileID: 51893133}
   m_Layer: 0
   m_Name: ROCK BIG (28)
   m_TagString: Untagged
@@ -2630,6 +2631,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -159.319, y: 83.393, z: -75.380005}
+--- !u!64 &51893133
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51893129}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &56887817
 GameObject:
   m_ObjectHideFlags: 0
@@ -8513,6 +8536,7 @@ GameObject:
   - component: {fileID: 216841633}
   - component: {fileID: 216841632}
   - component: {fileID: 216841631}
+  - component: {fileID: 216841634}
   m_Layer: 0
   m_Name: ROCK BIG.003 (27)
   m_TagString: Untagged
@@ -8592,6 +8616,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -182.702, y: -8.22998, z: 17.337997}
+--- !u!64 &216841634
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216841630}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &218846984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12171,6 +12217,7 @@ GameObject:
   - component: {fileID: 293958739}
   - component: {fileID: 293958738}
   - component: {fileID: 293958737}
+  - component: {fileID: 293958740}
   m_Layer: 0
   m_Name: ROCK BIG (30)
   m_TagString: Untagged
@@ -12250,6 +12297,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -160.814, y: 82.46, z: -62.613007}
+--- !u!64 &293958740
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293958736}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &295055693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19703,6 +19772,7 @@ GameObject:
   - component: {fileID: 507842242}
   - component: {fileID: 507842241}
   - component: {fileID: 507842243}
+  - component: {fileID: 507842244}
   m_Layer: 0
   m_Name: Cube.074 (21)
   m_TagString: Untagged
@@ -19783,6 +19853,28 @@ MeshFilter:
   m_GameObject: {fileID: 507842239}
   m_Mesh: {fileID: 6198401070834743824, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
 --- !u!64 &507842243
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507842239}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6198401070834743824, guid: 690ef346df1b19a49b03ea35f4f33697, type: 3}
+--- !u!64 &507842244
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22882,6 +22974,7 @@ GameObject:
   - component: {fileID: 573225859}
   - component: {fileID: 573225858}
   - component: {fileID: 573225857}
+  - component: {fileID: 573225860}
   m_Layer: 0
   m_Name: ROCK BIG (29)
   m_TagString: Untagged
@@ -22961,6 +23054,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -139.274, y: 43.399002, z: -29.919983}
+--- !u!64 &573225860
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573225856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &573507128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26297,6 +26412,7 @@ GameObject:
   - component: {fileID: 649776394}
   - component: {fileID: 649776396}
   - component: {fileID: 649776395}
+  - component: {fileID: 649776397}
   m_Layer: 0
   m_Name: ROCK BIG.003 (18)
   m_TagString: Untagged
@@ -26375,6 +26491,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649776393}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &649776397
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649776393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &649958217
 PrefabInstance:
@@ -27121,7 +27259,7 @@ GameObject:
   - component: {fileID: 665558592}
   - component: {fileID: 665558595}
   - component: {fileID: 665558594}
-  - component: {fileID: 665558593}
+  - component: {fileID: 665558596}
   m_Layer: 6
   m_Name: ROCK BIG (9)
   m_TagString: Untagged
@@ -27138,34 +27276,12 @@ Transform:
   m_GameObject: {fileID: 665558591}
   serializedVersion: 2
   m_LocalRotation: {x: 0.50435394, y: 0.4459883, z: 0.54640925, w: 0.49815518}
-  m_LocalPosition: {x: 10.658692, y: 6.1055446, z: 32.144005}
-  m_LocalScale: {x: -168.2046, y: -82.53158, z: 134.23267}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 38.201, y: 4.22, z: 31.89}
+  m_LocalScale: {x: -149.53052, y: -82.53158, z: 134.23267}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 609439412}
   m_LocalEulerAnglesHint: {x: -180.866, y: -95.362, z: 276.078}
---- !u!64 &665558593
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665558591}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!23 &665558594
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27223,6 +27339,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665558591}
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!65 &665558596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665558591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.11011983, y: 0.11901163, z: 0.0845784}
+  m_Center: {x: -0.01575362, y: 0.39942512, z: -0.010771454}
 --- !u!1001 &666281920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29786,6 +29923,7 @@ GameObject:
   - component: {fileID: 711980997}
   - component: {fileID: 711980999}
   - component: {fileID: 711980998}
+  - component: {fileID: 711981000}
   m_Layer: 0
   m_Name: ROCK BIG.003 (14)
   m_TagString: Untagged
@@ -29864,6 +30002,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711980996}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &711981000
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711980996}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &713142138
 GameObject:
@@ -30082,6 +30242,7 @@ GameObject:
   - component: {fileID: 716127614}
   - component: {fileID: 716127616}
   - component: {fileID: 716127615}
+  - component: {fileID: 716127617}
   m_Layer: 0
   m_Name: ROCK BIG.003 (16)
   m_TagString: Untagged
@@ -30160,6 +30321,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716127613}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &716127617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716127613}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &716867703
 GameObject:
@@ -41381,6 +41564,7 @@ GameObject:
   - component: {fileID: 1002682535}
   - component: {fileID: 1002682537}
   - component: {fileID: 1002682536}
+  - component: {fileID: 1002682538}
   m_Layer: 0
   m_Name: ROCK BIG (29)
   m_TagString: Untagged
@@ -41459,6 +41643,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002682534}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1002682538
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002682534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1003862183
 PrefabInstance:
@@ -42878,6 +43084,7 @@ GameObject:
   - component: {fileID: 1048143746}
   - component: {fileID: 1048143748}
   - component: {fileID: 1048143747}
+  - component: {fileID: 1048143749}
   m_Layer: 0
   m_Name: ROCK BIG (28)
   m_TagString: Untagged
@@ -42956,6 +43163,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048143745}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1048143749
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048143745}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1050577130
 PrefabInstance:
@@ -44023,6 +44252,7 @@ GameObject:
   - component: {fileID: 1090872703}
   - component: {fileID: 1090872705}
   - component: {fileID: 1090872704}
+  - component: {fileID: 1090872706}
   m_Layer: 0
   m_Name: ROCK BIG.003 (13)
   m_TagString: Untagged
@@ -44101,6 +44331,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090872702}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1090872706
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090872702}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1094068812
 PrefabInstance:
@@ -45967,6 +46219,7 @@ GameObject:
   - component: {fileID: 1126113716}
   - component: {fileID: 1126113718}
   - component: {fileID: 1126113717}
+  - component: {fileID: 1126113719}
   m_Layer: 0
   m_Name: ROCK BIG.002 (36)
   m_TagString: Untagged
@@ -46045,6 +46298,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126113715}
+  m_Mesh: {fileID: 1589002292361279561, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1126113719
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126113715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1589002292361279561, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1126754819
 PrefabInstance:
@@ -48138,6 +48413,7 @@ GameObject:
   - component: {fileID: 1184166004}
   - component: {fileID: 1184166006}
   - component: {fileID: 1184166005}
+  - component: {fileID: 1184166007}
   m_Layer: 0
   m_Name: ROCK BIG (44)
   m_TagString: Untagged
@@ -48216,6 +48492,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184166003}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1184166007
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184166003}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1184408252
 PrefabInstance:
@@ -50376,6 +50674,7 @@ GameObject:
   - component: {fileID: 1218160183}
   - component: {fileID: 1218160185}
   - component: {fileID: 1218160184}
+  - component: {fileID: 1218160186}
   m_Layer: 0
   m_Name: ROCK BIG.003 (10)
   m_TagString: Untagged
@@ -50454,6 +50753,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218160182}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1218160186
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218160182}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1221489173
 PrefabInstance:
@@ -51019,6 +51340,7 @@ GameObject:
   - component: {fileID: 1235987749}
   - component: {fileID: 1235987751}
   - component: {fileID: 1235987750}
+  - component: {fileID: 1235987752}
   m_Layer: 0
   m_Name: ROCK BIG (30)
   m_TagString: Untagged
@@ -51097,6 +51419,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235987748}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1235987752
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235987748}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1236343991
 PrefabInstance:
@@ -52624,6 +52968,7 @@ GameObject:
   - component: {fileID: 1266177413}
   - component: {fileID: 1266177415}
   - component: {fileID: 1266177414}
+  - component: {fileID: 1266177416}
   m_Layer: 0
   m_Name: ROCK BIG.003 (27)
   m_TagString: Untagged
@@ -52702,6 +53047,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266177412}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1266177416
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266177412}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1272092058
 PrefabInstance:
@@ -53432,6 +53799,7 @@ GameObject:
   - component: {fileID: 1295766912}
   - component: {fileID: 1295766914}
   - component: {fileID: 1295766913}
+  - component: {fileID: 1295766915}
   m_Layer: 0
   m_Name: ROCK BIG.003 (15)
   m_TagString: Untagged
@@ -53510,6 +53878,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295766911}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1295766915
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295766911}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &1296049115
 GameObject:
@@ -53902,6 +54292,7 @@ GameObject:
   - component: {fileID: 1304981462}
   - component: {fileID: 1304981464}
   - component: {fileID: 1304981463}
+  - component: {fileID: 1304981465}
   m_Layer: 0
   m_Name: ROCK BIG.003 (12)
   m_TagString: Untagged
@@ -53980,6 +54371,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304981461}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1304981465
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304981461}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1305071303
 PrefabInstance:
@@ -56514,6 +56927,7 @@ GameObject:
   - component: {fileID: 1383265000}
   - component: {fileID: 1383265002}
   - component: {fileID: 1383265001}
+  - component: {fileID: 1383265003}
   m_Layer: 0
   m_Name: ROCK BIG (23)
   m_TagString: Untagged
@@ -56592,6 +57006,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383264999}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1383265003
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383264999}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1385682784
 PrefabInstance:
@@ -59939,6 +60375,7 @@ GameObject:
   - component: {fileID: 1502406080}
   - component: {fileID: 1502406082}
   - component: {fileID: 1502406081}
+  - component: {fileID: 1502406083}
   m_Layer: 0
   m_Name: ROCK BIG.003 (30)
   m_TagString: Untagged
@@ -60017,6 +60454,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502406079}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1502406083
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502406079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &1509935494
 GameObject:
@@ -60142,6 +60601,7 @@ GameObject:
   - component: {fileID: 1510830513}
   - component: {fileID: 1510830515}
   - component: {fileID: 1510830514}
+  - component: {fileID: 1510830516}
   m_Layer: 0
   m_Name: ROCK BIG.003 (17)
   m_TagString: Untagged
@@ -60220,6 +60680,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510830512}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1510830516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510830512}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1512103496
 PrefabInstance:
@@ -64176,6 +64658,7 @@ GameObject:
   - component: {fileID: 1623096147}
   - component: {fileID: 1623096149}
   - component: {fileID: 1623096148}
+  - component: {fileID: 1623096150}
   m_Layer: 0
   m_Name: ROCK BIG (25)
   m_TagString: Untagged
@@ -64254,6 +64737,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623096146}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1623096150
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623096146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &1624123727
 GameObject:
@@ -66714,6 +67219,7 @@ GameObject:
   - component: {fileID: 1680131927}
   - component: {fileID: 1680131929}
   - component: {fileID: 1680131928}
+  - component: {fileID: 1680131930}
   m_Layer: 0
   m_Name: ROCK BIG.003 (28)
   m_TagString: Untagged
@@ -66792,6 +67298,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680131926}
+  m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1680131930
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680131926}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1680791004
 PrefabInstance:
@@ -75516,6 +76044,7 @@ GameObject:
   - component: {fileID: 1878440364}
   - component: {fileID: 1878440366}
   - component: {fileID: 1878440365}
+  - component: {fileID: 1878440367}
   m_Layer: 0
   m_Name: ROCK BIG (20)
   m_TagString: Untagged
@@ -75594,6 +76123,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878440363}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1878440367
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878440363}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1001 &1879285741
 PrefabInstance:
@@ -77546,6 +78097,7 @@ GameObject:
   - component: {fileID: 1933433368}
   - component: {fileID: 1933433370}
   - component: {fileID: 1933433369}
+  - component: {fileID: 1933433371}
   m_Layer: 0
   m_Name: ROCK BIG (24)
   m_TagString: Untagged
@@ -77624,6 +78176,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933433367}
+  m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!64 &1933433371
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933433367}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -4428515725624654347, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
 --- !u!1 &1937425257
 GameObject:
