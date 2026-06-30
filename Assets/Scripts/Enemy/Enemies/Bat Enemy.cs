@@ -113,7 +113,7 @@ public class BatEnemy : Enemy
                     // Start the mash challenge: require 4 presses in 3 seconds, otherwise deal 10 damage
                     if (movement != null)
                     {
-                        movement.StartMashingChallenge(requiredMashes: 4, timeWindow: 3f, damageOnFail: 10, onComplete: (success) =>
+                        movement.StartMashingChallenge(requiredMashes: 4, timeWindow: 3f, damageOnFail: 5, onComplete: (success) =>
                         {
                             // Always turn off visual clutter when challenge completes
                             if (Visualclutter) Visualclutter.SetActive(false);
