@@ -116,24 +116,14 @@ public class CrabEnemy : Enemy
     }
     private void OnTriggerEnter(Collider other)
     { 
-        if (other.CompareTag("Player") && cooldown <= 0f)
+        if (other.TryGetComponent(out PlayerHurtbox playerHurtbox) && cooldown <= 0f)
         {
+
             Debug.Log("Start attack");
             currentState = CrabState.ChargeAttack;
             cooldown = 2f;
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-         if (collision.gameObject.CompareTag("Player"))
-        {
-            // Assuming the player has a Health component
-            Health playerHealth = collision.gameObject.GetComponent<Health>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(contactDamage);
-            }
-        }
+
     }
     private IEnumerator WalkingAfterCharge()
     {
