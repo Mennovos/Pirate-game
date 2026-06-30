@@ -207789,6 +207789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1558319865}
+  - {fileID: 1485755307}
   m_Father: {fileID: 1381001054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1366906701 stripped
@@ -209322,6 +209323,14 @@ MonoBehaviour:
     waveInterval: 3
     baseCount: 1
     countPerSpawn: 0.25
+    maxCount: 10
+  - spawners:
+    - {fileID: 1485755308}
+    startWave: 3
+    endWave: 10
+    waveInterval: 3
+    baseCount: 1
+    countPerSpawn: 0.375
     maxCount: 10
   lastWaveDefeatedThreshold: 1
   maxWaveDuration: 45
@@ -224929,6 +224938,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
   m_PrefabInstance: {fileID: 1438140449}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1485755306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485755307}
+  - component: {fileID: 1485755308}
+  m_Layer: 0
+  m_Name: Chest Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485755307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485755306}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1366267912}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485755308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485755306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ad20ef442400499a72f1b2de75f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootSpawner
+  lootPrefab: {fileID: 8020605081945727953, guid: e997af1ac2129aa46b610d88a8bb45eb, type: 3}
+  maxOffset: {x: 50, y: 1}
+  indicatorTransform: {fileID: 1757694777}
 --- !u!1001 &1485998239
 PrefabInstance:
   m_ObjectHideFlags: 0
