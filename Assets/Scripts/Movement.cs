@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 
 public class Movement : MonoBehaviour
@@ -12,8 +14,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    public float mashAmount;
     [SerializeField] private float mashCooldown = 3f;
+    public float mashAmount;
  
     private Vector3 movement;
 
@@ -38,9 +40,15 @@ public class Movement : MonoBehaviour
     private List<AudioClip> walkSounds;
     [SerializeField, Min(float.Epsilon)] private float walkSoundInterval;
     [SerializeField] private AudioSource audioSource;
+    //For mashing ui
 
-     [SerializeField] private TextMeshProUGUI E;
-
+    // Mash-challenge (when an enemy grabs the player)
+    private bool mashChallengeActive;
+    private int mashChallengeRequired;
+    private float mashChallengeTimer;
+    private int mashChallengeDamage;
+    private Coroutine mashChallengeCoroutine;
+    private Action<bool> mashChallengeCallback;
 
     private void Awake()
     {
@@ -59,13 +67,34 @@ public class Movement : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
     }
+    public void OnIspaused()
+    {
+       isPaused = true;
+    }
+    public bool IsPaused()
+    {
+        return (bool)isPaused;
+    }
+
+    private void OnDestroy()
+    {
+        controls.Player.Disable();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
+        Vector2 input = context.ReadValue<Vector2>();
+        // Keep reading move input but only apply it when not paused.
         if (!isPaused)
         {
-            Vector2 input = context.ReadValue<Vector2>();
             movement.x = context.ReadValue<Vector2>().x;
             walking = input.sqrMagnitude > 0.01f;
+        }
+        else if (context.canceled)
+        {
+            // ensure movement cleared on cancel even if paused
+            movement.x = 0f;
+            walking = false;
         }
     }
     public void OnJump(InputAction.CallbackContext context)
@@ -88,10 +117,33 @@ public class Movement : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
+        if (!context.performed) return; // only toggle on performed
+
         Debug.Log("Pause button pressed");
-        isPaused = !isPaused;
-        TimeManager.Instance.SetPaused(!TimeManager.Instance.IsPaused);
-        Time.timeScale = TimeManager.Instance.IsPaused ? 0f : 1f;
+
+        // Toggle global TimeManager pause and local flag consistently
+        bool newPaused = !TimeManager.Instance.IsPaused;
+        TimeManager.Instance.SetPaused(newPaused);
+        isPaused = newPaused;
+
+        if (isPaused)
+        {
+            // Immediately stop motion and disable walking animation so we don't keep moving
+            movement = Vector3.zero;
+            walking = false;
+            anim.SetBool("Walking", false);
+
+            // Clear rigidbody velocity to prevent sliding/bouncing while paused
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            // Unpaused: nothing special to restore; input will resume updating movement.
+        }
     }
 
     private void FixedUpdate()
@@ -116,14 +168,23 @@ public class Movement : MonoBehaviour
     {  
         mashCooldown -= Time.deltaTime;
 
-        transform.position += movement * (speed * Time.deltaTime);
+        // Do not apply movement while paused.
+        if (!isPaused)
+        {
+            transform.position += movement * (speed * Time.deltaTime);
 
-        if (movement.magnitude > 0.001f)
-        {
-            anim.SetBool("Walking", true);
+            if (movement.magnitude > 0.001f)
+            {
+                anim.SetBool("Walking", true);
+            }
+            else 
+            {
+                anim.SetBool("Walking", false);
+            }
         }
-        else 
+        else
         {
+            // ensure walking animation off while paused
             anim.SetBool("Walking", false);
         }
 
@@ -136,38 +197,110 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("Falling", false);
         }
-
-        if (mashCooldown < 1 && mashCooldown > -1)
-            {
-                E.text = "Mash the button to escape!";
-            }
-            else
-            {
-                E.text = "                     E";
-            }
-
-
+        if(mashAmount == 5)
+        {
+            isPaused = false;
+        }
     }
     public void OnMashing(InputAction.CallbackContext context)
     {
-        if (batHit)
-            DealDamageIfNotCooldown();
-        
-        if (mashCooldown < 3)
+        // If a mash challenge is active, count the press toward it.
+        if (context.performed)
         {
-           mashAmount++;
-           mashCooldown = 3f;
-        }
-        
-        if (mashAmount >= 4)
-        {
-            batHit = false;
+            if (mashChallengeActive)
+            {
+                mashAmount++;
+                return;
+            }
+
+            // Legacy behavior: keep previous mash behavior for other systems
+            if (batHit)
+                DealDamageIfNotCooldown();
+            
+            if (mashCooldown < 3)
+            {
+               mashAmount++;
+               mashCooldown = 3f;
+            }
+            
+            if (mashAmount >= 4)
+            {
+                batHit = false;
+            }
         }
     }
 
     public float mashClicks()
     {
         return (float)mashAmount;
+    }
+
+    /// <summary>
+    /// Start a timed mash challenge. Player must press the mash button
+    /// <paramref name="requiredMashes"/> times within <paramref name="timeWindow"/> seconds,
+    /// otherwise they receive <paramref name="damageOnFail"/> damage.
+    /// Movement is paused during the challenge.
+    /// The optional onComplete callback receives true on success, false on fail.
+    /// </summary>
+    public void StartMashingChallenge(int requiredMashes = 4, float timeWindow = 3f, int damageOnFail = 10, Action<bool> onComplete = null)
+    {
+        // If already active, do nothing
+        if (mashChallengeActive) return;
+
+        mashChallengeRequired = requiredMashes;
+        mashChallengeTimer = timeWindow;
+        mashChallengeDamage = damageOnFail;
+        mashAmount = 0f;
+        mashChallengeActive = true;
+        mashChallengeCallback = onComplete;
+
+        // Pause player input/movement
+        isPaused = true;
+
+        // Ensure any existing coroutine is stopped
+        if (mashChallengeCoroutine != null) StopCoroutine(mashChallengeCoroutine);
+        mashChallengeCoroutine = StartCoroutine(MashChallengeRoutine());
+    }
+
+    public void CancelMashingChallenge()
+    {
+        if (!mashChallengeActive) return;
+        mashChallengeActive = false;
+        mashAmount = 0f;
+        if (mashChallengeCoroutine != null) { StopCoroutine(mashChallengeCoroutine); mashChallengeCoroutine = null; }
+        // invoke callback as failure
+        mashChallengeCallback?.Invoke(false);
+        mashChallengeCallback = null;
+        isPaused = false;
+    }
+
+    private IEnumerator MashChallengeRoutine()
+    {
+        float t = 0f;
+        while (t < mashChallengeTimer)
+        {
+            t += Time.deltaTime;
+            // Optionally show UI here using mashAmount / mashChallengeRequired
+            yield return null;
+        }
+
+        // Challenge ended: check result
+        bool success = mashAmount >= mashChallengeRequired;
+        if (!success)
+        {
+            // failed -> take damage
+            health?.TakeDamage(mashChallengeDamage);
+        }
+
+        // notify caller
+        mashChallengeCallback?.Invoke(success);
+        mashChallengeCallback = null;
+
+        // cleanup
+        mashChallengeActive = false;
+        mashChallengeCoroutine = null;
+        mashAmount = 0f;
+        isPaused = false;
     }
 
     private void OnCollisionEnter(Collision collision)

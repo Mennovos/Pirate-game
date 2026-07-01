@@ -222,6 +222,7 @@ MonoBehaviour:
   indicatorPrefab: {fileID: 6367816409014491349, guid: 3858760ae11608043ba187abcf57f9ef, type: 3}
   indicatorTransform: {fileID: 0}
   healAmount: 5
+  healParticles: {fileID: 8263761841204059209, guid: af9e6ecfa0b47654e8c45c99d29d6fc2, type: 3}
 --- !u!54 &5296992132584588189
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -340,8 +341,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 3916458392220955882}
     m_Modifications:
     - target: {fileID: 732965515004593528, guid: 62f3ed511bbd921459f774ba361f64d0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 732965515004593528, guid: 62f3ed511bbd921459f774ba361f64d0, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.482353
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 732965515004593528, guid: 62f3ed511bbd921459f774ba361f64d0, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
@@ -349,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 732965515004593528, guid: 62f3ed511bbd921459f774ba361f64d0, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.48235297
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4152185131411122350, guid: 62f3ed511bbd921459f774ba361f64d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -395,6 +400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P.Loot particles
       objectReference: {fileID: 0}
+    - target: {fileID: 7430090358339174853, guid: 62f3ed511bbd921459f774ba361f64d0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1cb6aee3611b32a49b0930dae3373419, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

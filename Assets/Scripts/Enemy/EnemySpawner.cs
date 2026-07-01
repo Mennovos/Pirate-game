@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
         
         GameObject obj = Instantiate(enemyPrefab, pos, Quaternion.Euler(Vector3.zero));
 
+        obj.SetActive(true);
+        
         if (obj.TryGetComponent(out IEnemy enemy))
         {
             return enemy;

@@ -72,6 +72,7 @@ public class FishbearEnemy : Enemy
     [SerializeField, Min(0)] private int chompMashRequirement;
     [SerializeField, Min(0f)] private float chompDamage;
     [SerializeField, Min(0f)] private float chompDamageInterval;
+    [SerializeField] private Canvas chompMashIndicator;
     
     [Header("Attack Push")] 
     [SerializeField, Min(0f)] private float pushDistance;
@@ -301,6 +302,8 @@ public class FishbearEnemy : Enemy
         playerMovement.mashAmount = 1;
         
         state = FishbearState.CHOMP_ATTACK;
+        
+        chompMashIndicator.gameObject.SetActive(true);
 
         float nextDamageTime = Time.time + chompDamageInterval;
 
@@ -319,6 +322,8 @@ public class FishbearEnemy : Enemy
             
             yield return new WaitForFixedUpdate();
         }
+        
+        chompMashIndicator.gameObject.SetActive(false);
         
         if (state != FishbearState.DEFEATED) 
             state = FishbearState.IDLE;

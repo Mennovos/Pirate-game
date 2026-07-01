@@ -88,6 +88,11 @@ public class CameraMovement : MonoBehaviour
     }
 
 
+    public void EventListenerCameraShake(float strength)
+    {
+        CameraShake(strength, strength);
+    }
+    
     public void CameraShake(float strength, float duration)
     {
         StartCoroutine(ShakeCoroutine(duration, strength));
