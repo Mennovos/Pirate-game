@@ -686,6 +686,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9202547968623098480, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202547968623098480, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c7445b4aa584bb74dabd78e06d063a63, type: 2}
@@ -763,7 +767,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
@@ -807,13 +811,14 @@ MonoBehaviour:
   target: {fileID: 0}
   contactDamage: 20.27
   scoreAmount: 0
-  scaleRange: {x: 1, y: 1}
+  scaleRange: {x: 0.7, y: 0.8}
   hitSounds: []
   audioSource: {fileID: 0}
   hitParticles: []
   hitShakeStrength: 0
   hitShakeDuration: 0
-  meshRenderers: []
+  meshRenderers:
+  - {fileID: 5826221468898813253}
   colorOnHit: {r: 1, g: 0.5, b: 0.5, a: 1}
   colorOnHitDuration: 0.1
   grapplePullSpeed: 15
@@ -823,6 +828,10 @@ MonoBehaviour:
   pointA: {x: -10, y: 0, z: 3.26}
   pointB: {x: 10, y: 0, z: 3.26}
   cooldown: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  tiltSpeed: 5
 --- !u!4 &2947140231747287262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
@@ -867,3 +876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrabClaw
   Damage: 10
+--- !u!137 &5826221468898813253 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 9202547968623098480, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
+  m_PrefabInstance: {fileID: 3417353677817667381}
+  m_PrefabAsset: {fileID: 0}
