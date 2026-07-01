@@ -93,6 +93,7 @@ MonoBehaviour:
   - {fileID: 1296633285925638540}
   colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
+  grapplePullSpeed: 15
   shellCloseChance: 0.5
   shellOpenChance: 0.5
   shellOpenCheckInterval: 1
