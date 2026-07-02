@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BatEnemy : Enemy
 {
+    private static readonly int animator_Hit = Animator.StringToHash("Hit");
+    
     private enum BatState
     {
         IDLE,
@@ -153,6 +155,8 @@ public class BatEnemy : Enemy
         rb.linearVelocity = impulse / rb.mass;
         
         currentHealth -= impulse.magnitude;
+        
+        animator.SetTrigger(animator_Hit);
         
         if (currentHealth <= 0) kill();
     }
