@@ -16299,7 +16299,7 @@ Transform:
   m_GameObject: {fileID: 105567934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30, y: 10, z: 0}
+  m_LocalPosition: {x: 30, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16319,6 +16319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 590780746568459965, guid: fedfd197e90b33142a36eb5ca579b362, type: 3}
   maxOffset: {x: 0.1, y: 0.1}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!4 &105705720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 907296865269538804, guid: 4304f540d13d83b49a2c9ddb6d5fa5fb, type: 3}
@@ -130768,6 +130769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 2698299147417529763, guid: 3521d8a4d0f59a249b942f4d7b827bde, type: 3}
   maxOffset: {x: 1, y: 4}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!4 &855241011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
@@ -143749,6 +143751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 2698299147417529763, guid: 3521d8a4d0f59a249b942f4d7b827bde, type: 3}
   maxOffset: {x: 17, y: 1}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!4 &944623575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}
@@ -308510,6 +308513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 2698299147417529763, guid: 3521d8a4d0f59a249b942f4d7b827bde, type: 3}
   maxOffset: {x: 1, y: 4}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1001 &2027727000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325069,6 +325073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 3986486366963365198, guid: b34a991cec35fbe469f0d252a69fa142, type: 3}
   maxOffset: {x: 5, y: 0.1}
+  rotation: {x: 0, y: 0, z: 0}
 --- !u!1001 &2125387465
 PrefabInstance:
   m_ObjectHideFlags: 0

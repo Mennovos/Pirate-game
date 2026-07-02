@@ -26329,7 +26329,23 @@ MonoBehaviour:
     baseCount: 1
     countPerSpawn: 0.3
     maxCount: 10
-  lootSpawnGroups: []
+  lootSpawnGroups:
+  - spawners:
+    - {fileID: 1600711363}
+    startWave: 1
+    endWave: 10
+    waveInterval: 2
+    baseCount: 1
+    countPerSpawn: 0.5
+    maxCount: 10
+  - spawners:
+    - {fileID: 1600711363}
+    startWave: 2
+    endWave: 10
+    waveInterval: 2
+    baseCount: 1
+    countPerSpawn: 0.25
+    maxCount: 10
   lastWaveDefeatedThreshold: 1
   maxWaveDuration: 15
   waveRestTime: 5
@@ -26382,6 +26398,7 @@ Transform:
   - {fileID: 358335818}
   - {fileID: 1545286586}
   - {fileID: 1689549286}
+  - {fileID: 1600711362}
   - {fileID: 1921508508}
   - {fileID: 1867172389}
   - {fileID: 1634839233}
@@ -65893,6 +65910,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6839728389976572380, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
   m_PrefabInstance: {fileID: 1540465528}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1540465532 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8787935297929411161, guid: 97fedaa61914a834988b11804a3ace86, type: 3}
+  m_PrefabInstance: {fileID: 1540465528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1543657898
 GameObject:
   m_ObjectHideFlags: 0
@@ -68650,6 +68672,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600453681}
   m_Mesh: {fileID: 1013541400407325302, guid: df2255298956b5d4bb70396f0df5f34d, type: 3}
+--- !u!1 &1600711361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600711362}
+  - component: {fileID: 1600711363}
+  m_Layer: 0
+  m_Name: Fruit Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1600711362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600711361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 609439412}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600711363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600711361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ad20ef442400499a72f1b2de75f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootSpawner
+  lootPrefab: {fileID: 8020605081945727953, guid: ef857eb148020b64db67c1b17ce3c283, type: 3}
+  maxOffset: {x: 25, y: 0.5}
+  indicatorTransform: {fileID: 1540465532}
 --- !u!1 &1601402984 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3477624509031694041, guid: 88d9267336bee14489d8374eb872aed4, type: 3}
