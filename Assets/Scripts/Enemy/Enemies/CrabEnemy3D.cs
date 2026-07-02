@@ -11,6 +11,7 @@ public enum CrabState
 public class CrabEnemy : Enemy
 {
     private static readonly int animator_Hit = Animator.StringToHash("Hit");
+    private static readonly int animator_Death = Animator.StringToHash("Death");
     
     public float speed = 2f;
     public float chargeSpeed = 5f;
@@ -29,6 +30,9 @@ public class CrabEnemy : Enemy
     
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float tiltSpeed = 5f;
+    
+    [Space]
+    [SerializeField] private float timeToDestroyAfterDefeat;
 
     void Start()
     {
@@ -99,7 +103,7 @@ public class CrabEnemy : Enemy
     {
         OnHit();
         
-        animator.SetTrigger(animator_Hit);
+        if (currentState != CrabState.Death) animator.SetTrigger(animator_Hit);
         
         TakeDamage(impulse.magnitude);
     }
@@ -118,6 +122,25 @@ public class CrabEnemy : Enemy
             
             kill();
         }
+    }
+
+    public override void kill()
+    {
+        currentState = CrabState.Death;
+        
+        utilities.AddScore(scoreAmount);
+        isAlive = false;
+        
+        animator.SetTrigger(animator_Death);
+
+        StartCoroutine(DestroyAfterDeath());
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        yield return new WaitForSeconds(timeToDestroyAfterDefeat);
+        
+        Destroy(gameObject);
     }
 
     public void Die()
