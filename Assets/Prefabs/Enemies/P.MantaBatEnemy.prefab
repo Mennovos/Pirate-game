@@ -456,6 +456,8 @@ MonoBehaviour:
   BasePos: {x: 0, y: 0, z: 0}
   Visualclutter: {fileID: 0}
   visualClutterActive: 0
+  maxHealth: 40
+  suckHealAmount: 15
 --- !u!95 &3556825220684455741
 Animator:
   serializedVersion: 7

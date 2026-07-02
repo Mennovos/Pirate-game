@@ -118,6 +118,7 @@ MonoBehaviour:
   - {fileID: 6738655815854249415}
   colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
+  grapplePullSpeed: 15
   horizontalIdleVelocity: 5
   verticalIdleVelocity: 3
   verticalIdleVelocityPassive: -0.5

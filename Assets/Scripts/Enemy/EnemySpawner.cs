@@ -5,6 +5,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Vector2 maxOffset;
+    [SerializeField] private Vector3 rotation;
+    
+    private Quaternion rotationQuat => Quaternion.Euler(rotation);
     
     public IEnemy summon()
     {
@@ -13,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
                           Random.Range(-maxOffset.x * transform.lossyScale.x, maxOffset.x * transform.lossyScale.x), 
                           Random.Range(-maxOffset.y * transform.lossyScale.y, maxOffset.y * transform.lossyScale.y));
         
-        GameObject obj = Instantiate(enemyPrefab, pos, Quaternion.Euler(Vector3.zero));
+        GameObject obj = Instantiate(enemyPrefab, pos, rotationQuat);
 
         obj.SetActive(true);
         

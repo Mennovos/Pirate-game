@@ -95,6 +95,7 @@ MonoBehaviour:
   - {fileID: 6456239345080918346}
   colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
+  grapplePullSpeed: 15
   maxHealth: 360
   healthBar: {fileID: 5242275302560298461}
   timeToDestroyAfterDefeat: 30
@@ -119,8 +120,8 @@ MonoBehaviour:
   bulletFanSizeRange: {x: 4, y: 6}
   bulletFanAngle: 90
   swoopLeft: {x: -25, y: 10}
-  swoopMiddle: {x: -5, y: -3}
-  swoopRight: {x: 30, y: 10}
+  swoopMiddle: {x: 20, y: -3.5}
+  swoopRight: {x: 30, y: 15}
   isRight: 1
   swoopDuration: 5
 --- !u!135 &6439708960300517680
