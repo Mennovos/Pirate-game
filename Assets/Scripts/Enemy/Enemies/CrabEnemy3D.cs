@@ -10,6 +10,8 @@ public enum CrabState
 
 public class CrabEnemy : Enemy
 {
+    private static readonly int animator_Hit = Animator.StringToHash("Hit");
+    
     public float speed = 2f;
     public float chargeSpeed = 5f;
     public float maxHealth = 30f;
@@ -96,6 +98,8 @@ public class CrabEnemy : Enemy
     public override void attack(Vector2 impulse)
     {
         OnHit();
+        
+        animator.SetTrigger(animator_Hit);
         
         TakeDamage(impulse.magnitude);
     }
