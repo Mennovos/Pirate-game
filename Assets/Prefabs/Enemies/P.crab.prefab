@@ -832,6 +832,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   tiltSpeed: 5
+  timeToDestroyAfterDefeat: 1.125
 --- !u!4 &2947140231747287262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4e9f34d786e1c441b9c98b3a992a9f3, type: 3}
