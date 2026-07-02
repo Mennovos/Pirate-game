@@ -24,6 +24,9 @@ public class CrabEnemy : Enemy
     private float journeyLength;
 
     [SerializeField] private float cooldown;
+    
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float tiltSpeed = 5f;
 
     void Start()
     {
@@ -54,7 +57,16 @@ public class CrabEnemy : Enemy
                 }
 
                 Vector3 startPoint = targetPoint == pointB ? pointA : pointB;
-                transform.position = Vector3.Lerp(startPoint, targetPoint, lerpTime);
+                Vector3 position = Vector3.Lerp(startPoint, targetPoint, lerpTime);
+                position.y = transform.position.y;
+                transform.position = position;
+
+                if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 10f, groundLayer))
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation,
+                        Quaternion.LookRotation(Vector3.forward, hit.normal) * Quaternion.Euler(0f, -90f, 0f), 
+                        Time.deltaTime * tiltSpeed);
+                }
 
               
                 break;
@@ -81,6 +93,14 @@ public class CrabEnemy : Enemy
     }
 
 
+    public override void attack(Vector2 impulse)
+    {
+        OnHit();
+        
+        TakeDamage(impulse.magnitude);
+    }
+
+
     public void TakeDamage(float damageAmount)
     {
         if (currentState == CrabState.Death)
@@ -91,6 +111,8 @@ public class CrabEnemy : Enemy
         if (currentHealth <= 0f)
         {
             Die();
+            
+            kill();
         }
     }
 

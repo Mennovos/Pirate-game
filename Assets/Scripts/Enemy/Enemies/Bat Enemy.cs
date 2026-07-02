@@ -1,5 +1,3 @@
-using System;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class BatEnemy : Enemy
@@ -25,6 +23,10 @@ public class BatEnemy : Enemy
     public bool visualClutterActive = false;
 
     private Movement movement;
+    
+    [SerializeField, Min(0f)] private float maxHealth = 40f;
+    private float currentHealth;
+    [SerializeField, Min(0f)] private float suckHealAmount = 15f;
 
     // New flag to ensure we only initialize sucking once per entry
     private bool suckingInitialized = false;
@@ -33,6 +35,9 @@ public class BatEnemy : Enemy
     {
         movement = FindAnyObjectByType<Movement>();
         BasePos = transform.position;
+        
+        currentHealth = maxHealth;
+        
         base.Awake();
     }
 
@@ -146,6 +151,10 @@ public class BatEnemy : Enemy
     {
         currentState = BatState.KNOCKBACK;
         rb.linearVelocity = impulse / rb.mass;
+        
+        currentHealth -= impulse.magnitude;
+        
+        if (currentHealth <= 0) kill();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -157,6 +166,8 @@ public class BatEnemy : Enemy
             {
                 movement = collision.gameObject.GetComponent<Movement>();
             }
+            
+            currentHealth = Mathf.Clamp(currentHealth + suckHealAmount, 0, maxHealth);
 
             currentState = BatState.SuckingBlood;
             suckingInitialized = false;
