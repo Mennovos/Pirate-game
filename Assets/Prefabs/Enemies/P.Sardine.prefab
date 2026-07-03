@@ -84,11 +84,12 @@ MonoBehaviour:
   hitSounds: []
   audioSource: {fileID: 9003015373922230621}
   hitParticles: []
-  hitShakeStrength: 0
-  hitShakeDuration: 0
+  hitShakeStrength: 0.05
+  hitShakeDuration: 0.25
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1
+  grapplePullSpeed: 15
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 65

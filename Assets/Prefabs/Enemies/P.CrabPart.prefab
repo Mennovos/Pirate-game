@@ -84,8 +84,8 @@ MonoBehaviour:
   hitSounds: []
   audioSource: {fileID: 1226406138866746633}
   hitParticles: []
-  hitShakeStrength: 0
-  hitShakeDuration: 0
+  hitShakeStrength: 0.1
+  hitShakeDuration: 0.25
   meshRenderers: []
   colorOnHit: {r: 1, g: 0.1882353, b: 0.1882353, a: 1}
   colorOnHitDuration: 0.1

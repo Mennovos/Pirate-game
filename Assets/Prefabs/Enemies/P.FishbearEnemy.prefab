@@ -83,10 +83,13 @@ MonoBehaviour:
   contactDamage: 0
   scoreAmount: 750
   scaleRange: {x: 1, y: 1}
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: 3e1979422d1f1a4499edc277f739f055, type: 3}
+  - {fileID: 8300000, guid: aff9d229b2a223341805258f4fc920a7, type: 3}
+  - {fileID: 8300000, guid: 271a7071ddffebf4a8afb602afc8d7fe, type: 3}
   audioSource: {fileID: 3790453383788234309}
   hitParticles: []
-  hitShakeStrength: 0.25
+  hitShakeStrength: 0.3
   hitShakeDuration: 0.5
   meshRenderers:
   - {fileID: 5457395940221685090}

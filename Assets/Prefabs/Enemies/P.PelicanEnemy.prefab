@@ -89,7 +89,7 @@ MonoBehaviour:
   hitParticles:
   - {fileID: 2950752720075198735, guid: c0fac72b69ba73345b4e022955f33e15, type: 3}
   - {fileID: 3792262336415121749, guid: 8ea0716f11bcaeb4b8dc4e6ea314b4e7, type: 3}
-  hitShakeStrength: 0.25
+  hitShakeStrength: 0.3
   hitShakeDuration: 0.5
   meshRenderers:
   - {fileID: 6456239345080918346}

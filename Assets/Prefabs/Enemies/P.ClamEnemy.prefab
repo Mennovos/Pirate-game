@@ -87,7 +87,7 @@ MonoBehaviour:
   audioSource: {fileID: 1986692485362844130}
   hitParticles:
   - {fileID: 2950752720075198735, guid: c0fac72b69ba73345b4e022955f33e15, type: 3}
-  hitShakeStrength: 0.25
+  hitShakeStrength: 0.2
   hitShakeDuration: 0.5
   meshRenderers:
   - {fileID: 1296633285925638540}

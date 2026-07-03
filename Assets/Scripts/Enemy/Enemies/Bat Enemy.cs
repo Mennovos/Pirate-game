@@ -157,6 +157,8 @@ public class BatEnemy : Enemy
         currentHealth -= impulse.magnitude;
         
         animator.SetTrigger(animator_Hit);
+
+        OnHit();
         
         if (currentHealth <= 0) kill();
     }
