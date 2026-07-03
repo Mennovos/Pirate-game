@@ -68819,8 +68819,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4545080521955769224, guid: 8dd81ea7c0be63b4e9fa3801a4c99659, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 438376005}
   m_SourcePrefab: {fileID: 100100000, guid: 8dd81ea7c0be63b4e9fa3801a4c99659, type: 3}
+--- !u!1 &438376004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4545080521955769224, guid: 8dd81ea7c0be63b4e9fa3801a4c99659, type: 3}
+  m_PrefabInstance: {fileID: 438376003}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &438376005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438376004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb0b6423a2057f4cab986f0924b0140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GroundSoundSupplier
+  walkSounds:
+  - {fileID: 8300000, guid: 6a7aebc0e1a65464ab78b0fb80de8eb8, type: 3}
+  - {fileID: 8300000, guid: c943cc87f4d7edd479ea566c3fc967d2, type: 3}
+  - {fileID: 8300000, guid: f0156765f270f0049ba23c3b0fd0ca1b, type: 3}
+  - {fileID: 8300000, guid: fc2cb9f95a6a06048928a25a8c82c90e, type: 3}
+  - {fileID: 8300000, guid: 3d69fcf822f20004b8d13d8f4bda0616, type: 3}
+  - {fileID: 8300000, guid: fa5fdd4dcd19a4f43aaf1d5db9ba6420, type: 3}
+  - {fileID: 8300000, guid: e25cd303f1bb0df4792387ee3a928e03, type: 3}
+  - {fileID: 8300000, guid: 7b4bb6f02011e3b49b1dc5e761fae2bb, type: 3}
 --- !u!4 &438511359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f8df8b38ab99d654c8a658473630316d, type: 3}

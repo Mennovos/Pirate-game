@@ -64,6 +64,8 @@ public class Movement : MonoBehaviour
             controls.Player.Pause.performed += OnPause;
 
         rb = GetComponent<Rigidbody>();
+
+        StartCoroutine(WalkSoundCoroutine());
     }
     public void OnIspaused()
     {

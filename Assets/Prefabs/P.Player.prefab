@@ -289,12 +289,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 7
   jumpForce: 15
-  mashAmount: 0
   mashCooldown: 3
+  mashAmount: 0
   anim: {fileID: 1726448365514230698}
   menuManger: {fileID: 0}
   jumpSounds: []
-  walkSoundInterval: 0.521
+  walkSoundInterval: 0.2605
   audioSource: {fileID: 4393800613576256183}
 --- !u!114 &-6672035909423237752
 MonoBehaviour:
