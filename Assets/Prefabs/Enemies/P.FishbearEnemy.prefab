@@ -98,7 +98,7 @@ MonoBehaviour:
   grapplePullSpeed: 15
   maxHealth: 500
   healthBar: {fileID: 4370756371887690812}
-  timeToDestroyAfterDefeat: 15
+  timeToDestroyAfterDefeat: 5
   velocityAfterDefeat: {x: 0, y: 5, z: 0}
   wakeDistance: 15
   wakeDuration: 3

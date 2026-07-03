@@ -98,7 +98,7 @@ MonoBehaviour:
   grapplePullSpeed: 15
   maxHealth: 360
   healthBar: {fileID: 5242275302560298461}
-  timeToDestroyAfterDefeat: 30
+  timeToDestroyAfterDefeat: 5
   velocityAfterDefeat: {x: 0, y: 5, z: 0}
   spawnerTransform: {fileID: 8758815292528928110}
   seagullAttackWeight: 2
