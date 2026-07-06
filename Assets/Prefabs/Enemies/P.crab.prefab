@@ -813,7 +813,7 @@ MonoBehaviour:
   cameraMovement: {fileID: 0}
   target: {fileID: 0}
   contactDamage: 20.27
-  scoreAmount: 0
+  scoreAmount: 40
   scaleRange: {x: 0.7, y: 0.8}
   hitSounds:
   - {fileID: 8300000, guid: e3d3caa407413214fab0511dbff02d51, type: 3}

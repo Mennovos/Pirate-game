@@ -440,7 +440,7 @@ MonoBehaviour:
   cameraMovement: {fileID: 0}
   target: {fileID: 0}
   contactDamage: 4.42
-  scoreAmount: 5
+  scoreAmount: 15
   scaleRange: {x: 1, y: 1}
   hitSounds:
   - {fileID: 8300000, guid: 3c7314ea0dc5f0a458f95773b42e0045, type: 3}
