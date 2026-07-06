@@ -72,8 +72,14 @@ MonoBehaviour:
   duration: 0.3
   cooldown: 0.1
   strength: 25
-  attackSounds: []
-  hitSounds: []
+  attackSounds:
+  - {fileID: 8300000, guid: 0ad1a57c39483554498ed41d694409eb, type: 3}
+  - {fileID: 8300000, guid: 63bf842f13b59a6488284b998ca82733, type: 3}
+  - {fileID: 8300000, guid: 2a7622c2edb26b7419bcaefd5e7f31f0, type: 3}
+  - {fileID: 8300000, guid: 6feb7f428d393284e8d1a8b43585d653, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: 90e9d73e7d47f3d4a8765511d7bc394e, type: 3}
+  - {fileID: 8300000, guid: 50cf1d088ebd13c458d03724209af3d8, type: 3}
   audioSource: {fileID: 4393800613576256183}
 --- !u!1 &5490358766854382883
 GameObject:

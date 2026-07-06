@@ -61,11 +61,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        if (movement.IsPaused() == false) 
-        { 
-        anim.ResetTrigger("Attacking");
-        anim.SetTrigger("Attacking");
-        coroutine ??= StartCoroutine(AttackCoroutine());
+        if (movement.IsPaused() == false && coroutine == null) 
+        {
+            anim.SetTrigger("Attacking");
+            coroutine = StartCoroutine(AttackCoroutine());
         }
     }
 
