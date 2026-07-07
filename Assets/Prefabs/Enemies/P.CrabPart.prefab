@@ -83,7 +83,8 @@ MonoBehaviour:
   scaleRange: {x: 0.9, y: 1.1}
   hitSounds: []
   audioSource: {fileID: 1226406138866746633}
-  hitParticles: []
+  hitParticles:
+  - {fileID: 2950752720075198735, guid: c0fac72b69ba73345b4e022955f33e15, type: 3}
   hitShakeStrength: 0.1
   hitShakeDuration: 0.25
   meshRenderers: []
